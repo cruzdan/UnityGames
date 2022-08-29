@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Wall
+  - Floor
+  - Mountain
+  - PlayerBullet
+  - Laser
+  - Enemy0
+  - Enemy4
+  - Enemy5
+  - Enemy9
+  - EnemyData
+  - PhaseData
+  - Enemy5up
+  - Enemy1
+  - Enemy3
+  - Enemy7
+  - Enemy2
+  - Enemy6
+  - Enemy8
+  - EnemyBullet
+  - Upgrade
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - PlayerBullet
+  - EnemyBullet
+  - Enemy
+  - Ship
+  - Shield
+  - Upgrade
+  - Wall
+  - Floor
+  - Mountain
+  - Missile
+  - Map
+  - Enemy4
+  - Enemy5
+  - Enemy5Up
+  - EnemyData
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
