@@ -18,8 +18,8 @@ public class WriteCommands : MonoBehaviour
             Event e = Event.current;
             if (e.isKey)
             {
-                int ASCIIindex = (int)e.keyCode;
-                if (ASCIIindex > 96 && ASCIIindex < 123)
+                // NOTE(isaveg): Removed hard coded numbers
+                if (e.keyCode > KeyCode.BackQuote && e.keyCode < KeyCode.LeftCurlyBracket) // NOTE(isaveg): use unity codes instead of hard coded, add the numeric range as numbers A-Z characters supported (96 - 123)
                 {
                     if (e.keyCode != KeyCode.H)
                     {

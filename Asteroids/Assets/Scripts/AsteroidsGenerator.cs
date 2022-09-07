@@ -84,6 +84,7 @@ public class AsteroidsGenerator : MonoBehaviour
         float newAngle = angle - 45.0f;
         int cost = GetAsteroidCost(newScale.magnitude);
 
+        // NOTE(isaveg): Refactor, duplicated code
         asteroid = Instantiate(asteroidPrefab) as GameObject;
         asteroid.transform.position = originalPos;
         asteroid.transform.localScale = newScale;
@@ -100,6 +101,7 @@ public class AsteroidsGenerator : MonoBehaviour
         asteroid.GetComponent<Bounds>().Init(newAngle + 90.0f, newScale.x, newScale.y);
         asteroid.GetComponent<Asteroid>().SetCost(cost);
         asteroid.GetComponent<SpriteRenderer>().sprite = spr;
+        // ~NOTE(isaveg): Refactor, duplicated code
     }
 
     //big asteroid = 2, little asteroid = 1

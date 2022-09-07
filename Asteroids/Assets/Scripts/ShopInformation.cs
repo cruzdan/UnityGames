@@ -40,6 +40,7 @@ public class ShopInformation : MonoBehaviour
         informationText[1] = new string[totalAsteroids];
         //the information of every bullet and extra life is the same
 
+        // TODO(isaveg): All settings about the shop information belong and should be moved to a config file, the data is loaded runtime dynamically
         prices = new int[5][];
         prices[0] = new int[totalShips];
         prices[1] = new int[totalAsteroids];
@@ -258,6 +259,7 @@ public class ShopInformation : MonoBehaviour
 
     public void ShipUpgrades(int option)
     {
+        // TODO(isaveg): All settings belong and should be moved to a config file, the data is loaded runtime dynamically
         switch (option)
         {
             case 0:
