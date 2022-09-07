@@ -1,0 +1,4 @@
+Gradius
+- Really bad ship controls, change movement to keyboard arrows
+- Unreadable pause menu options
+- Better and more descripting class names for different types of enemies
