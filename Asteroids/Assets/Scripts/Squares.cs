@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// NOTE(isaveg): Explain briefly what is this class for and how it is used
 public class Squares : MonoBehaviour
 {
     public static float totalSquaresX;

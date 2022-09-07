@@ -7,9 +7,9 @@ public class Shoot : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private PauseManager pManager;
     private GameObject bullet;
-    public float timeToShoot = 0.25f;
+    public float timeToShoot = 0.001f;
     float timer = 0;
-    public int bulletsToShoot = 1;
+    public int bulletsToShoot = 10;
 
     // Update is called once per frame
     void Update()
@@ -62,6 +62,8 @@ public class Shoot : MonoBehaviour
 
     void GenerateBullet(float posX, float posY, float width, float height)
     {
+        // TODO(isaveg): Bullets are instantiated every tick, instead there shuold be a memory pool and we reuse it
+        //               an opportunity to learn how to avoid GC and reuse memory
         bullet = Instantiate(bulletPrefab) as GameObject;
         bullet.transform.position = new Vector2(posX, posY);
         bullet.transform.localScale = new Vector2(width, height);
