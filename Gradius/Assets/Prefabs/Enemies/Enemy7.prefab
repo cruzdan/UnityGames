@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5230766019424178616}
   - component: {fileID: 5230766019424178595}
   - component: {fileID: 5230766019424178594}
-  - component: {fileID: 5230766019424178597}
   - component: {fileID: 5230766019424178596}
   - component: {fileID: 5230766019424178599}
   - component: {fileID: 5230766019424178592}
+  - component: {fileID: -6993498799706511469}
   m_Layer: 8
   m_Name: Enemy7
   m_TagString: Enemy7
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5230766019424178619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.58, y: 4.02, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8333333, y: 0.55625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -158,20 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5230766019424178597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5230766019424178619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &5230766019424178596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +174,7 @@ MonoBehaviour:
   lifes: 1
   upgrade: 0
   info: {fileID: 0}
+  dead: 0
 --- !u!114 &5230766019424178599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,5 +205,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   enemyBulletPrefab: {fileID: 3677914110180044021, guid: 52d8d04406c95a24f85a1099ce2c0dc3, type: 3}
+  bulletPool: {fileID: 0}
   timeToShoot: 1
   shoots: 0
+--- !u!114 &-6993498799706511469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5230766019424178619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

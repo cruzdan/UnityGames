@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7437615521193668128}
   - component: {fileID: 7437615521193668131}
-  - component: {fileID: 7437615521193668130}
   - component: {fileID: 7437615521193668133}
   - component: {fileID: 7437615521193668132}
   - component: {fileID: 7437615521193668135}
   - component: {fileID: 7437615521193668129}
   - component: {fileID: 7437615521193668142}
   - component: {fileID: 7437615521193668143}
+  - component: {fileID: -8615423014112177309}
   m_Layer: 8
   m_Name: Enemy3
   m_TagString: Enemy3
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7437615521193668130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7437615521193668153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!61 &7437615521193668133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -214,5 +200,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   enemyBulletPrefab: {fileID: 3677914110180044021, guid: 52d8d04406c95a24f85a1099ce2c0dc3, type: 3}
+  bulletPool: {fileID: 0}
   timeToShoot: 1
   shoots: 0
+--- !u!114 &-8615423014112177309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7437615521193668153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

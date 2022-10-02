@@ -20,7 +20,6 @@ public class ShopInformation : MonoBehaviour
     [SerializeField] private ShipMovement shipMovement;
     [SerializeField] private AsteroidsGenerator astGenerator;
 
-
     const int totalShips = 4;
     const int totalAsteroids = 8;
     const int totalBullets = 17;
@@ -29,12 +28,15 @@ public class ShopInformation : MonoBehaviour
     int[][] prices;
     bool[][] acquired;
     int[] selectedObject = new int[5];
+    string[] fileInformation;
 
     private int actualGlobalIndex = -1;
     private int actualParticularIndex = -1;
 
     private void Start()
     {
+        fileInformation = FileReader.GetContentFromFileBuild("ShopInformation.txt");
+
         informationText = new string[2][];
         informationText[0] = new string[totalShips];
         informationText[1] = new string[totalAsteroids];
@@ -57,50 +59,46 @@ public class ShopInformation : MonoBehaviour
         acquired[4] = new bool[1];
 
         //ships
-        informationText[0][0] = "first ship to get money";
-        informationText[0][1] = "increments 5% ship velocity (max speed is not included)";
-        informationText[0][2] = "increments 10% ship velocity and 5% rotation speed (max speed is not included)";
-        informationText[0][3] = "increments 15% ship velocity and 15% rotation speed (max speed is not included)";
-        prices[0][0] = 0;
-        prices[0][1] = 40;
-        prices[0][2] = 60;
-        prices[0][3] = 80;
-
+        int fileIndex = 0;
+        for(int i = 0; i < totalShips; i++)
+        {
+            informationText[0][i] = fileInformation[fileIndex];
+            fileIndex++;
+        }
         //asteroids
-        informationText[1][0] = "the big asteroid (the one who generates 2 tiny asteroids) gives $2";
-        for (int i = 1; i < 8; i++)
+        for (int i = 0; i < totalAsteroids; i++)
         {
-            informationText[1][i] = "the big asteroid gives $" + (2 + i);
-        }
-        prices[1][0] = 0;
-        for (int i = 1; i < 8; i++)
-        {
-            prices[1][i] = 10 + i * 20;
+            informationText[1][i] = fileInformation[fileIndex];
+            fileIndex++;
         }
 
+        //ships
+        fileIndex = 15;
+        for(int i = 0; i < totalShips; i++)
+        {
+            int.TryParse(fileInformation[fileIndex], out prices[0][i]);
+            fileIndex++;
+        }
+        //asteroids
+        for(int i = 0; i < totalAsteroids; i++)
+        {
+            int.TryParse(fileInformation[fileIndex], out prices[1][i]);
+            fileIndex++;
+        }
         //bullets
-        prices[2][0] = 0;
-        for (int i = 1; i < 4; i++)
+        for (int i = 0; i < totalBullets; i++)
         {
-            prices[2][i] = 10;
-        }
-        for (int i = 4; i < 8; i++)
-        {
-            prices[2][i] = 20;
-        }
-        for (int i = 8; i < 13; i++)
-        {
-            prices[2][i] = 30;
-        }
-        for (int i = 13; i < totalBullets; i++)
-        {
-            prices[2][i] = 40;
+            int.TryParse(fileInformation[fileIndex], out prices[2][i]);
+            fileIndex++;
         }
         Init();
     }
 
     public void Init()
     {
+        priceText.text = "";
+        infoText.text = "";
+        
         acquired[0][0] = true;
         for (int i = 1; i < totalShips; i++)
         {
@@ -126,13 +124,13 @@ public class ShopInformation : MonoBehaviour
         selectedObject[2] = 0;
 
         //extra life
-        prices[3][0] = 40;
+        int.TryParse(fileInformation[44], out prices[3][0]);
         acquired[3][0] = false;
         //selectedObject = 1 to show the buy button only
         selectedObject[3] = 1;
 
         //extra bullet
-        prices[4][0] = 45;
+        int.TryParse(fileInformation[45], out prices[4][0]);
         acquired[4][0] = false;
         selectedObject[4] = 1;
 
@@ -140,8 +138,13 @@ public class ShopInformation : MonoBehaviour
         {
             ShowButtons(actualGlobalIndex, actualParticularIndex);
         }
-    }
 
+        buyButton.interactable = false;
+    }
+    public string GetShopInformation(int index)
+    {
+        return fileInformation[index];
+    }
     public void ShowInfo(int generalIndex, int particularIndex, string newText)
     {
         priceText.text = prices[generalIndex][particularIndex].ToString();

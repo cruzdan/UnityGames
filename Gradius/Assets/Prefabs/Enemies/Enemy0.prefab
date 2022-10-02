@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7055706662670778977}
   - component: {fileID: 7055706662670778990}
   - component: {fileID: 7055706662670778991}
-  - component: {fileID: 7055706662670778979}
   - component: {fileID: 7055706662670778981}
   - component: {fileID: 7055706662670778978}
   - component: {fileID: 7055706662670778983}
   - component: {fileID: 7055706662670778980}
   - component: {fileID: -8813254063741381028}
+  - component: {fileID: -7995480189724827276}
   m_Layer: 8
   m_Name: Enemy0
   m_TagString: Enemy0
@@ -111,20 +111,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7055706662670778979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7055706662670778988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &7055706662670778981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba73217fc8d19694d9e216d0472d28fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
+  lifes: 1
+  upgrade: 0
+  info: {fileID: 0}
+  objectPool: {fileID: 0}
 --- !u!61 &7055706662670778978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,3 +200,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: 0
+  enemyManager: {fileID: 0}
+--- !u!114 &-7995480189724827276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7055706662670778988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

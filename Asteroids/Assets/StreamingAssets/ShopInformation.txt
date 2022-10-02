@@ -1,0 +1,46 @@
+First ship to get money
+Increments 5% ship velocity (max speed is not included)
+Increments 10% ship velocity and 5% rotation speed (max speed is not included)
+Increments 15% ship velocity and 15% rotation speed (max speed is not included)
+The big asteroid (the one who generates 2 tiny asteroids) gives $2
+The big asteroid gives $3
+The big asteroid gives $4
+The big asteroid gives $5
+The big asteroid gives $6
+The big asteroid gives $7
+The big asteroid gives $8
+The big asteroid gives $9
+Bullet skin
+Get a new life, but the next one increments x2
+Shoot an extra bullet, but the next one increments x2 (max = 3)
+0
+40
+60
+80
+0
+30
+50
+70
+90
+110
+130
+150
+0
+10
+10
+10
+20
+20
+20
+20
+30
+30
+30
+30
+30
+40
+40
+40
+40
+40
+45

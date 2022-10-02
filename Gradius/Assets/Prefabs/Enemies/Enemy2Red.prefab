@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8354581368890434154}
   - component: {fileID: 8354581368890434155}
   - component: {fileID: 8354581368890434148}
-  - component: {fileID: 8354581368890434149}
   - component: {fileID: 8354581368890434150}
+  - component: {fileID: 1308936571036445305}
   m_Layer: 8
   m_Name: Enemy2Red
   m_TagString: Enemy2
@@ -173,20 +173,6 @@ MonoBehaviour:
   lifes: 1
   upgrade: 0
   info: {fileID: 0}
---- !u!114 &8354581368890434149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8354581368890434151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &8354581368890434150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,3 +188,18 @@ MonoBehaviour:
   speedX: -2
   longitude: 3
   center: 0
+--- !u!114 &1308936571036445305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8354581368890434151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

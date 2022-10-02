@@ -107,12 +107,12 @@ TextureImporter:
       name: shipsTransparent_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 316
+        x: 31
+        y: 314
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +128,12 @@ TextureImporter:
       name: shipsTransparent_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 292
+        x: 31
+        y: 290
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,12 +149,12 @@ TextureImporter:
       name: shipsTransparent_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 268
+        x: 31
+        y: 266
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -170,12 +170,12 @@ TextureImporter:
       name: shipsTransparent_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 243
+        x: 7
+        y: 242
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

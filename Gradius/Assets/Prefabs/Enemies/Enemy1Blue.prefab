@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8261905809457181785}
   - component: {fileID: 8261905809457181784}
   - component: {fileID: 8261905809457181787}
-  - component: {fileID: 8261905809457181786}
   - component: {fileID: 8261905809457181797}
   - component: {fileID: 8261905809457181796}
+  - component: {fileID: -4261170810907524190}
   m_Layer: 8
   m_Name: Enemy1Blue
   m_TagString: Enemy1
@@ -136,20 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8077774, y: 0.94466615}
   m_EdgeRadius: 0
---- !u!114 &8261905809457181786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8261905809457181799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &8261905809457181797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,3 +171,18 @@ MonoBehaviour:
   sprites:
   - {fileID: 830501984, guid: c95ef77391548464a88af622d8907944, type: 3}
   - {fileID: -2088813446, guid: c95ef77391548464a88af622d8907944, type: 3}
+--- !u!114 &-4261170810907524190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8261905809457181799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

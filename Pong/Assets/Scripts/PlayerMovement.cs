@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 3.0f;
     public KeyCode up, down; 
-    float actualSpeed=0;
-    const float MAXSPEED = 3f;
-    const float decrementSpeed = 0.05f;
-    const float incrementSpeed = 0.05f;
+    float actualSpeed = 0;
+    const float MAXSPEED = 4f;
+    const float decrementSpeed = 0.2f;
+    const float incrementSpeed = 0.3f;
     bool canMove = false;
+    float limitY;
+    private void Start()
+    {
+        limitY = SquaresResolution.TotalSquaresY / 2f - transform.localScale.y / 2f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,33 +25,27 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (actualSpeed < MAXSPEED)
                 {
-                    actualSpeed = actualSpeed + incrementSpeed;
+                    actualSpeed = actualSpeed + incrementSpeed * Time.deltaTime;
                     pressed = true;
                 }
-                if (transform.position.y + transform.localScale.y / 2 + speed * Time.deltaTime < 5)
-                {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
-                }
+
             }
             else if (Input.GetKey(down))
             {
                 if (actualSpeed > -MAXSPEED)
                 {
-                    actualSpeed = actualSpeed - incrementSpeed;
+                    actualSpeed = actualSpeed - incrementSpeed * Time.deltaTime;
                     pressed = true;
                 }
-                if (transform.position.y - transform.localScale.y / 2 - speed * Time.deltaTime > -5)
-                {
-                    transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
-                }
+
             }
             if (!pressed && actualSpeed != 0)
             {
                 if (actualSpeed > 0)
                 {
-                    if (actualSpeed - decrementSpeed > 0)
+                    if (actualSpeed - decrementSpeed * Time.deltaTime > 0)
                     {
-                        actualSpeed -= decrementSpeed;
+                        actualSpeed -= decrementSpeed * Time.deltaTime;
                     }
                     else
                     {
@@ -56,9 +54,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    if (actualSpeed + incrementSpeed < 0)
+                    if (actualSpeed + incrementSpeed * Time.deltaTime < 0)
                     {
-                        actualSpeed += incrementSpeed;
+                        actualSpeed += incrementSpeed * Time.deltaTime;
                     }
                     else
                     {
@@ -66,7 +64,14 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
             }
-            transform.position = new Vector2(transform.position.x, transform.position.y + actualSpeed * Time.deltaTime);
+            if(transform.position.y + actualSpeed < limitY && transform.position.y + actualSpeed > -limitY)
+            {
+                transform.position = new Vector2(transform.position.x, transform.position.y + actualSpeed);
+            }
+            else
+            {
+                actualSpeed = 0;
+            }
         }
     }
 

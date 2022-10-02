@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3720568251843108426}
   - component: {fileID: 3720568251843108420}
   - component: {fileID: 3720568251843108421}
-  - component: {fileID: 3720568251843108418}
   - component: {fileID: 3720568251843108419}
   - component: {fileID: 9019608405902556195}
+  - component: {fileID: -4602388787779910556}
   m_Layer: 19
   m_Name: Enemy5RedUp
   m_TagString: Enemy5up
@@ -127,6 +127,8 @@ MonoBehaviour:
   score: 100
   lifes: 1
   upgrade: 0
+  info: {fileID: 0}
+  dead: 0
 --- !u!70 &3720568251843108420
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,22 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ship: {fileID: 0}
   enemyBulletPrefab: {fileID: 3677914110180044021, guid: 52d8d04406c95a24f85a1099ce2c0dc3, type: 3}
+  bulletPool: {fileID: 0}
   timeToShoot: 0.5
   shoots: 0
---- !u!114 &3720568251843108418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720568251843108430}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!95 &3720568251843108419
 Animator:
   serializedVersion: 4
@@ -208,5 +197,20 @@ MonoBehaviour:
   movementSpeedX: 3
   shootToShip: {fileID: 3720568251843108421}
   pausedSpeed: 0
-  bounds: {fileID: 3720568251843108418}
+  bounds: {fileID: -4602388787779910556}
   ship: {fileID: 0}
+--- !u!114 &-4602388787779910556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720568251843108430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

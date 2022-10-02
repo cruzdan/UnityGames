@@ -13,7 +13,6 @@ public class SpriteChanger : MonoBehaviour
 
     private void Start()
     {
-
         Init();
     }
     public void ChangeSprite(int objectIndex, int spriteIndex)

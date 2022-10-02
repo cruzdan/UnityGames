@@ -12,6 +12,10 @@ public class AsteroidGameManager : MonoBehaviour
     [SerializeField] private AsteroidsGenerator astGen;
     [SerializeField] private SpriteChanger spriteChanger;
     [SerializeField] private ShopInformation shopInformation;
+    [SerializeField] private PauseManager pauseManager;
+    [SerializeField] private CounterBack counter;
+    //0 -> asteroidPool, 1 -> bulletPool
+    [SerializeField] private ObjectPool[] objectPools;
     private int lifes = 3;
     private int money = 0;
 
@@ -25,27 +29,36 @@ public class AsteroidGameManager : MonoBehaviour
         return lifes;
     }
 
+    private void Start()
+    {
+        counter.gameObject.SetActive(false);
+        counter.SetTime(-1f);
+    }
     public void Restart()
     {
         lifes--;
-        if(lifes <= 0)
+        if (lifes <= 0)
         {
             TotalRestart();
+            counter.gameObject.SetActive(false);
         }
         else
         {
             PartialRestart();
+            pauseManager.pause = true;
+            counter.Reiniciate();
+            counter.gameObject.SetActive(true);
             lifesText.text = lifes.ToString();
         }
 
     }
-
-    void DeleteObjectsWithTag(string tag)
+    void ReturnObjectsToPool(string tag, ObjectPool obPool)
     {
         GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
-        for (int i = 0; i < objects.Length; i++)
+        int total = objects.Length;
+        for(int i = 0; i < total; i++)
         {
-            Destroy(objects[i]);
+            obPool.ReturnObjectToPool(objects[i]);
         }
     }
 
@@ -63,11 +76,10 @@ public class AsteroidGameManager : MonoBehaviour
 
     void PartialRestart()
     {
-        DeleteObjectsWithTag("Bullet");
-        DeleteObjectsWithTag("Asteroid");
+        ReturnObjectsToPool("Bullet", objectPools[1]);
+        ReturnObjectsToPool("Asteroid", objectPools[0]);
         ship.GetComponent<ShipMovement>().Restart();
         ship.GetComponent<Shoot>().Restart();
-        
     }
     public void TotalRestart()
     {
@@ -82,6 +94,7 @@ public class AsteroidGameManager : MonoBehaviour
         astGen.SetBonus(0);
         spriteChanger.Init();
         shopInformation.Init();
+        pauseManager.GameOverChange();
         PartialRestart();
     }
 

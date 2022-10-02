@@ -37,7 +37,7 @@ public class ShopButtonFunctions : MonoBehaviour
         {
             int m = i;
             //the info is the same to every bullet
-            bulletButtons[m].onClick.AddListener(() => { shopInf.ShowInfo(2, m, "Just a skin"); });
+            bulletButtons[m].onClick.AddListener(() => { shopInf.ShowInfo(2, m, shopInf.GetShopInformation(12)); });
             bulletButtons[m].onClick.AddListener(() => { shopInf.ShowButtons(2, m); });
             bulletButtons[i].onClick.AddListener(() => { shopInf.SaveIndex(2, m); });
         }

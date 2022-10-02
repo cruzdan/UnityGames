@@ -101,14 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7887ddbdde5c64bb9545f63c19776f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 0
-  speedY: 0
   shipIndex: 0
   info: {fileID: 0}
-  missileUpgrade: 0
-  doubleUpgrade: 0
-  laserUpgrade: 0
-  hasMissile: 0
   upgradeRects: {fileID: 0}
   timeInvincible: 1
   rightKey: 100
@@ -116,8 +110,11 @@ MonoBehaviour:
   upKey: 119
   downKey: 115
   shootKey: 32
+  horizontalAxis: 
+  verticalAxis: 
   optionPrefab: {fileID: 8051301487688448076, guid: 7124f2ab748b4d141bc1707d1a64542f, type: 3}
   shieldPrefab: {fileID: 4044129920746810709, guid: 7958b680b6598f44a90bad5a723ab574, type: 3}
+  missilePrefab: {fileID: 2945579030048179612, guid: 5c2663230e206cf4d98472b5ddac9efe, type: 3}
   enemyManager: {fileID: 0}
 --- !u!70 &6390690704766187464
 CapsuleCollider2D:
@@ -167,11 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03a4871a6bd63d46968470594e4a1a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardBulletPrefab: {fileID: 2900381551979661857, guid: 7d002afa49422b543abbffa516f16157, type: 3}
-  inclinedBulletPrefab: {fileID: 6706384489824262258, guid: 94a8f39f7bd506e4682fa20b0109a32b, type: 3}
-  laserBulletPrefab: {fileID: 7379678469015982413, guid: 1b7895bcae69cf64a9ff3a3159381da3, type: 3}
-  missilePrefab: {fileID: 2945579030048179612, guid: 5c2663230e206cf4d98472b5ddac9efe, type: 3}
   enemyManager: {fileID: 0}
+  pools: []
 --- !u!50 &6390690704766187467
 Rigidbody2D:
   serializedVersion: 4

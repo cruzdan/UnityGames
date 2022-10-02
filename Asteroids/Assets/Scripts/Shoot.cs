@@ -6,17 +6,22 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private PauseManager pManager;
+    [SerializeField] private ObjectPool bulletsPool;
     private GameObject bullet;
     public float timeToShoot = 0.25f;
     float timer = 0;
+    //min: 1, max: 3
     public int bulletsToShoot = 1;
+
+    //auxiliar variables to generate new Bullets
+    BoundsPoolObject bound;
 
     // Update is called once per frame
     void Update()
     {
         if (!pManager.pause)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetButton("Fire1"))
             {
                 if (timer <= 0)
                 {
@@ -27,7 +32,6 @@ public class Shoot : MonoBehaviour
             if (timer > 0)
                 timer -= Time.deltaTime;
         }
-        
     }
 
     void GenerateBullet()
@@ -45,8 +49,8 @@ public class Shoot : MonoBehaviour
                 GenerateBullet(posX, posY, width, height);
                 break;
             case 2:
-                posX -= sideX;
-                posY -= sideY;
+                posX -= sideX / 2f;
+                posY -= sideY / 2f;
                 GenerateBullet(posX, posY, width, height);
                 posX += sideX;
                 posY += sideY; 
@@ -62,12 +66,22 @@ public class Shoot : MonoBehaviour
 
     void GenerateBullet(float posX, float posY, float width, float height)
     {
-        bullet = Instantiate(bulletPrefab) as GameObject;
-        bullet.transform.position = new Vector2(posX, posY);
-        bullet.transform.localScale = new Vector2(width, height);
-        bullet.transform.eulerAngles = transform.eulerAngles;
-        bullet.gameObject.GetComponent<ForwardMovement>().Init(Squares.totalSquaresX / 2.0f, Squares.totalSquaresY / 1.5f, transform.eulerAngles.z + 90.0f);
-        bullet.gameObject.GetComponent<Bounds>().Init(transform.eulerAngles.z + 90.0f, width, height);
+        bullet = bulletsPool.GetObjectFromPool();
+        if(bullet != null)
+        {
+            bullet.transform.position = new Vector2(posX, posY);
+            bullet.transform.localScale = new Vector2(width, height);
+            bullet.transform.eulerAngles = transform.eulerAngles;
+            bullet.GetComponent<ForwardMovement>().Init(SquaresResolution.TotalSquaresX / 2.0f, 
+                SquaresResolution.TotalSquaresY / 1.5f, transform.eulerAngles.z + 90.0f);
+            bound = bullet.GetComponent<BoundsPoolObject>();
+            bound.Init(transform.eulerAngles.z + 90.0f, width, height);
+            bullet.GetComponent<SpriteRenderer>().sprite = bulletPrefab.GetComponent<SpriteRenderer>().sprite;
+            if (!bound.HasObjectPool())
+            {
+                bound.SetObjectPool(bulletsPool);
+            }
+        }
     }
 
     public void Restart()

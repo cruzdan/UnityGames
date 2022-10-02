@@ -18,8 +18,7 @@ public class WriteCommands : MonoBehaviour
             Event e = Event.current;
             if (e.isKey)
             {
-                int ASCIIindex = (int)e.keyCode;
-                if (ASCIIindex > 96 && ASCIIindex < 123)
+                if (e.keyCode > KeyCode.BackQuote && e.keyCode < KeyCode.LeftCurlyBracket)
                 {
                     if (e.keyCode != KeyCode.H)
                     {

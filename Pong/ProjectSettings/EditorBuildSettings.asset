@@ -7,8 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: c49e12b9aef9a284ea76959e85ab2058
   - enabled: 1
     path: Assets/Scenes/GamePong.unity
     guid: 7b6b993e4c8ef504f995d3a43a49eaf9
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

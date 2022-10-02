@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 178109938515847830}
   - component: {fileID: 677544066864281445}
   - component: {fileID: 8435989578652013437}
-  - component: {fileID: 4994555449311746856}
   - component: {fileID: 7492802453583005467}
   - component: {fileID: 8824115515992660785}
   - component: {fileID: 3915175743253910815}
+  - component: {fileID: -7881637797510834496}
   m_Layer: 6
   m_Name: Laser
   m_TagString: PlayerBullet
@@ -115,20 +115,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.125}
   m_EdgeRadius: 0
---- !u!114 &4994555449311746856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7379678469015982413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &7492802453583005467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +156,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1a5c2a82519c74ab04bb87be404a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7881637797510834496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379678469015982413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPool: {fileID: 0}

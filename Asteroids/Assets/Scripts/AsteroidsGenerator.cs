@@ -5,7 +5,11 @@ using UnityEngine;
 public class AsteroidsGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject asteroidPrefab;
+    [SerializeField] private PauseManager pauseManager;
+    public ObjectPool asteroidsPool;
     private GameObject asteroid;
+    //private int MaxPoolSize = 45;
+    //private Stack<GameObject> inactiveAsteroids = new Stack<GameObject>();
     float timer = 0;
     float timeToGenerateAsteroid = 1.0f;
     float firstX;
@@ -14,32 +18,39 @@ public class AsteroidsGenerator : MonoBehaviour
     float endY;
     int bonus = 0;
 
+    //auxiliar variables to generate new Asteroids
+    Asteroid ast;
+    BoundsPoolObject bound;
+
     private void Start()
     {
-        firstX = -Squares.totalSquaresX / 2.0f - transform.localScale.x / 2;
+        firstX = -SquaresResolution.TotalSquaresX / 2.0f - transform.localScale.x / 2;
         endX = -firstX;
-        firstY = Squares.totalSquaresY / 2.0f + transform.localScale.y / 2;
+        firstY = SquaresResolution.TotalSquaresY / 2.0f + transform.localScale.y / 2;
         endY = -firstY;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 0)
+        if (!pauseManager.pause)
         {
-            GenerateAsteroid();
-            timer = timeToGenerateAsteroid;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                GenerateRandomAsteroid();
+                timer = timeToGenerateAsteroid;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
         }
     }
-
-    void GenerateAsteroid()
+   
+    void GenerateRandomAsteroid()
     {
-        float width = Random.Range(Squares.totalSquaresX / 20.0f, Squares.totalSquaresX / 10.0f);
-        float height = Random.Range(Squares.totalSquaresY / 20.0f, Squares.totalSquaresY / 10.0f);
+        float width = Random.Range(SquaresResolution.TotalSquaresX / 20.0f, SquaresResolution.TotalSquaresX / 10.0f);
+        float height = Random.Range(SquaresResolution.TotalSquaresY / 20.0f, SquaresResolution.TotalSquaresY / 10.0f);
         float angle = Random.Range(0.0f, 90.0f);
         float x = 0, y = 0;
 
@@ -70,12 +81,11 @@ public class AsteroidsGenerator : MonoBehaviour
                 angle += 135f;
                 break;
         }
-        asteroid = Instantiate(asteroidPrefab) as GameObject;
-        asteroid.transform.position = new Vector3(x, y, 0f);
-        asteroid.transform.localScale = new Vector3(width, height, 1f);
-        asteroid.GetComponent<Asteroid>().SetCost(GetAsteroidCost(asteroid.transform.localScale.magnitude) + bonus);
-        asteroid.GetComponent<ForwardMovement>().Init(Squares.totalSquaresX / 4.0f, Squares.totalSquaresY / 3.0f, angle);
-        asteroid.GetComponent<Bounds>().Init(angle, width, height);
+
+        Vector2 position = new(x, y);
+        Vector2 scale = new(width, height);
+        GenerateAsteroid(position, scale, angle, GetAsteroidCost(scale.magnitude) + bonus, 
+            asteroidPrefab.GetComponent<SpriteRenderer>().sprite);
     }
     
     public void Generate2Asteroids(Vector3 originalPos, Vector3 originalScale, float angle, Sprite spr)
@@ -84,28 +94,41 @@ public class AsteroidsGenerator : MonoBehaviour
         float newAngle = angle - 45.0f;
         int cost = GetAsteroidCost(newScale.magnitude);
 
-        asteroid = Instantiate(asteroidPrefab) as GameObject;
-        asteroid.transform.position = originalPos;
-        asteroid.transform.localScale = newScale;
-        asteroid.GetComponent<ForwardMovement>().Init(Squares.totalSquaresX / 4.0f, Squares.totalSquaresY / 3.0f, newAngle);
-        asteroid.GetComponent<Bounds>().Init(newAngle, newScale.x, newScale.y);
-        asteroid.GetComponent<Asteroid>().SetCost(cost);
-        asteroid.GetComponent<SpriteRenderer>().sprite = spr;
+        GenerateAsteroid(originalPos, newScale, newAngle, cost, spr);
+        GenerateAsteroid(originalPos, newScale, newAngle + 90.0f, cost, spr);
+    }
 
+    void GenerateAsteroid(Vector2 position, Vector2 scale, float angle, int cost, Sprite spr)
+    {
+        asteroid = asteroidsPool.GetObjectFromPool();
+        if(asteroid != null)
+        {
+            ast = asteroid.GetComponent<Asteroid>();
+            bound = asteroid.GetComponent<BoundsPoolObject>();
+            asteroid.transform.position = position;
+            asteroid.transform.localScale = scale;
+            asteroid.GetComponent<ForwardMovement>().Init(SquaresResolution.TotalSquaresX / 4.0f, 
+                SquaresResolution.TotalSquaresY / 3.0f, angle);
+            bound.Init(angle, scale.x, scale.y);
+            ast.SetCost(cost);
 
-        asteroid = Instantiate(asteroidPrefab) as GameObject;
-        asteroid.transform.position = originalPos;
-        asteroid.transform.localScale = newScale;
-        asteroid.GetComponent<ForwardMovement>().Init(Squares.totalSquaresX / 4.0f, Squares.totalSquaresY / 3.0f, newAngle + 90.0f);
-        asteroid.GetComponent<Bounds>().Init(newAngle + 90.0f, newScale.x, newScale.y);
-        asteroid.GetComponent<Asteroid>().SetCost(cost);
-        asteroid.GetComponent<SpriteRenderer>().sprite = spr;
+            if (!ast.HasAsteroidsGenerator())
+            {
+                ast.SetAsteroidsGenerator(this);
+            }
+            if (!bound.HasObjectPool())
+            {
+                bound.SetObjectPool(asteroidsPool);
+            }
+            if (spr != null)
+                asteroid.GetComponent<SpriteRenderer>().sprite = spr;
+        }
     }
 
     //big asteroid = 2, little asteroid = 1
     int GetAsteroidCost(float magnitude)
     {
-        if (magnitude > Squares.totalSquaresInclined / 20.0f)
+        if (magnitude > SquaresResolution.TotalSquaresInclined / 20.0f)
             return 2;
         return 1;
     }

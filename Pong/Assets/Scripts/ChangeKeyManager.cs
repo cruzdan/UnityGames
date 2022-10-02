@@ -26,7 +26,7 @@ public class ChangeKeyManager : MonoBehaviour
             Event e = Event.current;
             if (e.isKey)
             {
-                if (e.keyCode.ToString() != "Escape" && e.keyCode.ToString() != "None") 
+                if (e.keyCode != KeyCode.Escape && e.keyCode != KeyCode.None) 
                 {
                     text.text = e.keyCode.ToString();
                     if (up)

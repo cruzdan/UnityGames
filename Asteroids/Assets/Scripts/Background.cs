@@ -10,7 +10,7 @@ public class Background : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector2(Squares.totalSquaresX, Squares.totalSquaresY);
+        transform.localScale = new Vector2(SquaresResolution.TotalSquaresX, SquaresResolution.TotalSquaresY);
         backgroundIndex = GenerateNewBackgroundIndex();
         ren = GetComponent<MeshRenderer>();
         ren.material = materials[backgroundIndex];

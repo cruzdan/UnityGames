@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 1017328345}
   - component: {fileID: 1017328344}
   m_Layer: 0
-  m_Name: Squares
+  m_Name: SquaresResolution
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

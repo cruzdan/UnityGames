@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4851097012750307493}
   - component: {fileID: 4851097012750307492}
   - component: {fileID: 4851097012750307495}
-  - component: {fileID: 4851097012750307494}
   - component: {fileID: 4851097012750307513}
   - component: {fileID: 4851097012750307512}
+  - component: {fileID: 3392780094834424261}
   m_Layer: 17
   m_Name: Enemy4Red
   m_TagString: Enemy4
@@ -170,20 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20547547429c814bab0e94daaec9fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4851097012750307494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851097012750307515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b346951f5c024f49a5fc0cdae3acc26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endHorizontal: 0
-  endVertical: 0
 --- !u!114 &4851097012750307513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +185,7 @@ MonoBehaviour:
   score: 100
   lifes: 1
   upgrade: 0
+  info: {fileID: 0}
 --- !u!114 &4851097012750307512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +198,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfd57b0e4d7a2e40988c42593560a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSpeed: 0
+--- !u!114 &3392780094834424261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851097012750307515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd6727661ba3c642afc99cf20c9d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endHorizontal: 0
+  endVertical: 0
+  objectPool: {fileID: 0}

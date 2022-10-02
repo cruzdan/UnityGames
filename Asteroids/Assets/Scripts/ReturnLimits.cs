@@ -11,9 +11,9 @@ public class ReturnLimits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firstX = -Squares.totalSquaresX / 2 - transform.localScale.x / 2;
+        firstX = -SquaresResolution.TotalSquaresX / 2 - transform.localScale.x / 2;
         endX = -firstX;
-        firstY = Squares.totalSquaresY / 2 + transform.localScale.y / 2;
+        firstY = SquaresResolution.TotalSquaresY / 2 + transform.localScale.y / 2;
         endY = -firstY;
     }
 

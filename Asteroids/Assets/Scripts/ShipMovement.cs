@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
+    [SerializeField] private PauseManager pauseManager;
     Rigidbody2D body;
     float originalSpeed;
     float originalAngularSpeed;
@@ -21,7 +22,7 @@ public class ShipMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         body.drag = drag;
 
-        speed = Squares.totalSquaresInclined / 3.0f;
+        speed = SquaresResolution.TotalSquaresInclined / 3.0f;
         originalSpeed = speed;
         maxSpeed = 5.0f * speed;
 
@@ -41,9 +42,24 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move = Input.GetKey(KeyCode.W);
-        rotate = Input.GetAxis("Horizontal");
-        Rotate();
+        if (pauseManager.pause)
+        {
+            move = false;
+        }
+        else
+        {
+            if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                move = true;
+            }
+            else
+            {
+                move = false;
+            }
+            //move = Input.GetKey(KeyCode.W);
+            rotate = Input.GetAxis("Horizontal");
+            Rotate();
+        }
     }
 
     private void FixedUpdate()
