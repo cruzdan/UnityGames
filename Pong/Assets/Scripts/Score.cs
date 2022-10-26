@@ -31,6 +31,6 @@ public class Score : MonoBehaviour
             paddle2.GetComponent<AIMovement>().RestartPaddle();
         else
             paddle2.GetComponent<PlayerMovement>().RestartPaddle();
-        counter.GetComponent<Counter>().Reiniciate();
+        counter.GetComponent<Counter>().Reinitiate(); // typo
     }
 }

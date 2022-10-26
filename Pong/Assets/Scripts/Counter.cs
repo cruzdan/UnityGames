@@ -40,7 +40,7 @@ public class Counter : MonoBehaviour
         }
     }
 
-    public void Reiniciate()
+    public void Reinitiate() // typo
     {
         textTime = 3f;
         gameObject.SetActive(true);

@@ -13,6 +13,7 @@ public class AIMovement : MonoBehaviour
         ball = GameObject.FindGameObjectWithTag("Ball");
     }
 
+    // NOTE(isaveg): Try alternative solution getting the movement through the  rigidbody component and detect screen borders with a simple collider
     // Update is called once per frame
     void Update()
     {
