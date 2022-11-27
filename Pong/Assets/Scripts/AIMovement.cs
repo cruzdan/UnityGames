@@ -5,31 +5,33 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     private GameObject ball;
-    public float speed = 5.2f;
+    [SerializeField] private float speed = 6f;
+    private Rigidbody2D rb;
+    Vector2 velocity;
     bool canMove = false;
-   
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     public void Init()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (canMove) {
-            if (ball.transform.position.y > transform.position.y)
+        rb.velocity = Vector2.zero;
+        if (canMove)
+        {
+            if (ball.transform.position.y > transform.position.y + 0.5f)
             {
-                if (transform.position.y + transform.localScale.y / 2 + speed * Time.deltaTime < 5)
-                {
-                    transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime);
-                }
+                velocity.y = speed;
+                rb.velocity = velocity;
             }
-            else
+            else if (ball.transform.position.y < transform.position.y - 0.5f)
             {
-                if (transform.position.y - transform.localScale.y / 2 - speed * Time.deltaTime > -5)
-                {
-                    transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
-                }
+                velocity.y = -speed;
+                rb.velocity = velocity;
             }
         }
     }
@@ -41,5 +43,6 @@ public class AIMovement : MonoBehaviour
 
     public void RestartPaddle() {
         transform.position = new Vector2(transform.position.x, 0);
+        rb.velocity = Vector2.zero;
     }
 }

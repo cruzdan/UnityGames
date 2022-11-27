@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
 
 public class UpgradeRectsManager : MonoBehaviour
@@ -26,6 +28,7 @@ public class UpgradeRectsManager : MonoBehaviour
 	[SerializeField] private Image[] spriteRects;
 
 	[SerializeField] private KeyCode selectKey;
+	PlayerInput playerInput;
 
 	public void SetActualUpgrade(int value) { actualUpgrade = value; }
 	public void SetSelectKey(KeyCode key)
@@ -33,9 +36,9 @@ public class UpgradeRectsManager : MonoBehaviour
 		selectKey = key;
     }
 	public KeyCode GetSelectKey() { return selectKey; }
-	// Start is called before the first frame update
 	void Start()
 	{
+		playerInput = GetComponent<PlayerInput>();
 		maxUpgrades = new int[6];
 		gettedUpgrades = new int[6];
 
@@ -48,7 +51,12 @@ public class UpgradeRectsManager : MonoBehaviour
 
 		RestartGettedUpgrades();
 	}
-
+	public void SetInputDevice(InputDevice inputDevice)
+	{
+		// Pair the gamepad or joystick to a user.
+		var user = InputUser.PerformPairingWithDevice(inputDevice);
+		user.AssociateActionsWithUser(GetComponent<PlayerInput>().currentActionMap);
+	}
 	public void RestartGettedUpgrades()
     {
 		for (int i = 0; i < 6; i++)
@@ -68,11 +76,9 @@ public class UpgradeRectsManager : MonoBehaviour
 		ship = newShip;
 		ship.GetComponent<Ship>().SetUpgradeRect(this);
     }
-
-	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown(selectKey))
+		if (playerInput.actions["Select"].WasPressedThisFrame() || Input.GetKeyDown(selectKey))
 		{
 			SelectUpgrade();
 		}

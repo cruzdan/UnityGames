@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class AsteroidGameManager : MonoBehaviour
 {
@@ -16,9 +17,11 @@ public class AsteroidGameManager : MonoBehaviour
     [SerializeField] private CounterBack counter;
     //0 -> asteroidPool, 1 -> bulletPool
     [SerializeField] private ObjectPool[] objectPools;
+    //inital bullets when start game and restart game
+    [SerializeField] private int initalBullets = 1;
+    [SerializeField] private bool inGame;
     private int lifes = 3;
     private int money = 0;
-
     public void SetLifes(int newLifes)
     {
         lifes = newLifes;
@@ -31,15 +34,19 @@ public class AsteroidGameManager : MonoBehaviour
 
     private void Start()
     {
-        counter.gameObject.SetActive(false);
-        counter.SetTime(-1f);
+        Application.targetFrameRate = 60;
+        if (inGame) 
+        { 
+            counter.SetTime(-1); 
+            TotalRestart(false); 
+        } 
     }
     public void Restart()
     {
         lifes--;
         if (lifes <= 0)
         {
-            TotalRestart();
+            TotalRestart(true);
             counter.gameObject.SetActive(false);
         }
         else
@@ -81,7 +88,7 @@ public class AsteroidGameManager : MonoBehaviour
         ship.GetComponent<ShipMovement>().Restart();
         ship.GetComponent<Shoot>().Restart();
     }
-    public void TotalRestart()
+    public void TotalRestart(bool toPause)
     {
         lifes = 3;
         lifesText.text = lifes.ToString();
@@ -90,16 +97,21 @@ public class AsteroidGameManager : MonoBehaviour
         shopMoneyText.text = money.ToString();
         ship.GetComponent<ShipMovement>().InitSpeed();
         ship.GetComponent<ShipMovement>().InitRotation();
-        ship.GetComponent<Shoot>().bulletsToShoot = 1;
+        ship.GetComponent<Shoot>().bulletsToShoot = initalBullets;
         astGen.SetBonus(0);
         spriteChanger.Init();
         shopInformation.Init();
-        pauseManager.GameOverChange();
+        if(toPause)
+            pauseManager.GameOverChange();
         PartialRestart();
     }
 
     public void Exit()
     {
         Application.Quit();
+    }
+    public void ChangeGameScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

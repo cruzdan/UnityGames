@@ -9,13 +9,15 @@ public class PauseManager : MonoBehaviour
     bool pause = false;
     bool otherMenu = false;
 
-
+    public void SetPauseOnWin()
+    {
+        pause = true;
+        otherMenu = true;
+    }
     public void ChangeOtherMenu()
     {
         otherMenu = !otherMenu;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !otherMenu)

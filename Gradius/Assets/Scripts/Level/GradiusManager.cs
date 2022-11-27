@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GradiusManager : MonoBehaviour
@@ -16,53 +17,84 @@ public class GradiusManager : MonoBehaviour
     [SerializeField] private ChangeControlsManager selectKey;
     /*pools to: 0 -> forward bullets, 1 -> inclined bullets, 2 -> laser bullets, 3 -> enemy bullets, 4 -> upgrades*/ 
     [SerializeField] private ObjectPool[] pools;
+    [SerializeField] private CounterBack counter;
     private int actualShip = 0;
     private int deadPlayers = 0;
     private GameObject[] ship;
 
     public GameObject GetActualShip() { return ship[actualShip]; }
-    // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
         pauseManager.Init(PlayerVariables.Instance.GetPlayers());
 
         if (PlayerVariables.Instance.GetPlayers() < 2)
         {
             ship = new GameObject[1];
             CreateInitialShip(0, KeyCode.RightArrow, KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.Z, KeyCode.X,
-                KeyCode.Joystick1Button3, KeyCode.Joystick1Button4, "Player1Horizontal", "Player1Vertical",
                 -SquaresResolution.TotalSquaresX / 2.8f, SquaresResolution.TotalSquaresY / 5.2f, 0f, -185f, 1.3f, 0f, -15f);
             controlsMenu.SetActiveShip2Title(false);
+            if (Joystick.all.Count > 0)
+            {
+                SetShipInputDevice(0, Joystick.all[0]);
+            }
+            else if (Gamepad.all.Count > 0)
+            {
+                SetShipInputDevice(0, Gamepad.all[0]);
+            }
         }
         else
         {
             ship = new GameObject[2];
 
             CreateInitialShip(0, KeyCode.RightArrow, KeyCode.LeftArrow, KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.Z, KeyCode.X,
-                KeyCode.Joystick1Button3, KeyCode.Joystick1Button4, "Player1Horizontal", "Player1Vertical",
                 -SquaresResolution.TotalSquaresX / 2.8f, SquaresResolution.TotalSquaresY / 5.2f, 0f, -175f, 1f, -199f, -15f);
 
             CreateInitialShip(1, KeyCode.L, KeyCode.J, KeyCode.I, KeyCode.K, KeyCode.T,
-                KeyCode.Y, KeyCode.Joystick2Button3, KeyCode.Joystick2Button4, "Player2Horizontal", "Player2Vertical",
+                KeyCode.Y,
                 -SquaresResolution.TotalSquaresX / 2.8f, -SquaresResolution.TotalSquaresY / 5.2f, 0f, -195f, 1f, 199f, -15f);
 
             info.Set2Players();
+            int index = 0;
+            int totalJoysticks = Joystick.all.Count;
+            int totalGamepads = Gamepad.all.Count;
+            for (int i = 0; i < totalJoysticks; i++)
+            {
+                SetShipInputDevice(index, Joystick.all[i]);
+                index++;
+                if(index > 1)
+                {
+                    return;
+                }
+            }
+            for(int i = 0; i < totalGamepads; i++)
+            {
+                SetShipInputDevice(index, Gamepad.all[i]);
+                index++;
+                if (index > 1)
+                {
+                    return;
+                }
+            }
         }
     }
+    void SetShipInputDevice(int shipIndex, InputDevice inputDevice)
+    {
+        ship[shipIndex].GetComponent<Ship>().SetInputDevice(inputDevice);
+        ship[shipIndex].GetComponent<Ship>().GetUpgradeRectsManager().SetInputDevice(inputDevice);
+    }
     void CreateInitialShip(int shipIndex, KeyCode right, KeyCode left, KeyCode up, KeyCode down, KeyCode shoot,
-        KeyCode select, KeyCode shootJoystick, KeyCode selectJoystick, string horizontalAxisName, string verticalAxisName,
+        KeyCode select,
         float shipPositionX, float shipPositionY, float upgradePositionX, float upgradePositionY, float  upgradeScaleY,
         float infoPositionX, float infoPositionY)
     {
-        GenerateShip(shipIndex, right, left, up, down, shoot, shootJoystick,selectJoystick, horizontalAxisName, 
-            verticalAxisName, shipPositionX, shipPositionY);
+        GenerateShip(shipIndex, right, left, up, down, shoot, shipPositionX, shipPositionY);
         gameMenu.CreateUpgrade(ship[shipIndex].GetComponent<Ship>(), select, upgradePositionX, upgradePositionY, upgradeScaleY);
         selectKey.AddShip(ship[shipIndex].GetComponent<Ship>());
         controlsMenu.GenerateShipInfo(new Vector2(infoPositionX, infoPositionY), ship[shipIndex].GetComponent<Ship>());
         pauseManager.SetShip(shipIndex, ship[shipIndex]);
     }
     void GenerateShip(int shipIndex, KeyCode right, KeyCode left, KeyCode up, KeyCode down, KeyCode shoot,
-        KeyCode shootJoystick, KeyCode selectJoystick, string horizontalAxisName, string verticalAxisName, 
         float positionX, float positionY)
     {
         ship[shipIndex] = Instantiate(shipPrefab) as GameObject;
@@ -80,22 +112,12 @@ public class GradiusManager : MonoBehaviour
         sh.SetDownKey(down);
         sh.SetShootKey(shoot);
         sh.SetEnemyManager(enemyManager);
-        sh.SetHorizontalAxis(horizontalAxisName);
-        sh.SetVerticalAxis(verticalAxisName);
         ship[shipIndex].GetComponent<Shoot>().SetPools(pools);
         ship[shipIndex].transform.position = new Vector2(positionX, positionY);
         SpriteBounds.SetScaleSquare(ship[shipIndex], SquaresResolution.TotalSquaresX / 9f, 
             SquaresResolution.TotalSquaresY * 0.89f / 12f);
-
-        if (Input.GetJoystickNames().Length > shipIndex)
-        {
-            ShipJoystickButtons shipJoystickButtons;
-            shipJoystickButtons = ship[shipIndex].AddComponent<ShipJoystickButtons>();
-            shipJoystickButtons.AddButton(shootJoystick);
-            shipJoystickButtons.AddButton(selectJoystick);
-        }
     }
-    
+
     public void UpdateActualShipIndex()
     {
         if (deadPlayers > 0)
@@ -125,6 +147,7 @@ public class GradiusManager : MonoBehaviour
     public void ShipDead(int shipIndex)
     {
         deadPlayers++;
+        Vector2 pos = ship[shipIndex].transform.position;
         if(deadPlayers >= PlayerVariables.Instance.GetPlayers())
         {
             Restart();
@@ -139,6 +162,7 @@ public class GradiusManager : MonoBehaviour
             sh.RestartOptions();
             sh.RestartShield();
         }
+        ParticleManager.Instance.PlayParticleSystem(pos);
     }
     void ReturnPlayerBulletsToPool()
     {
@@ -197,6 +221,7 @@ public class GradiusManager : MonoBehaviour
         ReturnToPollAllEnemies();
         ReturnPoolObjectsWithTag("EnemyBullet", pools[3]);
         ReturnPoolObjectsWithTag("Upgrade", pools[4]);
+        ParticleManager.Instance.ReturnAllParticles();
         ReturnPlayerBulletsToPool();
         enemyManager.SetActualLine(0);
         actualShip = 0;
@@ -204,7 +229,8 @@ public class GradiusManager : MonoBehaviour
         level.SetPhase(0);
         level.SetActualEnemies(0);
         level.SetTimer(0);
-        background.SetPause(false);
+        counter.Reiniciate();
+        background.SetPause(true);
         ship[0].transform.position = new Vector2(-SquaresResolution.TotalSquaresX / 2.8f, 
             SquaresResolution.TotalSquaresY / 5.2f);
 
@@ -215,7 +241,7 @@ public class GradiusManager : MonoBehaviour
         }
         for (int i = 0; i < PlayerVariables.Instance.GetPlayers(); i++)
         {
-            ship[i].SetActive(true);
+            ship[i].SetActive(false);
             Ship sh = ship[i].GetComponent<Ship>();
             sh.SetSpeedX(sh.GetIncrementSpeedX());
             sh.SetSpeedY(sh.GetIncrementSpeedY());
@@ -235,6 +261,14 @@ public class GradiusManager : MonoBehaviour
             sh.SetTimerInvincible(sh.GetTimeInvincible());
             sh.SetVisible(true);
             sh.SetDead(false);
+        }
+    }
+    public void ChangeRestartingToPlayGame()
+    {
+        background.SetPause(false);
+        for (int i = 0; i < PlayerVariables.Instance.GetPlayers(); i++)
+        {
+            ship[i].SetActive(true);
         }
     }
     public void ChangeScene(string name)

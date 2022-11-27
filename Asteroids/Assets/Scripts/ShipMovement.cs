@@ -39,7 +39,6 @@ public class ShipMovement : MonoBehaviour
         angularSpeed = originalAngularSpeed;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (pauseManager.pause)
@@ -56,7 +55,6 @@ public class ShipMovement : MonoBehaviour
             {
                 move = false;
             }
-            //move = Input.GetKey(KeyCode.W);
             rotate = Input.GetAxis("Horizontal");
             Rotate();
         }

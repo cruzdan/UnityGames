@@ -466,6 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8802318508511806664}
   - component: {fileID: 8802318508511806667}
+  - component: {fileID: -7022663651155584613}
   m_Layer: 5
   m_Name: UpgradeRects
   m_TagString: Untagged
@@ -535,3 +536,33 @@ MonoBehaviour:
   - {fileID: 8802318507197603083}
   - {fileID: 8802318507142017231}
   selectKey: 103
+--- !u!114 &-7022663651155584613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802318508511806665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 465d2af3533ff454c9df2f05c2a339bd, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player1
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

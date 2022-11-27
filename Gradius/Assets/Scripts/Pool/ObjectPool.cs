@@ -15,7 +15,6 @@ public class ObjectPool : MonoBehaviour
     {
         MaxPoolSize = size;
     }
-    // Start is called before the first frame update
     void Start()
     {
         if (objectPrefab != null)

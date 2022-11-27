@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class Ship : MonoBehaviour
 {
@@ -39,8 +41,6 @@ public class Ship : MonoBehaviour
     [SerializeField] private KeyCode upKey;
     [SerializeField] private KeyCode downKey;
     [SerializeField] private KeyCode shootKey;
-    [SerializeField] private string horizontalAxis;
-    [SerializeField] private string verticalAxis;
 
     [Header("Option Upgrade")]
     [SerializeField] private GameObject optionPrefab;
@@ -62,6 +62,7 @@ public class Ship : MonoBehaviour
     
 
     //variable to know when the ship is moving
+    //Vector2 movement = new Vector2();
     float moving;
     //variable to control the ship next position
     float pos;
@@ -70,13 +71,13 @@ public class Ship : MonoBehaviour
 
     //auxiliar variable to appear an option prefab
     Option op;
-
+    PlayerInput playerInput;
     void Start()
     {
         sh = GetComponent<Shoot>();
         sh.SetEnemyManager(enemyManager);
         animator = GetComponent<Animator>();
-
+        playerInput = GetComponent<PlayerInput>();
         //this width is the ship sprite width
         float width = SpriteBounds.GetSpriteWidth(gameObject);
         firstX = -SquaresResolution.TotalSquaresX / 2.0f + width / 2.0f;
@@ -102,6 +103,13 @@ public class Ship : MonoBehaviour
 
         timerInvincible = timeInvincible;
     }
+    public UpgradeRectsManager GetUpgradeRectsManager() { return upgradeRects; }
+    public void SetInputDevice(InputDevice inputDevice)
+    {
+        // Pair the gamepad or joystick to a user.
+        var user = InputUser.PerformPairingWithDevice(inputDevice);
+        user.AssociateActionsWithUser(GetComponent<PlayerInput>().currentActionMap);
+    }
     void InitMissile(GameObject missileObject)
     {
         Missile mis = missileObject.GetComponent<Missile>();
@@ -122,51 +130,30 @@ public class Ship : MonoBehaviour
     }
     void Update()
     {
-        moving = Input.GetAxisRaw(horizontalAxis);
-        if (moving != 0f)
-        {
-            if (moving > 0f)
-            {
-                MoveToRight();
-            }
-            else
-            {
-                MoveToLeft();
-            }
-        }else if (Input.GetKey(rightKey))
+        if (playerInput.actions["Right"].IsPressed() || Input.GetKey(rightKey) )
         {
             MoveToRight();
         }
-        else if (Input.GetKey(leftKey))
+        else if (playerInput.actions["Left"].IsPressed() || Input.GetKey(leftKey))
         {
             MoveToLeft();
         }
-
+        
         vert = 0.0f;
         
-        moving = Input.GetAxisRaw(verticalAxis);
-        if(moving != 0f)
-        {
-            if(moving > 0f)
-            {
-                MoveToUp();
-            }
-            else
-            {
-                MoveToDown();
-            }
-        }else if (Input.GetKey(upKey))
+        if (playerInput.actions["Up"].IsPressed() || Input.GetKey(upKey))
         {
             MoveToUp();
         }
-        else if (Input.GetKey(downKey))
+        else if (playerInput.actions["Down"].IsPressed() || Input.GetKey(downKey))
         {
             MoveToDown();
         }
         animator.SetFloat("Vertical", vert);
 
         //shoot
-        if (Input.GetKey(shootKey))
+
+        if (playerInput.actions["Shoot"].IsPressed() || Input.GetKey(shootKey))
         {
             Shoot();
         }
@@ -424,6 +411,7 @@ public class Ship : MonoBehaviour
                 {
                     invincible = true;
                     info.DecrementLifes(shipIndex);
+                    
                 }
                 break;
             case 11:
@@ -491,8 +479,6 @@ public class Ship : MonoBehaviour
                 break;
         }
     }
-    public void SetHorizontalAxis(string axis) { horizontalAxis = axis; }
-    public void SetVerticalAxis(string axis) { verticalAxis = axis; }
     public void SetShipIndex(int index) { shipIndex = index; }
     public int GetShipIndex() { return shipIndex; }
     public void SetInformation(GameMenuInformation i) { info = i; }

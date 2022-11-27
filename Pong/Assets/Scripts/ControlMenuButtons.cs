@@ -13,7 +13,7 @@ public class ControlMenuButtons : MonoBehaviour
 
     private void Start()
     {       
-        if (PlayerController.Instance.GetPlayers() == 2)
+        if (PlayerManager.Instance.GetPlayers() == 2)
         {
 			player2Text.SetActive(true);
             controlMenu = Instantiate(controlPrefab) as GameObject;
@@ -67,7 +67,7 @@ public class ControlMenuButtons : MonoBehaviour
     {
         upChangeButton.interactable = value;
         downChangeButton.interactable = value;
-        if (PlayerController.Instance.GetPlayers() == 2)
+        if (PlayerManager.Instance.GetPlayers() == 2)
         {
             transform.GetChild(10).GetChild(1).GetComponent<Button>().interactable = value;
             transform.GetChild(10).GetChild(0).GetComponent<Button>().interactable = value;

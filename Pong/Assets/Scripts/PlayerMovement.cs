@@ -4,83 +4,49 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public KeyCode up, down; 
-    float actualSpeed = 0;
-    const float MAXSPEED = 4f;
-    const float decrementSpeed = 0.2f;
-    const float incrementSpeed = 0.3f;
+    public KeyCode up;
+    public KeyCode down;
     bool canMove = false;
-    float limitY;
+    [SerializeField] private float speed;
+    Vector2 velocity = Vector2.zero;
+
+    Rigidbody2D rb;
+
     private void Start()
     {
-        limitY = SquaresResolution.TotalSquaresY / 2f - transform.localScale.y / 2f;
+        rb = GetComponent<Rigidbody2D>();
+        rb.drag = 3;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (canMove) { 
-            bool pressed = false;
+        if (canMove) {
             if (Input.GetKey(up))
             {
-                if (actualSpeed < MAXSPEED)
-                {
-                    actualSpeed = actualSpeed + incrementSpeed * Time.deltaTime;
-                    pressed = true;
-                }
-
+                velocity.y = speed;
+                rb.velocity = velocity;
             }
-            else if (Input.GetKey(down))
+            if (Input.GetKey(down))
             {
-                if (actualSpeed > -MAXSPEED)
-                {
-                    actualSpeed = actualSpeed - incrementSpeed * Time.deltaTime;
-                    pressed = true;
-                }
-
+                velocity.y = -speed;
+                rb.velocity = velocity;
             }
-            if (!pressed && actualSpeed != 0)
-            {
-                if (actualSpeed > 0)
-                {
-                    if (actualSpeed - decrementSpeed * Time.deltaTime > 0)
-                    {
-                        actualSpeed -= decrementSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        actualSpeed = 0;
-                    }
-                }
-                else
-                {
-                    if (actualSpeed + incrementSpeed * Time.deltaTime < 0)
-                    {
-                        actualSpeed += incrementSpeed * Time.deltaTime;
-                    }
-                    else
-                    {
-                        actualSpeed = 0;
-                    }
-                }
-            }
-            if(transform.position.y + actualSpeed < limitY && transform.position.y + actualSpeed > -limitY)
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y + actualSpeed);
-            }
-            else
-            {
-                actualSpeed = 0;
-            }
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 
     public void SetMove(bool move) {
         canMove = move;
     } 
-
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
     public void RestartPaddle() {
         transform.position = new Vector2(transform.position.x, 0);
-        actualSpeed = 0;
+        rb.velocity = Vector2.zero;
     }
 }

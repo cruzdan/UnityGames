@@ -96,6 +96,7 @@ public class Shield : MonoBehaviour
         int enemyLifes = enemy.GetLifes();
         if (enemyLifes <= lifes)
         {
+            ParticleManager.Instance.PlayParticleSystem(collision.transform.position);
             if (enemy.GetUpgrade())
             {
                 enemyManager.GenerateUpgrade(collision.transform.position.x, collision.transform.position.y);

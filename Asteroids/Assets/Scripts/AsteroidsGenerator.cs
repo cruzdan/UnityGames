@@ -116,12 +116,14 @@ public class AsteroidsGenerator : MonoBehaviour
             {
                 ast.SetAsteroidsGenerator(this);
             }
+            ast.SetDead(false);
             if (!bound.HasObjectPool())
             {
                 bound.SetObjectPool(asteroidsPool);
             }
             if (spr != null)
                 asteroid.GetComponent<SpriteRenderer>().sprite = spr;
+
         }
     }
 

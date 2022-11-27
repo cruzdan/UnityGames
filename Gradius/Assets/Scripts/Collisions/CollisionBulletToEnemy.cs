@@ -81,6 +81,7 @@ public class CollisionBulletToEnemy : MonoBehaviour
 		int enemyLife = enemy.GetLifes();
 		if(enemyLife <= damage)
         {
+			ParticleManager.Instance.PlayParticleSystem(collision.transform.position);
 			enemy.SetDead(true);
 			if (enemy.GetUpgrade())
 			{

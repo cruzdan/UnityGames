@@ -1695,7 +1695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262920443
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1728,6 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df00324e2129434db663f10ec1b7174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counter: {fileID: 262920445}
   pauseManager: {fileID: 125035674}
 --- !u!114 &262920445
 MonoBehaviour:
@@ -8515,6 +8516,8 @@ MonoBehaviour:
   objectPools:
   - {fileID: 977380968}
   - {fileID: 2005683746}
+  initalBullets: 3
+  inGame: 1
 --- !u!4 &1690771601
 Transform:
   m_ObjectHideFlags: 0
@@ -8941,14 +8944,14 @@ MonoBehaviour:
       - m_Target: {fileID: 1690771600}
         m_TargetAssemblyTypeName: AsteroidGameManager, Assembly-CSharp
         m_MethodName: TotalRestart
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 172842187}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

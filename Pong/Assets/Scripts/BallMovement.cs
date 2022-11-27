@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    float ballSpeedX;
-    float ballSpeedY;
-    float maxBallSpeedY = 9f;
-    private float maxSideY;
-    private float minSideY;
-    // Start is called before the first frame update
+    [SerializeField] private float ballSpeedX;
+    [SerializeField] private float ballSpeedY;
+    [SerializeField] private float maxBallSpeedY = 9f;
+    Rigidbody2D rb;
+    Vector2 movement;
     void Start()
     {
-        SetRandomDirection();
-        maxSideY = SquaresResolution.TotalSquaresY / 2f;
-        minSideY = -SquaresResolution.TotalSquaresY / 2f;
+        rb = GetComponent<Rigidbody2D>();
         ballSpeedX = SquaresResolution.TotalSquaresX / 2.3f;
         ballSpeedY = SquaresResolution.TotalSquaresY / 2.5f;
+        SetRandomDirection();
     }
 
     void SetRandomDirection() {
@@ -33,23 +31,11 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (ballSpeedY > 0)
-        {
-            if (transform.position.y + transform.localScale.y / 2 + ballSpeedY * Time.deltaTime < maxSideY)
-                transform.position = new Vector2(transform.position.x + ballSpeedX * Time.deltaTime, transform.position.y + ballSpeedY * Time.deltaTime);
-            else
-                ballSpeedY *= -1;
-        }
-        else
-        {
-            if (transform.position.y - transform.localScale.y / 2 - ballSpeedY * Time.deltaTime > minSideY)
-                transform.position = new Vector2(transform.position.x + ballSpeedX * Time.deltaTime, transform.position.y + ballSpeedY * Time.deltaTime);
-            else
-                ballSpeedY *= -1;
-        }
+        movement.x = transform.position.x + ballSpeedX * Time.fixedDeltaTime;
+        movement.y = transform.position.y + ballSpeedY * Time.fixedDeltaTime;
+        rb.MovePosition(movement);
     }
 
     void Restart() {
@@ -58,33 +44,33 @@ public class BallMovement : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Paddle"))
-        {
-            ballSpeedX *= -1;
-
-            float diff = transform.position.y - collision.gameObject.transform.position.y;
-            ballSpeedY = diff * maxBallSpeedY;
-
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayCrashSound();
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerWall"))
+        switch (collision.gameObject.tag)
         {
-            if(transform.position.x < 0f)
-            {
-                GameObject.Find("ScoreManager").GetComponent<Score>().IncrementScorePlayer2(1);
-                Restart();
-            }
-            else
-            {
-                GameObject.Find("ScoreManager").GetComponent<Score>().IncrementScorePlayer1(1);
-                Restart();
-            }
+            case "PlayerWall":
+                ballSpeedY *= -1;
+                break;
+            case "BoundWall":
+                if (transform.position.x < 0f)
+                {
+                    GameObject.Find("ScoreManager").GetComponent<Score>().IncrementScorePlayer2(1);
+                    Restart();
+                }
+                else
+                {
+                    GameObject.Find("ScoreManager").GetComponent<Score>().IncrementScorePlayer1(1);
+                    Restart();
+                }
+                break;
+            case "Paddle":
+                ballSpeedX *= -1;
+
+                float diff = transform.position.y - collision.gameObject.transform.position.y;
+                ballSpeedY = diff * maxBallSpeedY;
+
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayCrashSound();
+                break;
         }
     }
 }

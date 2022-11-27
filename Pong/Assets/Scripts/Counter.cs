@@ -11,14 +11,11 @@ public class Counter : MonoBehaviour
     [SerializeField] private Text counter;
     float textTime = 3f;
     int actualValue;
-    // Start is called before the first frame update
     void Start()
     {
         ball.SetActive(false);
         counter.gameObject.SetActive(true);
     }
-
-    // Update is called once per frame
     void Update()
     {
         actualValue = (int)textTime;
@@ -33,20 +30,20 @@ public class Counter : MonoBehaviour
             counter.gameObject.SetActive(false);
             gameObject.SetActive(false);
             paddle1.GetComponent<PlayerMovement>().SetMove(true);
-            if (PlayerController.Instance.GetPlayers() == 1)
+            if (PlayerManager.Instance.GetPlayers() == 1)
                 paddle2.GetComponent<AIMovement>().SetMove(true);
             else
                 paddle2.GetComponent<PlayerMovement>().SetMove(true);
         }
     }
 
-    public void Reiniciate()
+    public void Reinitiate()
     {
         textTime = 3f;
         gameObject.SetActive(true);
         counter.gameObject.SetActive(true);
         paddle1.GetComponent<PlayerMovement>().SetMove(false);
-        if (PlayerController.Instance.GetPlayers() == 1)
+        if (PlayerManager.Instance.GetPlayers() == 1)
             paddle2.GetComponent<AIMovement>().SetMove(false);
         else
             paddle2.GetComponent<PlayerMovement>().SetMove(false);

@@ -6,6 +6,6 @@ public class TitleMenu : MonoBehaviour
 {
     public void SelectPlayers(int players)
     {
-        PlayerController.Instance.SetPlayers(players);
+        PlayerManager.Instance.SetPlayers(players);
     }
 }

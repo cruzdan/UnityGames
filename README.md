@@ -3,7 +3,7 @@ Unity Version: 2021.3.3f1
 Visual Studio Version: 2019
 
 Pong:
--Play with unity on the Title Scene
+-Play with unity in the Title Scene
 -Resolution 16:9
 -Player 1 initial controls: up -> W, down -> S
 -Player 2 initial controls: up -> Up arrow, down -> Down arrow
@@ -11,7 +11,7 @@ Pong:
 (Controls can be modified on the Controls menu)
 
 Asteroids:
--Play with unity on the Title Scene
+-Play with unity in the Title Scene
 -Resolution 16:9
 -Initial controls: 
 	forward -> <W, Up arrow, Joystick axis Y+ >
@@ -21,7 +21,7 @@ Asteroids:
 	pause -> scape
 	
 Gradius:
--Play with unity on the Title Scene
+-Play with unity in the Title Scene
 -Resolution 16:9
 -Controls in Title Scene:
 	select players -> space
@@ -46,3 +46,18 @@ Gradius:
 	*Shoot				<T, Joystick 2 button 3>
 	*Select Upgrade		<Y, Joystick 2 button 4>
 	(Controls can be modified on the Controls menu, except for the Joystick ones)
+	
+Multiplayer:
+-First go to Title Scene and add your own address (direction IPv4), then save the 
+scene and make a build: File -> Build Settings... -> Build, select a folder, when 
+you have your build, pass those files to other machine who are connected to the same 
+red.
+-Execute the file Multiplayer.exe in 2 or more machines, the first need to be the 
+host or server and the other ones need to be clients to be connected on the same game
+-Resolution 16:9
+-Controls in game:
+	Right: 				<D,Right Arrow, Joystick axis X+ >
+	Left:				<A,Left Arrow, Joystick axis X- >
+	Jump:				<Space, Joystick button A >
+	Run:				<Left Shift, Joystick button X >
+	Shoot:				<E, Joystick Right trigger >
