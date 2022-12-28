@@ -1,0 +1,2280 @@
+fileFormatVersion: 2
+guid: 5bdec5b69658a85428c158be31754c44
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0e90245ba5a3843b0b044f66441a53
+      internalID: 1727895974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3367ba3e3c37d44197b29045655461b
+      internalID: -1004977913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f630d52bc42d34a9c759ae4e0d287a
+      internalID: -1749000773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e89430a0b170343b15d271c237420b
+      internalID: 1495836368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbc828dbb203f146a37a95f16765e68
+      internalID: 1971470220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653bf7b27b636ff49b3b21140bfd4a72
+      internalID: 687315532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_6
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04882eb705d379e4d85aed6cf1a421a9
+      internalID: -489460442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_7
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 101
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88fd7cc6371ead14bab2ae6c26be6882
+      internalID: 519050758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a03bf86d1ab29154d9b47975b9559285
+      internalID: 134185865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e3a78cbc68bd6468552ef54ad615d6
+      internalID: 1766810855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_10
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1c834103955cc479cde19b706b993e
+      internalID: -1599217201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_11
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467ed80779760644fb3df692bf6dd73e
+      internalID: -1249141693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_12
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885e2e90629bc5747977f6174f8472e9
+      internalID: -102165991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_13
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed83046ac6d0f74c9e73a5f37c1b3b1
+      internalID: 1199238845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_14
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4684c2b6f065840a5b7a35f15a59ba
+      internalID: 926192795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_15
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 93
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a5cb7e65c334a408cc67cf5699d33b
+      internalID: -613069074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_16
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a8973a89800ec146800de306366eca2
+      internalID: -1322864533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_17
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3499b521fb7558c498ccf0dcd4a6101d
+      internalID: 1896017648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_18
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55def193c9516bb4dae60264674954c4
+      internalID: 1876807042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_19
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c9725331fdc760499c238fba743360c
+      internalID: 494889967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_20
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aac7a0b4ef23ff4397645797c97ee57
+      internalID: -742141290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_21
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1179f82b5181e4b9e4b5e05acf6e0f
+      internalID: 1959648706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_22
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 85
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185b8576673f75941af1e978032eedd0
+      internalID: 1347609526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_23
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658df1a04144b104ea766baa96a0b12d
+      internalID: -1619288811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_24
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf00d7aaaa93814ca6788f2a339bc41
+      internalID: -382450423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_25
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17b930f87af52994d8ac4d1e4477516e
+      internalID: -214165737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee919d78c74e99341ab4a2bfa467ac44
+      internalID: -419260115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_27
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e767dc0cab75f841a4af908cb2d8d49
+      internalID: -732798129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_28
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124155acee2836b4b9af08c558381488
+      internalID: 1925932105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_29
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c752ed75596b2e046b5a89e1f1fdfa8a
+      internalID: 1486768648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_30
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 77
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21b0733de61c5e45bdbabd0bfcf74c1
+      internalID: 2054327353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_31
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 69
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba61669d9b57d774bbe81b5bff5df501
+      internalID: -1908084578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_32
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 69
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12408013ff8c6584e907dff9bfe0e52c
+      internalID: -490846625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_33
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 69
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe236fc25106d24bba1016fd27a9a43
+      internalID: -269224545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_34
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 534
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a2138914251970458415f35bf0a3d9a
+      internalID: -1922075770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_35
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 69
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1b10d6078994b49ae04b55e5aa5516
+      internalID: 361601927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_36
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 606
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d012d528d0eb54ea084965b87c98b7
+      internalID: 1826247963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_37
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 598
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22b9630f50bb384983227e514a1245f
+      internalID: -395566614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_38
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 741
+        width: 80
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3081b48455469d447993cc1a3d969444
+      internalID: -728081046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_39
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 724
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c20c9cb76faee44d87b266a87c366aa
+      internalID: 1669635022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_40
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 795
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac91922b4985b04982397c6f67f0eef
+      internalID: -1846717109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_41
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 795
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c539a6eaea949a40b5454d55fd95c63
+      internalID: 69782561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_42
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 795
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4c86d8e588f534dbae0daa954caf95
+      internalID: -250945749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_43
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 795
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f35be4e12eda79e4b87d412120866ce6
+      internalID: -976898788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_44
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb75b49397988642982dedc79593aef
+      internalID: -359698883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_45
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebad44088f27267408464d5e31dce51e
+      internalID: 1670085277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_46
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f9feaa8dd32ba4eb4d8e667f1400f7
+      internalID: -908927623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_47
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412fd82c7f9954540a34cbc97bb519af
+      internalID: -1533117380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_48
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0ab5d19c5efa34d8e22f4fc9bc3646
+      internalID: 745713170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_49
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7eed60f5191ceb4c802c11f44e3bcfc
+      internalID: 1235843919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_50
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 737
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9514d928dd3c24c4fa66014ddaa416df
+      internalID: 1636884550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_51
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15250aed2312e4468be01fdfa9b10a0
+      internalID: 1529347829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_52
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdeb175627ad49542a9808e2fc889b1c
+      internalID: 2145742555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_53
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3df822db3d4ba4497bc793f6c68db2
+      internalID: 1729429960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_54
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010c67f74fb96444c8082897ddc65503
+      internalID: -139074907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_55
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a198965596924df479ad6e7ff579ec92
+      internalID: 1221713815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_56
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7448307218878c04d9785f539f15b98d
+      internalID: 1410270330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_57
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a729d0d5ac3364a911ab9f85e37b31
+      internalID: -180015371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_58
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9536b9bcd414ff74e8169ce6fc8462b1
+      internalID: 485722145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_59
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d333164e885fb44c9a45fcfd5672f90
+      internalID: -249881957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_60
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5b65736439d2b4ea6713027680b081
+      internalID: 1842511836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_61
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e09ff737cb6b944d843ff7140eb5120
+      internalID: 911702518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_62
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf116901f276e74d801a77428386de2
+      internalID: -550273874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_63
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131978524c22808479b5e0da67ae377c
+      internalID: -1735299524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_64
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5b8f15530ea7c4baf801b4e99c214f
+      internalID: 1870841574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_65
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240410b4687f6574aad7d044a9c534bd
+      internalID: -24588716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_66
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61273a130bbdc442844b7a1aa06ce24
+      internalID: 1882789527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_67
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b6e378959a7d14fac6e9bafcceea51
+      internalID: -746077862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_68
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0635d09feb54f5e4fba9128866dd1741
+      internalID: -348870205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_69
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355759d0e8cbc5e4e845520ae0c0fafb
+      internalID: -2033487519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_70
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17697cdddb3c834c976a5a45a19afa1
+      internalID: 1821870408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_71
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2cc5106cc6449c47a0f937eed488372
+      internalID: 128391806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_72
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbfe371212b08b4da6a97a6aab9f388
+      internalID: 204742735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_73
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e62398387ff5a47a93c9c87b7a1293
+      internalID: -1341971415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_74
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b835b40e4aa4ed04dbb878d049960564
+      internalID: -2067636866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_75
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31782279bd6a4254c903f602bd619f89
+      internalID: 2083850107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_76
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501555d48236ab14cb0ee64a5aeeb15d
+      internalID: -1478683664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_77
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9589695f251b114ea95bb9e7752996f
+      internalID: 552723324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_78
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 797
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9da06b6bbfa2bd43bac65af8595fdcb
+      internalID: -1922992390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_79
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b98d121b8d0eda4eafc982598d21a92
+      internalID: 1640570649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_80
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9949a5fdf1f61c4fb8483644b96acc4
+      internalID: 1827654177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_81
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5144b89aea922bd49b0c75216a71ce6d
+      internalID: 1258067492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_82
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 777
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21106300b3e7164982774cbb47efb12
+      internalID: 1451379565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_83
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c240f2c2e33886e4caf378e2c2a183be
+      internalID: 1768679698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_84
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 837
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c927eb0f212447438f1c9259f1a094e
+      internalID: -406466776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_85
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5665e625aef272843b7f127647b0a787
+      internalID: -794813512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_86
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 817
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc2aaff162a4664d9c9367c8c215770
+      internalID: -689524279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_87
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 801
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca06be3b152afa4fa4969aa48c2a998
+      internalID: -1095505887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_88
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 801
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ee4f88d9efea742a261faf1c4f209d
+      internalID: 676655103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_89
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 787
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b017b0bc0e382034b9f4379a6f29e51e
+      internalID: -1775646674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_90
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 787
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a979a7469273543bc65fda094b47a9
+      internalID: 473476764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_91
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 758
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28753bbbdbbcb44ba795fdea77b7281
+      internalID: -1795261364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_92
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 758
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bff54ea67a89048aaee34fbfeba7ef
+      internalID: -1362461975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_93
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 758
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec587397dade7794abf762055629b231
+      internalID: -43249148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_94
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 758
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62676720670dc94e8b47da0c85d41fb
+      internalID: -698654020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_95
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 757
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65149373d9fb6a942b3c1699498b4784
+      internalID: 438998725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_96
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 757
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf6d046f448495428194bd7bc58edb7
+      internalID: -86028092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_97
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 757
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50997e5219c1ec4bbf6975109e47db4
+      internalID: -2089797277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_17: 1896017648
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_34: -1922075770
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_45: 1670085277
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_98: -2089797277
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_66: 1870841574
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_83: 1258067492
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_58: 1410270330
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_1: -1004977913
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_3: 1495836368
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_47: -1533117380
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_80: -1922992390
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_90: 676655103
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_37: 1826247963
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_51: 1529347829
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_88: -689524279
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_78: -1478683664
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_52: 232972906
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_18: 1876807042
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_26: -419260115
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_86: -406466776
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_89: -1095505887
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_30: 2054327353
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_96: 438998725
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_32: -490846625
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_85: 1768679698
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_19: 494889967
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_25: -214165737
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_41: 69782561
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_60: 485722145
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_63: 911702518
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_16: -1322864533
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_72: 1821870408
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_81: 1640570649
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_73: 128391806
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_31: -1908084578
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_79: 552723324
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_87: -794813512
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_43: -976898788
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_92: -1795261364
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_7: 519050758
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_9: 1766810855
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_62: 1842511836
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_46: -908927623
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_6: -489460442
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_48: 745713170
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_5: 687315532
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_70: -348870205
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_84: 1451379565
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_29: 1486768648
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_21: 1959648706
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_20: -742141290
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_8: 134185865
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_50: 1636884550
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_36: 1815725343
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_24: -382450423
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_93: -1362461975
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_97: -86028092
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_54: -1682428244
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_64: -550273874
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_95: -698654020
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_10: -1599217201
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_15: -613069074
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_94: -43249148
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_42: -250945749
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_57: 1221713815
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_69: -746077862
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_27: -732798129
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_23: -1619288811
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_74: 204742735
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_82: 1827654177
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_68: 1882789527
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_12: -102165991
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_67: -24588716
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_0: 1727895974
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_35: 361601927
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_76: -2067636866
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_13: 1199238845
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_44: -359698883
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_49: 1235843919
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_59: -180015371
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_65: -1735299524
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_11: -1249141693
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_75: -1341971415
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_56: -139074907
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_40: -1846717109
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_53: 2145742555
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_28: 1925932105
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_38: -600966385
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_39: -728081046
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_71: -2033487519
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_33: -269224545
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_4: 1971470220
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_22: 1347609526
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_61: -249881957
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_2: -1749000773
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_91: -989257556
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_55: 1729429960
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_14: 926192795
+      ms__pac_man__mobile__sprites_by_bighungrymode_df86781(1)_77: 2083850107
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

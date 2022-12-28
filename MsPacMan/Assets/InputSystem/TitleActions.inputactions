@@ -1,0 +1,56 @@
+{
+    "name": "TitleActions",
+    "maps": [
+        {
+            "name": "Start",
+            "id": "2ebdd97c-daff-454e-8437-612c38839b94",
+            "actions": [
+                {
+                    "name": "Play",
+                    "type": "Button",
+                    "id": "5eba40b9-c725-45d8-a95b-e28d1ac77b6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b1821ffd-7c4b-44d3-9044-a18998f7fb14",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b4386a3-93e8-421c-9508-9ed79d148302",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd2017ec-a45c-45da-907b-cafdf5c6e910",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Play",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

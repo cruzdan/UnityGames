@@ -5,9 +5,10 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     private GameObject ball;
-    [SerializeField] private float speed = 6f;
+    private float currentSpeed;
+    private float maxSpeed = 7;
     private Rigidbody2D rb;
-    Vector2 velocity;
+    Vector2 velocity = Vector2.zero;
     bool canMove = false;
     private void Start()
     {
@@ -23,16 +24,17 @@ public class AIMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         if (canMove)
         {
-            if (ball.transform.position.y > transform.position.y + 0.5f)
+            currentSpeed = (ball.transform.position.y - transform.position.y) * 4;
+            if (currentSpeed > maxSpeed)
             {
-                velocity.y = speed;
-                rb.velocity = velocity;
+                currentSpeed = maxSpeed;
             }
-            else if (ball.transform.position.y < transform.position.y - 0.5f)
+            if (currentSpeed < -maxSpeed)
             {
-                velocity.y = -speed;
-                rb.velocity = velocity;
+                currentSpeed = -maxSpeed;
             }
+            velocity.y = currentSpeed;
+            rb.velocity = velocity;
         }
     }
 
