@@ -608,7 +608,6 @@ public class GhostBehaviour : MonoBehaviour
     }
     public void SetTargetScatterPosition(int x, int y)
     {
-        Debug.Log("Setting scatter pos to " + gameObject.name + " " + x + ", " + y);
         targetScatterPosition.x = x;
         targetScatterPosition.y = y;
     }
