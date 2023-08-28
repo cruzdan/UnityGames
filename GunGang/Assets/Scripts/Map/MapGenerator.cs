@@ -54,8 +54,10 @@ public class MapGenerator : MonoBehaviour
         _level = PlayerPrefs.GetInt("Level", 1);
     }
 
-    public void IncrementLevel()
+    public void IncrementLevelIfItHasNotReachedLimit()
     {
+        if (_level >= 36)
+            return;
         _level++;
         SaveLevel();
     }

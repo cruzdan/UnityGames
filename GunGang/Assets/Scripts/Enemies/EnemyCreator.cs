@@ -87,7 +87,6 @@ public class EnemyCreator : MonoBehaviour
     void GenerateEnemy()
     {
         _activeEnemies.Add(ObjectPool.Instance.GetObjectFromPool(ObjectPool.PoolObjectType.Enemy, GetErrorEnemyPosition()));
-        print("generating enemey: " + _currentEnemiesCreated);
     }
 
     void InitLastEnemyOfEnemiesList()
@@ -204,7 +203,6 @@ public class EnemyCreator : MonoBehaviour
             }
         }
         _currentDeadEnemies++;
-        print("OnEnemyDead, current of total: " + _currentDeadEnemies + " of " + _totalEnemiesToAppear);
         if (AllEnemiesAreDead())
         {
             OnAllEnemiesDead.TriggerEvent();
@@ -334,7 +332,6 @@ public class EnemyCreator : MonoBehaviour
 
     public void ReturnActiveEnemiesToPool()
     {
-        print("ReturnActiveEnemiesToPool");
         foreach(var activeEnemy in _activeEnemies)
         {
             ObjectPool.Instance.ReturnObjectToPool(activeEnemy, ObjectPool.PoolObjectType.Enemy);
