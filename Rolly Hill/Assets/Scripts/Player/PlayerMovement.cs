@@ -9,16 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private MoveCharControllerOnDirection _moveForwardCharacter;
     [SerializeField] private PlayerSpeedDecrementer _playerSpeedDecrementer;
 
-    private void OnEnable()
-    {
-        GoalCheck.OnGoalReached += DisableHorizontalMovement;
-    }
-
-    private void OnDisable()
-    {
-        GoalCheck.OnGoalReached -= DisableHorizontalMovement;
-    }
-
     public void EnableHorizontalMovement()
     {
         _detectKey.enabled = true;
@@ -28,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _detectKey.enabled = false;
     }
+
     public void InitStopMovement()
     {
         _playerSpeedDecrementer.enabled = true;

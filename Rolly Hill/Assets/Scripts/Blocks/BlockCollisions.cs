@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BlockCollisions : MonoBehaviour
 {
-    [SerializeField] public static event Action OnPlayerTouched;
+    [SerializeField] private GameEvent OnBlockTouched;
     [SerializeField] private BoxCollider _boxCollider;
 
     private void OnTriggerEnter(Collider other)
@@ -14,7 +14,7 @@ public class BlockCollisions : MonoBehaviour
         {
             ParentToTransform(other.transform);
             DisableCollider();
-            OnPlayerTouched?.Invoke();
+            OnBlockTouched.TriggerEvent();
         }
     }
     void ParentToTransform(Transform parentTransform)

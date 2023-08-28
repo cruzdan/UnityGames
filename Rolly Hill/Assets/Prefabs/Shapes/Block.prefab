@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1109f866d9ba88f4f847fc93a7744306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBlockTouched: {fileID: 11400000, guid: 18793f4ad3196b7428c7a2e283eac9f0, type: 2}
   _boxCollider: {fileID: 3839643302259655885}
 --- !u!54 &1048813097118799842
 Rigidbody:

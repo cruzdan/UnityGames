@@ -21,7 +21,7 @@ public class PauseElement : MonoBehaviour
         Pause.OnContinue -= EnableElementsIfNeeded;
     }
 
-    void DisableElementsIfNeeded()
+    public void DisableElementsIfNeeded()
     {
         int total = _elements.Length;
         for(int i = 0; i < total; i++)

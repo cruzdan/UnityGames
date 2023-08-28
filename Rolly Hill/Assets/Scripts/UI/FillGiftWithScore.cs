@@ -9,26 +9,14 @@ public class FillGiftWithScore : MonoBehaviour
     [SerializeField] private Map _map;
     [SerializeField] private UIReachPositionOnAxis _rewardFillReachPisition;
 
-    private void OnEnable()
-    {
-        Firework.OnFireworksEnd += Init;
-        Firework.OnFireworksEnd += ActivateRewardFillWhenReachCorrectPosition;
-    }
-
-    private void OnDisable()
-    {
-        Firework.OnFireworksEnd -= Init;
-        Firework.OnFireworksEnd -= ActivateRewardFillWhenReachCorrectPosition;
-    }
-
-    void Init()
+    public void Init()
     {
         float num = (float)_score.GetScore() / (float)_map.GetTotalBlocks();
         _fillImageWithTime.SetMaxPercentage(num);
         _fillImageWithTime.Init();
     }
 
-    void ActivateRewardFillWhenReachCorrectPosition()
+    public void ActivateRewardFillWhenReachCorrectPosition()
     {
         _rewardFillReachPisition.enabled = true;
     }

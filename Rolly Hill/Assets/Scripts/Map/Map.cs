@@ -17,8 +17,6 @@ public class Map : MonoBehaviour
         _level = PlayerPrefs.GetInt("Level", 1);
         _level--;
         OnPassLevel();
-        LoosingPhase.OnLoose += OnLooseGame;
-        GameManager.OnPassLevel += OnPassLevel;
     }
 
     void CreateMap(int mapIndex)
@@ -29,12 +27,7 @@ public class Map : MonoBehaviour
         mapCreator.AddCounterToPathChecks(ballBlockCounter);
     }
 
-    private void OnDisable()
-    {
-        LoosingPhase.OnLoose -= OnLooseGame;
-        GameManager.OnPassLevel -= OnPassLevel;
-    }
-    void OnLooseGame()
+    public void OnLooseGame()
     {
         _currentMap.GetComponent<MapBlocksCreator>().CreateMapBlocks();
         switch (_level)
@@ -46,7 +39,7 @@ public class Map : MonoBehaviour
         }
     }
 
-    void OnPassLevel()
+    public void OnPassLevel()
     {
         Destroy(_currentMap);
         int mapIndex;

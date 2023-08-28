@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour
 {
-    public static event Action OnDeadPhase;
+    [SerializeField] private GameEvent OnDeadPhaseStarts;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            OnDeadPhase?.Invoke();
+            OnDeadPhaseStarts.TriggerEvent();
         }
     }
 }

@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class BlockReturner : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        GameManager.OnRestart += ReturnAllBlocksToThePool;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.OnRestart -= ReturnAllBlocksToThePool;
-    }
-
-    void ReturnAllBlocksToThePool()
+    public void ReturnAllBlocksToThePool()
     {
         GameObject[] blocksInGame = GameObject.FindGameObjectsWithTag("Block");
         BlockDrop blockDropped;

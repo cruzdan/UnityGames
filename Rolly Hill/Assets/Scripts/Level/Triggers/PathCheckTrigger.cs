@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PathCheckTrigger : MonoBehaviour
 {
-    public static event Action OnBallBigger;
+    [SerializeField] private GameEvent OnBallBigger;
     [SerializeField] private int _minimumBlocksToMakeBigger;
     private BlockCounter _ballBlockCounter;
     private Vector3 _increment = Vector3.one * 0.1f;
@@ -16,7 +16,7 @@ public class PathCheckTrigger : MonoBehaviour
             if (BallCanBeBigger())
             {
                 IncrementObjectScale(other.gameObject);
-                OnBallBigger?.Invoke();
+                OnBallBigger.TriggerEvent();
             }
             _ballBlockCounter.ResetBlockCounter();
         }

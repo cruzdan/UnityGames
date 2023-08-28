@@ -9,27 +9,13 @@ public class UIMenu : MonoBehaviour
     [SerializeField] private MenuWithUIMobileElements _endMenuElements;
     [SerializeField] private MenuWithUIMobileElements _beginMenuElements;
 
-    private void OnEnable()
-    {
-        Firework.OnFireworksEnd += QuitGameMenuElements;
-        Firework.OnFireworksEnd += ActiveEndGameMenu;
-        LoosingPhase.OnLoose += ActiveBeginGameMenu;
-    }
-
-    private void OnDisable()
-    {
-        Firework.OnFireworksEnd -= QuitGameMenuElements;
-        Firework.OnFireworksEnd -= ActiveEndGameMenu;
-        LoosingPhase.OnLoose -= ActiveBeginGameMenu;
-    }
-
-    void ActiveEndGameMenu()
+    public void ActiveEndGameMenu()
     {
         _endMenuElements.ActiveElements();
         _endMenuElements.EnterElements();
     }
 
-    void ActiveBeginGameMenu()
+    public void ActiveBeginGameMenu()
     {
         _beginMenuElements.ActiveElements();
         _beginMenuElements.EnterElements();

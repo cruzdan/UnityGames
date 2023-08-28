@@ -15,19 +15,17 @@ public class Diamond : MonoBehaviour
     [SerializeField] private Vector2 _firstTargetMinLimit;
     [SerializeField] private Vector2 _firstTargetMaxLimit;
     [SerializeField] private TextMeshProUGUI _diamondNumberText;
+    [SerializeField] private TextMeshProUGUI _diamondShopNumberText;
     private List<UIFollowPoint> _diamonds = new();
+
     private void OnEnable()
     {
-        PlayerSpeedDecrementer.OnPlayerStops += CreateDiamondsWithScore;
         CardMenu.OnRewardGetted += AddDiamonds;
-        GameManager.OnPassLevel += SaveDiamonds;
     }
 
     private void OnDisable()
     {
-        PlayerSpeedDecrementer.OnPlayerStops -= CreateDiamondsWithScore;
         CardMenu.OnRewardGetted -= AddDiamonds;
-        GameManager.OnPassLevel -= SaveDiamonds;
     }
 
     private void Start()
@@ -35,7 +33,7 @@ public class Diamond : MonoBehaviour
         InitDiamondsFromPlayerPrefs();
     }
 
-    void CreateDiamondsWithScore()
+    public void CreateDiamondsWithScore()
     {
         int totalDiamondsToCreate = _score.GetScore() / _diamondCostOnScore;
         for (int i = 0; i < totalDiamondsToCreate; i++)
@@ -98,6 +96,7 @@ public class Diamond : MonoBehaviour
     {
         diamondFollow.SubscribeToEvent(() => {
             _diamondNumberText.text = _totalDiamonds.ToString();
+            _diamondShopNumberText.text = _totalDiamonds.ToString();
         });
     }
 
@@ -113,6 +112,7 @@ public class Diamond : MonoBehaviour
     {
         _totalDiamonds += amount;
         _diamondNumberText.text = _totalDiamonds.ToString();
+        _diamondShopNumberText.text = _totalDiamonds.ToString();
     }
 
     public int GetTotalDiamonds()

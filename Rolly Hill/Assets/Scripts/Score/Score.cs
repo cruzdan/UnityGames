@@ -9,20 +9,6 @@ public class Score : MonoBehaviour
     [SerializeField] private int _score = 0;
     [SerializeField] private int _incrementScoreAmount = 1;
 
-    private void OnEnable()
-    {
-        BlockCollisions.OnPlayerTouched += IncrementScore;
-        GameManager.OnPassLevel += ResetScore;
-        LoosingPhase.OnLoose += ResetScore;
-    }
-
-    private void OnDisable()
-    {
-        BlockCollisions.OnPlayerTouched -= IncrementScore;
-        GameManager.OnPassLevel -= ResetScore;
-        LoosingPhase.OnLoose -= ResetScore;
-    }
-
     public void IncrementScore()
     {
         _score += _incrementScoreAmount;

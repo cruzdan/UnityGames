@@ -12,23 +12,10 @@ public class Blink : MonoBehaviour
 
     private void Start()
     {
-        PlayerSpeedDecrementer.OnPlayerStops += BlinkPlatformBelowThisPosition;
-        GameManager.OnPassLevel += Deactivate;
-        Deactivate();
-    }
-
-    private void OnDestroy()
-    {
-        PlayerSpeedDecrementer.OnPlayerStops -= BlinkPlatformBelowThisPosition;
-        GameManager.OnPassLevel -= Deactivate;
-    }
-
-    void Deactivate()
-    {
         enabled = false;
     }
 
-    void BlinkPlatformBelowThisPosition()
+    public void BlinkPlatformBelowThisPosition()
     {
         AssignBelowBlinkObject();
         enabled = true;

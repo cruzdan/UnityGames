@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Firework : MonoBehaviour
 {
-    public static event Action OnFireworksEnd;
+    [SerializeField] private GameEvent OnFireworksEnd;
 
     [SerializeField] private GameObject[] _fireworks;
     [SerializeField] float _fireworkDurationTime = 5;
@@ -14,14 +14,12 @@ public class Firework : MonoBehaviour
     private void Start()
     {
         PlayerSpeedDecrementer.OnFireworksAppear += AppearFireworks;
-        GameManager.OnRestart += QuitFireworks;
         enabled = false;
     }
 
     private void OnDestroy()
     {
         PlayerSpeedDecrementer.OnFireworksAppear -= AppearFireworks;
-        GameManager.OnRestart -= QuitFireworks;
     }
     public void AppearFireworks(float positionZ)
     {
@@ -48,11 +46,11 @@ public class Firework : MonoBehaviour
         if (_timer >= _fireworkDurationTime)
         {
             QuitFireworks();
-            OnFireworksEnd?.Invoke();
+            OnFireworksEnd.TriggerEvent();
         }
     }
 
-    void QuitFireworks()
+    public void QuitFireworks()
     {
         ResetTimer();
         DisableFireworks();

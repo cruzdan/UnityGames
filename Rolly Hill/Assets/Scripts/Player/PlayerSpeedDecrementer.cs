@@ -7,16 +7,16 @@ public class PlayerSpeedDecrementer : MonoBehaviour
 {
     [SerializeField] private float _decrementSpeed;
     [SerializeField] private MoveCharControllerOnDirection _moveForwardCharacter;
+    [SerializeField] private GameEvent OnPlayerStops;
 
     public static event Action<float> OnFireworksAppear;
-    public static event Action OnPlayerStops;
     void FixedUpdate()
     {
         DecrementForwardSpeed();
         if (HasNegativeForwardVelocity())
         {
             OnFireworksAppear?.Invoke(transform.position.z);
-            OnPlayerStops?.Invoke();
+            OnPlayerStops.TriggerEvent();
             DisableForwardMovement();
             enabled = false;
         }

@@ -430,6 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 14
 --- !u!1 &3297455216277993
 GameObject:
@@ -1385,6 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 28
 --- !u!1 &3297455901650362
 GameObject:
@@ -1927,6 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 56
 --- !u!1 &3297456137152847
 GameObject:
@@ -18270,6 +18273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e38b2a7d63c6e438fa11d3c1089a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeadPhaseStarts: {fileID: 11400000, guid: b62f025bfa07f8442b7683e5cfbdb567, type: 2}
 --- !u!1 &3837788409356945135
 GameObject:
   m_ObjectHideFlags: 0
@@ -29355,6 +29359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e38b2a7d63c6e438fa11d3c1089a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeadPhaseStarts: {fileID: 11400000, guid: b62f025bfa07f8442b7683e5cfbdb567, type: 2}
 --- !u!1 &6652281528024223325
 GameObject:
   m_ObjectHideFlags: 0
@@ -33655,6 +33660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e38b2a7d63c6e438fa11d3c1089a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeadPhaseStarts: {fileID: 11400000, guid: b62f025bfa07f8442b7683e5cfbdb567, type: 2}
 --- !u!1 &7294258105738920651
 GameObject:
   m_ObjectHideFlags: 0
@@ -36889,6 +36895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e38b2a7d63c6e438fa11d3c1089a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeadPhaseStarts: {fileID: 11400000, guid: b62f025bfa07f8442b7683e5cfbdb567, type: 2}
 --- !u!1 &7448213994805420363
 GameObject:
   m_ObjectHideFlags: 0
@@ -40893,6 +40900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e38b2a7d63c6e438fa11d3c1089a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDeadPhaseStarts: {fileID: 11400000, guid: b62f025bfa07f8442b7683e5cfbdb567, type: 2}
 --- !u!1 &7523339832326878023
 GameObject:
   m_ObjectHideFlags: 0
@@ -45064,3 +45072,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3052980e2e6b4f4b9bbc7dc2f2278dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGoalReached: {fileID: 11400000, guid: 44b56c203f603fe448be17171d8452fe, type: 2}

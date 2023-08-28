@@ -12,6 +12,7 @@ public class CardMenu : MonoBehaviour
     [SerializeField] private Transform _rewardCard;
     [SerializeField] private int _maxCardNumber;
     private int _rewardAmount;
+
     public void CardPressed()
     {
         SetCardsInteractable(false);

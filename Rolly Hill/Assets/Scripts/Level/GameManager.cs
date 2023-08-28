@@ -7,8 +7,8 @@ public class GameManager : Singleton<GameManager>
 {
 
     #region events
-    public static event Action OnPassLevel;
-    public static event Action OnRestart;
+    [SerializeField] private GameEvent OnPassLevel;
+    [SerializeField] private GameEvent OnRestart;
     #endregion
 
     #region Player
@@ -31,16 +31,6 @@ public class GameManager : Singleton<GameManager>
     void OnEnable()
     {
         Application.targetFrameRate = _fps;
-        GoalCheck.OnGoalReached += InitBallDropBlocks;
-        DeathTrigger.OnDeadPhase += StartLoosingPhase;
-        LoosingPhase.OnLoose += Loose;
-    }
-
-    private void OnDisable()
-    {
-        GoalCheck.OnGoalReached -= InitBallDropBlocks;
-        DeathTrigger.OnDeadPhase -= StartLoosingPhase;
-        LoosingPhase.OnLoose -= Loose;
     }
 
     private void Start()
@@ -59,13 +49,13 @@ public class GameManager : Singleton<GameManager>
 
     public void Restart()
     {
-        OnRestart?.Invoke();
+        OnRestart.TriggerEvent();
     }
 
-    void Loose()
+    public void Loose()
     {
         EnableBallBlockColliders();
-        OnRestart?.Invoke();
+        OnRestart.TriggerEvent();
         ResetBall();
     }
 
@@ -134,12 +124,14 @@ public class GameManager : Singleton<GameManager>
         _blocksDropper.enabled = false;
         _detectKey.enabled = false;
     }
+
     public void StartLoosingPhase()
     {
         _playerMovement.DisableHorizontalMovement();
         _playerMovement.DisableForwardMovement();
         _playerRotation.enabled = false;
     }
+
     void EnableBallBlockColliders()
     {
         BoxCollider[] colliders = _playerMovement.gameObject.transform.GetComponentsInChildren<BoxCollider>(true);
@@ -148,10 +140,11 @@ public class GameManager : Singleton<GameManager>
             collider.enabled = true;
         }
     }
+
     public void PassLevel()
     {
         Restart();
-        OnPassLevel?.Invoke();
+        OnPassLevel.TriggerEvent();
         ResetBall();
     }
 }

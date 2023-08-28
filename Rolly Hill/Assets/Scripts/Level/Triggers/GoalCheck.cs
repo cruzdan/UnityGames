@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GoalCheck : MonoBehaviour
 {
-    public static event Action OnGoalReached;
+    [SerializeField] private GameEvent OnGoalReached;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            OnGoalReached?.Invoke();
+            OnGoalReached.TriggerEvent();
         }
     }
 }

@@ -13,7 +13,7 @@ public class LevelUIText : MonoBehaviour
         Map.OnLevelChanged += IncrementLevelText;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         Map.OnLevelChanged -= IncrementLevelText;
     }

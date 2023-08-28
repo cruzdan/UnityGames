@@ -10,19 +10,7 @@ public class Gift : MonoBehaviour
     [SerializeField] private Map _map;
     [SerializeField] private UIMobileElement _giftMobile;
 
-    private void OnEnable()
-    {
-        Firework.OnFireworksEnd += TryEnableAndEnterGiftButton;
-        GameManager.OnPassLevel += TryMoveOutGift;
-    }
-
-    private void OnDisable()
-    {
-        Firework.OnFireworksEnd -= TryEnableAndEnterGiftButton;
-        GameManager.OnPassLevel -= TryMoveOutGift;
-    }
-
-    void TryMoveOutGift()
+    public void TryMoveOutGift()
     {
         if (_getGiftButton.activeSelf)
         {
@@ -30,7 +18,7 @@ public class Gift : MonoBehaviour
         }
     }
 
-    void TryEnableAndEnterGiftButton()
+    public void TryEnableAndEnterGiftButton()
     {
         if (!HasGettedMinimumScoreForGift())
             return;

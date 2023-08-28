@@ -10,18 +10,6 @@ public class UIMenuImageChange : MonoBehaviour
     [SerializeField] private Image _endMenuImage;
     [SerializeField] private Image _cardMenuImage;
 
-    private void OnEnable()
-    {
-        Firework.OnFireworksEnd += PassFromGameToEnd;
-        LoosingPhase.OnLoose += PassFromGameToBegin;
-    }
-
-    private void OnDisable()
-    {
-        Firework.OnFireworksEnd -= PassFromGameToEnd;
-        LoosingPhase.OnLoose -= PassFromGameToBegin;
-    }
-
     public void PassFromBeginToGame()
     {
         _beginMenuImage.enabled = false;
@@ -46,7 +34,7 @@ public class UIMenuImageChange : MonoBehaviour
         _beginMenuImage.enabled = true;
     }
 
-    void PassFromGameToBegin()
+    public void PassFromGameToBegin()
     {
         _gameMenuImage.enabled = false;
         _beginMenuImage.enabled = true;

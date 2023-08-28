@@ -11512,6 +11512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 22
 --- !u!1 &3930490563140515807
 GameObject:
@@ -12064,6 +12065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 33
 --- !u!1 &3930490563663876926
 GameObject:
@@ -13161,6 +13163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc229f938d63354f9c782e7b962d6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnBallBigger: {fileID: 11400000, guid: 09527d0736cbc2b4daab57fee6638e00, type: 2}
   _minimumBlocksToMakeBigger: 73
 --- !u!1 &3930490564381725649
 GameObject:
@@ -28811,6 +28814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3052980e2e6b4f4b9bbc7dc2f2278dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGoalReached: {fileID: 11400000, guid: 44b56c203f603fe448be17171d8452fe, type: 2}
 --- !u!1 &8628695282542314975
 GameObject:
   m_ObjectHideFlags: 0

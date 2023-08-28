@@ -11,17 +11,15 @@ public class ScoreBar : MonoBehaviour
     {
         Score.OnScoreChanged += UpdateScoreBar;
         Map.OnTotalBlocksChanged += SetScoreBarMaxValue;
-        GameManager.OnPassLevel += ResetScoreBarValue;
     }
 
     private void OnDestroy()
     {
         Score.OnScoreChanged -= UpdateScoreBar;
         Map.OnTotalBlocksChanged -= SetScoreBarMaxValue;
-        GameManager.OnPassLevel -= ResetScoreBarValue;
     }
 
-    void UpdateScoreBar(int value)
+    public void UpdateScoreBar(int value)
     {
         _slider.value = value;
     }
@@ -31,7 +29,7 @@ public class ScoreBar : MonoBehaviour
         _slider.maxValue = value;
     }
 
-    void ResetScoreBarValue()
+    public void ResetScoreBarValue()
     {
         _slider.value = 0;
     }
