@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
 public class Player : NetworkBehaviour
 {
-    
     [SerializeField] private const int MaxLife = 100;
     private int currentLife;
     [SerializeField] private float timeInvincible;
@@ -27,7 +24,6 @@ public class Player : NetworkBehaviour
     private readonly ulong[] clientId = new ulong[1];
     void Start()
     {
-        
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (!IsOwner) return;
         canvas.SetActive(true);
@@ -36,7 +32,6 @@ public class Player : NetworkBehaviour
         timerInvincible = timeInvincible;
         timerDead = deadWaitTime;
         SetSpawnPositionServerRpc();
-        
     }
 
     void Update()
