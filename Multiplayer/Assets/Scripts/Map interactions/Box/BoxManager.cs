@@ -5,6 +5,8 @@ using Unity.Netcode;
 
 public class BoxManager : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false;
     [SerializeField] private float timeToSpawnBox = 10;
     
     //pistol, shotgun, machine gun, sniper
@@ -44,7 +46,11 @@ public class BoxManager : NetworkBehaviour
     void SpawnRandomBox()
     {
         boxIndex = Random.Range(0, totalTypeBoxes);
-        box = NetworkObjectPool.Singleton.GetNetworkObject("Box", Spawns.Instance.GetBoxSpawnPoint().position, Quaternion.identity).gameObject;
+
+        if (isOffline)
+            box = ObjectPool.Singleton.GetObject("Offline Box", Spawns.Instance.GetBoxSpawnPoint().position, Quaternion.identity);
+        else
+            box = NetworkObjectPool.Singleton.GetNetworkObject("Box", Spawns.Instance.GetBoxSpawnPoint().position, Quaternion.identity).gameObject;
         boxInteractions = box.GetComponent<BoxInteractions>();
         boxInteractions.SetUpgradeIndex(boxIndex);
         if (boxIndex == 2)
@@ -55,6 +61,9 @@ public class BoxManager : NetworkBehaviour
         }
         boxInteractions.ownColor.Value = boxColors[boxIndex];
         boxInteractions.SetDestroyed(false);
-        boxInteractions.ChangeColorClientRpc(boxColors[boxIndex]);
+        if (!isOffline)
+            boxInteractions.ChangeColorClientRpc(boxColors[boxIndex]);
+        else
+            boxInteractions.ChangeColor(boxColors[boxIndex]);
     }
 }

@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack
+public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] protected Enemy enemy;
-    [SerializeField] private int damage;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float timeBetweenAttacks;
-    
+    [SerializeField] protected int damage;
+    [SerializeField] protected float attackRange;
+    [SerializeField] protected float attackCooldown;
+    [SerializeField] protected float timeBetweenAttacks;
+    [SerializeField] protected float timer;
+    public Enemy Enemy { get => enemy; set => enemy = value; }
     public virtual void Attack()
     {
+    }
 
+    public virtual void StartAttack()
+    {
     }
 }

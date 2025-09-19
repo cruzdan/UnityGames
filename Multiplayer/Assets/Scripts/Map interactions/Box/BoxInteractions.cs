@@ -5,6 +5,8 @@ using Unity.Netcode;
 
 public class BoxInteractions : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false;
     public NetworkVariable<Color> ownColor = new NetworkVariable<Color>();
     bool destroyed;
 
@@ -32,24 +34,40 @@ public class BoxInteractions : NetworkBehaviour
     [ClientRpc]
     public void ChangeColorClientRpc(Color color)
     {
+        ChangeColor(color);
+    }
+
+    public void ChangeColor(Color color)
+    {
         GetComponent<SpriteRenderer>().color = color;
         started = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsOwner && !destroyed)
+        if (isOffline || (IsOwner && !destroyed))
         {
             switch (collision.tag)
             {
                 case "Box":
                     collision.GetComponent<BoxInteractions>().SetDestroyed(true);
-                    NetworkObjectPool.Singleton.ReturnNetworkObject(collision.GetComponent<NetworkObject>(), "Box");
+                    if (!isOffline)
+                        NetworkObjectPool.Singleton.ReturnNetworkObject(collision.GetComponent<NetworkObject>(), "Box");
+                    else
+                        ObjectPool.Singleton.ReturnObject(collision.gameObject, "Offline Box");
                     break;
                 case "Player":
                     destroyed = true;
-                    AddUpgrade(collision.gameObject, collision.GetComponent<NetworkObject>().OwnerClientId);
-                    NetworkObjectPool.Singleton.ReturnNetworkObject(GetComponent<NetworkObject>(), "Box");
+                    if (!isOffline)
+                    {
+                        AddUpgrade(collision.gameObject, collision.GetComponent<NetworkObject>().OwnerClientId);
+                        NetworkObjectPool.Singleton.ReturnNetworkObject(GetComponent<NetworkObject>(), "Box");
+                    }
+                    else
+                    {
+                        AddUpgradeOffline();
+                        ObjectPool.Singleton.ReturnObject(gameObject, "Offline Box");
+                    }
                     break;
             }
         }
@@ -69,6 +87,22 @@ public class BoxInteractions : NetworkBehaviour
                 break;
             case 2:
                 playerObject.GetComponent<Shoot>().SetCurrentWeaponClientRpc(weaponIndex, weaponBullets, clientRpcParams);
+                break;
+        }
+    }
+
+    void AddUpgradeOffline()
+    {
+        switch (upgradeIndex)
+        {
+            case 0:
+                FindObjectOfType<Player>().AddLife();
+                break;
+            case 1:
+                FindObjectOfType<PlayerMovement>().SetMultiplier(1.5f);
+                break;
+            case 2:
+                FindObjectOfType<Shoot>().SetCurrentWeapon(weaponIndex, weaponBullets);
                 break;
         }
     }

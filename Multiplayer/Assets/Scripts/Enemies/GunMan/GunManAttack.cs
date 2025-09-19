@@ -6,6 +6,17 @@ public class GunManAttack : EnemyAttack
 {
     public override void Attack()
     {
-        // GunMan attack logic here
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            enemy.PlayerTarget.DecrementLife(damage);
+            timer = attackCooldown;
+            Debug.Log("Attacking");
+        }
     }
+    public override void StartAttack()
+    {
+        timer = 0;
+    }
+
 }

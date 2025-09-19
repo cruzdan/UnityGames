@@ -948,12 +948,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24758a07228c9c4584ed704f82345e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightKey: 100
-  leftKey: 97
+  isOffline: 0
   walkSpeedX: 5
-  multiplier: 1
-  runKey: 304
   runSpeed: 8
+  multiplier: 1
   multiplierTime: 5
   maxStamina: 100
   currentStamina: 0
@@ -1105,6 +1103,7 @@ MonoBehaviour:
   canvas: {fileID: 2653180620797016507}
   playerMovement: {fileID: 2653180620859600408}
   playerShoot: {fileID: -7234463745716518368}
+  isOffline: 0
 --- !u!114 &1498156063037385602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1163,7 @@ MonoBehaviour:
   weaponDamage: 0f0000000a0000000800000064000000
   playerUI: {fileID: 1498156063037385602}
   currentBullets: 0
+  isOffline: 0
   currentWeapon: 0
 --- !u!114 &-3035581159313018139
 MonoBehaviour:

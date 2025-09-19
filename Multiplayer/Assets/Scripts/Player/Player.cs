@@ -3,6 +3,9 @@ using Unity.Netcode;
 
 public class Player : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false; // ? Modo offline
+
     [SerializeField] private const int MaxLife = 100;
     private int currentLife;
     [SerializeField] private float timeInvincible;
@@ -22,21 +25,29 @@ public class Player : NetworkBehaviour
 
     ClientRpcParams clientRpcParams1;
     private readonly ulong[] clientId = new ulong[1];
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (!IsOwner) return;
+        //if (!IsOwner) return;
+        if (!isOffline && !IsOwner) return;
         canvas.SetActive(true);
         PlayerCameraFollow.Instance.FollowPlayer(transform);
         currentLife = MaxLife;
         timerInvincible = timeInvincible;
         timerDead = deadWaitTime;
-        SetSpawnPositionServerRpc();
+        if (!isOffline)
+            SetSpawnPositionServerRpc();
+        else
+            transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
+        restarting = false;
     }
 
     void Update()
     {
-        if (!IsOwner || restarting) return;
+        //if (!IsOwner || restarting) return;
+
+        if ((!isOffline && !IsOwner) || restarting) return;
         if (dead)
         {
             int a = (int)timerDead;
@@ -65,7 +76,10 @@ public class Player : NetworkBehaviour
                 if (visible)
                 {
                     visible = false;
-                    SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 0));
+                    if (!isOffline)
+                        SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 0));
+                    else
+                        spriteRenderer.color = new Color(255, 255, 255, 0);
                 }
             }
             else
@@ -73,7 +87,10 @@ public class Player : NetworkBehaviour
                 if (!visible)
                 {
                     visible = true;
-                    SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 255));
+                    if (!isOffline)
+                        SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 255));
+                    else
+                        spriteRenderer.color = new Color(255, 255, 255, 255);
                 }
             }
             if (timerInvincible < 0)
@@ -103,6 +120,11 @@ public class Player : NetworkBehaviour
 
     [ClientRpc]
     public void SetPositionClientRpc(Vector2 pos, ClientRpcParams clientRpcParams = default)
+    {
+        SetPosition(pos);
+    }
+
+    public void SetPosition(Vector2 pos)
     {
         transform.position = pos;
     }
@@ -136,10 +158,18 @@ public class Player : NetworkBehaviour
                 playerMovement.enabled = false;
                 playerShoot.enabled = false;
                 dead = true;
-                SetColorSpriteRendererServerRpc(new Color(0.1f, 0.1f, 0.1f, 0.4f));
+                if (!isOffline)
+                    SetColorSpriteRendererServerRpc(new Color(0.1f, 0.1f, 0.1f, 0.4f));
+                else
+                    spriteRenderer.color = new Color(0.1f, 0.1f, 0.1f, 0.4f);
+
                 playerUI.ActiveDeadMenu(true);
                 playerUI.SetDeadTimeText(deadWaitTime.ToString());
-                SetSpawnPositionServerRpc();
+                if (!isOffline)
+                    SetSpawnPositionServerRpc();
+                else
+                    transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
+                restarting = false;
             }
             playerUI.SetLifeText(currentLife.ToString());
             playerUI.SetLifeWidth(currentLife * 0.01f);
@@ -155,10 +185,18 @@ public class Player : NetworkBehaviour
         invincible = false;
         timerInvincible = timeInvincible;
         visible = true;
-        SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 255));
+        if (!isOffline)
+            SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 255));
+        else
+            spriteRenderer.color = new Color(255, 255, 255, 255);
     }
     [ClientRpc]
     public void AddLifeClientRpc(ClientRpcParams clientRpcParams = default)
+    {
+        AddLife();
+    }
+
+    public void AddLife()
     {
         currentLife = MaxLife;
         playerUI.SetLifeText(currentLife.ToString());

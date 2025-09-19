@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Unity.Netcode;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions;
 /// <summary>
@@ -87,7 +88,7 @@ public class NetworkObjectPool : NetworkBehaviour
                 return a;
             }
         }
-        Debug.LogError("NetworkPrefab is not contained in prefabs");
+        Debug.LogError("NetworkPrefab is not contained in prefabs: " + name);
         return null;
     }
 
@@ -153,6 +154,7 @@ public class NetworkObjectPool : NetworkBehaviour
         {
             var go = CreateInstance(prefab);
             ReturnNetworkObject(go.GetComponent<NetworkObject>(), prefab);
+            
         }
 
         // Register Netcode Spawn handlers
@@ -162,7 +164,26 @@ public class NetworkObjectPool : NetworkBehaviour
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private GameObject CreateInstance(GameObject prefab)
     {
+        foreach (var pooledPrefab in PooledPrefabsList)
+        {
+            if (pooledPrefab.Prefab == prefab && pooledPrefab.parent != null)
+            {
+                return Instantiate(prefab, pooledPrefab.parent);
+            }
+        }
         return Instantiate(prefab);
+    }
+
+    public Transform GetPrefabParent(string  prefabName)
+    {
+        foreach (var pooledPrefab in PooledPrefabsList)
+        {
+            if (pooledPrefab.Prefab.name == prefabName)
+            {
+                return pooledPrefab.parent;
+            }
+        }
+        return null;
     }
 
     /// <summary>
@@ -192,6 +213,8 @@ public class NetworkObjectPool : NetworkBehaviour
         auxiliarObject.SetActive(true);
         if (!auxiliarObject.GetComponent<NetworkObject>().IsSpawned)
             auxiliarObject.GetComponent<NetworkObject>().Spawn();
+
+        auxiliarObject.transform.SetParent(GetPrefabParent(prefab.name));
 
         return auxiliarNetObject;
     }
@@ -228,6 +251,7 @@ struct PoolConfigObject
 {
     public GameObject Prefab;
     public int PrewarmCount;
+    public Transform parent;
 }
 
 class PooledPrefabInstanceHandler : INetworkPrefabInstanceHandler

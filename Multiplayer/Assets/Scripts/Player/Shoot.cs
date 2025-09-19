@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
 
 public class Shoot : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false; // ? Modo offline
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletPosition;
     //time to shoot for every Weapon
@@ -37,12 +37,12 @@ public class Shoot : NetworkBehaviour
     [SerializeField] private Weapon currentWeapon = Weapon.Pistol;
     private void Start()
     {
-        if (!IsOwner) return;
+        if (!isOffline && !IsOwner) return;
         playerInput = GetComponent<PlayerInput>();
     }
     void Update()
     {
-        if (!IsOwner) return;
+        if (!isOffline && !IsOwner) return;
         if(shootTimer > 0)
         {
             shootTimer -= Time.deltaTime;
@@ -79,26 +79,40 @@ public class Shoot : NetworkBehaviour
 
     void ShootPistolBullet()
     {
-        GenerateBulletServerRpc(bulletPosition.position, Color.black, transform.right, weaponMaxDistances[0], weaponSpeeds[0], weaponDamage[0]);
+        if (!isOffline)
+            GenerateBulletServerRpc(bulletPosition.position, Color.black, transform.right, weaponMaxDistances[0], weaponSpeeds[0], weaponDamage[0]);
+        else
+            GenerateBulletLocal(bulletPosition.position, Color.black, transform.right, weaponMaxDistances[0], weaponSpeeds[0], weaponDamage[0]);
     }
     void ShootShotgunBullet()
     {
         for(int i = 0; i < TotalShotgunBullets; i++)
         {
-            GenerateBulletServerRpc(bulletPosition.position, Color.red, 
+            if (!isOffline)
+                GenerateBulletServerRpc(bulletPosition.position, Color.red, 
+                new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized, weaponMaxDistances[1], weaponSpeeds[1], weaponDamage[1]);
+            else
+                GenerateBulletLocal(bulletPosition.position, Color.red,
                 new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized, weaponMaxDistances[1], weaponSpeeds[1], weaponDamage[1]);
         }
     }
 
     void ShootMachineBullet()
     {
-        GenerateBulletServerRpc(new(bulletPosition.position.x, bulletPosition.position.y + Random.Range(-0.3f, 0.3f)), Color.green, transform.right,
+        if (!isOffline)
+            GenerateBulletServerRpc(new(bulletPosition.position.x, bulletPosition.position.y + Random.Range(-0.3f, 0.3f)), Color.green, transform.right,
             weaponMaxDistances[2], weaponSpeeds[2], weaponDamage[2]);
+        else
+            GenerateBulletLocal(new Vector2(bulletPosition.position.x, bulletPosition.position.y + Random.Range(-0.3f, 0.3f)), Color.green, transform.right,
+            weaponMaxDistances[2], weaponSpeeds[2], weaponDamage[2]);   
     }
 
     void ShootSniperBullet()
     {
-        GenerateBulletServerRpc(bulletPosition.position, Color.yellow, transform.right, weaponMaxDistances[3], weaponSpeeds[3], weaponDamage[3]);
+        if (!isOffline)
+            GenerateBulletServerRpc(bulletPosition.position, Color.yellow, transform.right, weaponMaxDistances[3], weaponSpeeds[3], weaponDamage[3]);
+        else
+            GenerateBulletLocal(bulletPosition.position, Color.yellow, transform.right, weaponMaxDistances[3], weaponSpeeds[3], weaponDamage[3]);
     }
     [ServerRpc]
     void GenerateBulletServerRpc(Vector2 position, Color color, Vector2 direction, float maxDistance, float speed, int damage)
@@ -113,6 +127,19 @@ public class Shoot : NetworkBehaviour
         bulletInteractions.SetDamage(damage);
         bulletInteractions.SetDead(false);
         bulletInteractions.ChangeColorClientRpc(color);
+    }
+    void GenerateBulletLocal(Vector2 position, Color color, Vector2 direction, float maxDistance, float speed, int damage)
+    {
+        bullet = ObjectPool.Singleton.GetObject("Offline Bullet", position, Quaternion.identity);
+        bulletMovement = bullet.GetComponent<BulletMovement>();
+        bulletMovement.SetDirection(direction);
+        bulletMovement.SetSpeed(speed);
+        bulletMovement.SetMaxDistance(maxDistance);
+        bulletMovement.ReiniciateMovement();
+        bulletInteractions = bullet.GetComponent<BulletInteractions>();
+        bulletInteractions.SetDamage(damage);
+        bulletInteractions.SetDead(false);
+        bulletInteractions.ChangeColor(color);
     }
     [ClientRpc]
     public void SetCurrentWeaponClientRpc(int weaponIndex, int totalBullets, ClientRpcParams clientRpcParams = default)
@@ -130,7 +157,6 @@ public class Shoot : NetworkBehaviour
     }
     void DecrementBullets()
     {
-        
         currentBullets--;
         if (currentBullets <= 0)
         {

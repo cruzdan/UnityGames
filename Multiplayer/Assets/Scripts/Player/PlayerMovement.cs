@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
@@ -7,20 +6,20 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false; // ? Modo offline
+
     [Header("Walk")]
-    [SerializeField] private KeyCode rightKey;
-    [SerializeField] private KeyCode leftKey;
     [SerializeField] private float walkSpeedX = 5.0f;
     private float currentSpeed = 0;
     private Rigidbody2D rb;
     private Vector2 movement;
 
     [Header("Run")]
-    [SerializeField] private float multiplier = 1;
-    [SerializeField] private KeyCode runKey;
     [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float multiplier = 1;
     [SerializeField] private float multiplierTime = 5;
-    //stamina
+
     [SerializeField] private float maxStamina = 100f;
     [SerializeField] private float currentStamina;
     [SerializeField] private float regStamAmount = 4f;
@@ -28,6 +27,7 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float RegStamTime = 0.2f;
     [SerializeField] private float reduceStaminaTime = 0.2f;
     [SerializeField] private float timeToStartRegenerateStamina = 3f;
+
     private float timerRegStamina;
     private float timerReduceStamina;
     private float timerRegenerateStamina;
@@ -46,14 +46,13 @@ public class PlayerMovement : NetworkBehaviour
 
     [SerializeField] private PlayerUI playerUI;
 
-    //animator
     private Animator animator;
-
     private PlayerInput playerInput;
 
     void Start()
     {
-        if (!IsOwner) return;
+        if (!isOffline && !IsOwner) return;
+
         rb = GetComponent<Rigidbody2D>();
         currentStamina = maxStamina;
         timerRegStamina = timeToStartRegenerateStamina;
@@ -63,41 +62,63 @@ public class PlayerMovement : NetworkBehaviour
 
     void Update()
     {
-        if (!IsOwner) return;
-        
+        if (!CanControl()) return;
+
+        HandlePause();
+        HandleRun();
+        HandleStaminaRegen();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!CanControl()) return;
+
+        HandleMovement();
+        HandleJump();
+    }
+
+    // ? Decidir si este jugador puede mover
+    private bool CanControl()
+    {
+        return isOffline || IsOwner;
+    }
+
+    private void HandlePause()
+    {
         if (playerInput.actions["Pause"].WasPressedThisFrame())
         {
             playerUI.ChangePauseMenu();
         }
-        if (playerInput.actions["Run"].IsPressed())
+    }
+
+    private void HandleRun()
+    {
+        if (playerInput.actions["Run"].IsPressed() && currentStamina > 0)
         {
-            if (currentStamina > 0)
+            currentSpeed = runSpeed;
+            if (timerReduceStamina <= 0f)
             {
-                currentSpeed = runSpeed;
-                if (timerReduceStamina <= 0f)
-                {
-                    currentStamina -= redStamAmount;
-                    currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
-                    playerUI.SetStaminaText(currentStamina.ToString());
-                    playerUI.SetStaminaWidth(currentStamina * 0.01f);
-                    timerReduceStamina = reduceStaminaTime;
-                }
-                else
-                {
-                    timerReduceStamina -= Time.deltaTime;
-                }
+                currentStamina -= redStamAmount;
+                currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
+                playerUI.SetStaminaText(currentStamina.ToString());
+                playerUI.SetStaminaWidth(currentStamina * 0.01f);
+                timerReduceStamina = reduceStaminaTime;
             }
             else
             {
-                currentSpeed = walkSpeedX;
+                timerReduceStamina -= Time.deltaTime;
             }
+
             timerRegStamina = timeToStartRegenerateStamina;
         }
         else
         {
             currentSpeed = walkSpeedX;
         }
+    }
 
+    private void HandleStaminaRegen()
+    {
         if (currentStamina < maxStamina)
         {
             if (timerRegStamina > 0f)
@@ -120,56 +141,59 @@ public class PlayerMovement : NetworkBehaviour
                 }
             }
         }
-        if(timerMultiplier > 0)
+
+        if (timerMultiplier > 0)
         {
             timerMultiplier -= Time.deltaTime;
-            if(timerMultiplier <= 0)
+            if (timerMultiplier <= 0)
             {
                 multiplier = 1;
             }
         }
     }
-    [ServerRpc]
-    void ChangeAnglesServerRpc(float x, float y)
+
+    private void HandleMovement()
     {
-        transform.localEulerAngles = new Vector2(x, y);
-    }
-    private void FixedUpdate()
-    {
-        if (!IsOwner) return;
         movement = Vector2.zero;
+
         if (playerInput.actions["Right"].IsPressed())
         {
-            if(transform.localEulerAngles.y != 0)
+            if (transform.localEulerAngles.y != 0)
             {
-                ChangeAnglesServerRpc(0, 0);
+                if (!isOffline) 
+                    ChangeAnglesServerRpc(0, 0);
+                else
+                    transform.localEulerAngles = new Vector2(0, 0);
             }
-            transform.localEulerAngles = new Vector2(0, 0);
             movement.x = currentSpeed * multiplier;
         }
+
         if (playerInput.actions["Left"].IsPressed())
         {
             if (transform.localEulerAngles.y != 180)
             {
-                ChangeAnglesServerRpc(0, 180);
+                if (!isOffline) 
+                    ChangeAnglesServerRpc(0, 180);
+                else
+                transform.localEulerAngles = new Vector2(0, 180);
             }
-            transform.localEulerAngles = new Vector2(0, 180);
             movement.x = -currentSpeed * multiplier;
         }
+        rb.velocity = new Vector2(movement.x, rb.velocity.y);
+    }
 
-
+    private void HandleJump()
+    {
         hitGround = Physics2D.OverlapCircle(groundPoint.position, groundRadius, groundMask);
-        //jump
-        if(playerInput.actions["Jump"].IsPressed())
+
+        if (playerInput.actions["Jump"].IsPressed() && hitGround)
         {
-            if (hitGround)
-            {
-                vertSpeed = jumpSpeed;
-                hitGround = false;
-            }
+            vertSpeed = jumpSpeed;
+            hitGround = false;
         }
 
         animator.SetBool("OnGround", hitGround);
+
         if (hitGround)
         {
             vertSpeed = minFall;
@@ -178,14 +202,19 @@ public class PlayerMovement : NetworkBehaviour
         {
             vertSpeed += gravity * 5 * Time.deltaTime;
             if (vertSpeed < terminalVelocity)
-            {
                 vertSpeed = terminalVelocity;
-            }
         }
-        movement.y = vertSpeed;
+
+        rb.velocity = new Vector2(rb.velocity.x, vertSpeed);
         animator.SetFloat("Horizontal", Mathf.Abs(movement.x));
-        rb.velocity = movement;
     }
+
+    [ServerRpc]
+    void ChangeAnglesServerRpc(float x, float y)
+    {
+        transform.localEulerAngles = new Vector2(x, y);
+    }
+
     public void SetMaxStamina()
     {
         currentStamina = maxStamina;
@@ -194,12 +223,19 @@ public class PlayerMovement : NetworkBehaviour
         playerUI.SetStaminaText(currentStamina.ToString());
         playerUI.SetStaminaWidth(currentStamina * 0.01f);
     }
+
     [ClientRpc]
     public void SetMultiplierClientRpc(float value, ClientRpcParams clientRpcParams = default)
+    {
+        SetMultiplier(value);
+    }
+
+    public void SetMultiplier(float value)
     {
         multiplier = value;
         timerMultiplier = multiplierTime;
     }
+
     public void RestartVelocity()
     {
         rb.velocity = Vector2.zero;

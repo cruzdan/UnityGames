@@ -12,6 +12,7 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField] private Button serverButton;
     [SerializeField] private Button clientButton;
     [SerializeField] private Button lanButton;
+    [SerializeField] private Button offlineButton;
     #endregion
     #region Panel
     [Header("Panel")]
@@ -35,6 +36,7 @@ public class NetworkManagerUI : MonoBehaviour
         AddServerButtonEvents();
         AddClientButtonEvents();
         AddLanButtonEvents();
+        AddOfflineButtonEvents();
     }
 
     void AddHostButtonEvents()
@@ -118,7 +120,6 @@ public class NetworkManagerUI : MonoBehaviour
                     {
                         ipAddress = addr.Address.ToString();
                         idText.GetComponent<InputField>().text = ipAddress;
-                        Debug.Log("IpAddress: " + ipAddress);
                         return;
                     }
                 }
@@ -127,7 +128,17 @@ public class NetworkManagerUI : MonoBehaviour
         // Si no se encuentra, asigna localhost como fallback
         ipAddress = "127.0.0.1";
         idText.GetComponent<InputField>().text = ipAddress;
-        Debug.Log("IpAddress: " + ipAddress);
+    }
+
+    void AddOfflineButtonEvents()
+    {
+        offlineButton.onClick.AddListener(StartOfflineMode);
+    }
+
+    void StartOfflineMode()
+    {
+        boxManager.SetActive(true);
+        HideNetworkButtons();
     }
 
     void HideNetworkButtons()

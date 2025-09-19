@@ -1,8 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using static EnemyState;
 
+[RequireComponent(typeof(EnemyState))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int maxLife;
@@ -76,4 +80,38 @@ public class Enemy : MonoBehaviour
     {
         enemyObject.SetActive(false);
     }
+
+    public void FillReferences()
+    {
+        enemyMovement = GetComponent<EnemyMovement>();
+        enemyAttack = GetComponent<EnemyAttack>();
+        enemyDetection = GetComponent<EnemyDetection>();
+        enemyState = GetComponent<EnemyState>();
+        enemyObject = gameObject;
+        enemyMovement.Enemy = this;
+        enemyAttack.Enemy = this;
+        enemyDetection.Enemy = this;
+        enemyState.Enemy = this;
+    }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Enemy))]
+public class EnemyEditor : Editor
+{
+    private Enemy enemy;
+    private void OnEnable()
+    {
+        enemy = (Enemy)target;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+        if (GUILayout.Button("Fill References"))
+        {
+            enemy.FillReferences();
+        }
+    }
+}
+#endif

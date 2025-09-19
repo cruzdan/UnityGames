@@ -5,6 +5,9 @@ using Unity.Netcode;
 
 public class Teleporter : NetworkBehaviour
 {
+    [Header("General")]
+    [SerializeField] private bool isOffline = false;
+
     public NetworkVariable<Color> ownColor = new NetworkVariable<Color>();
     [SerializeField] private Transform nextPortal;
     //enabled and disabled
@@ -38,7 +41,7 @@ public class Teleporter : NetworkBehaviour
 
     void Update()
     {
-        if (!IsOwner) return;
+        if (!isOffline && !IsOwner) return;
         if (!active)
         {
             timer -= Time.deltaTime;
@@ -54,29 +57,56 @@ public class Teleporter : NetworkBehaviour
         timer = timeToActivePortal;
         if (value)
         {
-            ChangePortalColorClientRpc(portalColors[0]);
+            if (isOffline)
+            {
+                ChangePortalColor(portalColors[0]);
+            }
+            else
+            {
+                ChangePortalColorClientRpc(portalColors[0]);
+            }
             ownColor.Value = portalColors[0];
         }
         else
         {
-            ChangePortalColorClientRpc(portalColors[1]);
+            if (isOffline)
+            {
+                ChangePortalColor(portalColors[1]);
+            }
+            else
+            {
+                ChangePortalColorClientRpc(portalColors[1]);
+            }
             ownColor.Value = portalColors[1];
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && active && IsOwner)
+        if (collision.gameObject.CompareTag("Player") && active && (IsOwner || isOffline))
         {
-            clientId[0] = collision.GetComponent<NetworkObject>().OwnerClientId;
-            clientRpcParams.Send.TargetClientIds = clientId;
-            collision.GetComponent<Player>().SetPositionClientRpc(nextPortal.position, clientRpcParams);
-            nextTeleporter.SetActivePortal(false);
+            if (!isOffline)
+            {
+                clientId[0] = collision.GetComponent<NetworkObject>().OwnerClientId;
+                clientRpcParams.Send.TargetClientIds = clientId;
+                collision.GetComponent<Player>().SetPositionClientRpc(nextPortal.position, clientRpcParams);
+                nextTeleporter.SetActivePortal(false);
+            }
+            else
+            {
+                collision.GetComponent<Player>().SetPosition(nextPortal.position);
+                nextTeleporter.SetActivePortal(false);
+            }
             SetActivePortal(false);
         }
     }
 
     [ClientRpc]
     public void ChangePortalColorClientRpc(Color color)
+    {
+        ChangePortalColor(color);
+    }
+
+    public void ChangePortalColor(Color color)
     {
         spriteRenderer.color = color;
     }
