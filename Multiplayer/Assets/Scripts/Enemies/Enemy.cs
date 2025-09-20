@@ -9,6 +9,7 @@ using static EnemyState;
 [RequireComponent(typeof(EnemyState))]
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private bool isOffline = false;
     [SerializeField] private int maxLife;
     [SerializeField] private int currentLife;
     [SerializeField] private int maxDefense;
@@ -19,11 +20,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyState enemyState;
     [SerializeField] private GameObject enemyObject;
     [SerializeField] private Player playerTarget;
+    [SerializeField] private PlayerManager playerManager;
     public EnemyMovement EnemyMovement => enemyMovement;
     public EnemyAttack EnemyAttack => enemyAttack;
     public EnemyDetection EnemyDetection => enemyDetection;
     public EnemyState EnemyState => enemyState;
     public Player PlayerTarget { get { return playerTarget; } set { playerTarget = value; } }
+    public PlayerManager PlayerManager { get { return playerManager; } set { playerManager = value; } }
+    public bool IsOffline { get { return isOffline; } }
 
     private void Update()
     {

@@ -6,7 +6,7 @@ public class GunManMovement : EnemyMovement
 {
     //test
     [SerializeField] private float cooldown;
-    [SerializeField] private float timer;
+    private float timer;
     public override void StartChase()
     {
         timer = cooldown;

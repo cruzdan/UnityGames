@@ -11,7 +11,6 @@ public class GunManAttack : EnemyAttack
         {
             enemy.PlayerTarget.DecrementLife(damage);
             timer = attackCooldown;
-            Debug.Log("Attacking");
         }
     }
     public override void StartAttack()

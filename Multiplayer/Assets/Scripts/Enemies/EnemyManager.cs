@@ -11,6 +11,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float spawnIntervalMin = 2f;
     [SerializeField] private float spawnIntervalMax = 5f;
     [SerializeField] private bool isSpawning = false;
+    [SerializeField] private PlayerManager playerManager;
     private Coroutine spawningCoroutine;
 
     public List<GameObject> EnemyPrefabs => enemyPrefabs;
@@ -38,7 +39,8 @@ public class EnemyManager : MonoBehaviour
         Debug.Log("SpawnRandomEnemyOnRandomSpawn");
         int spawnIndex = Random.Range(0, spawns.Count);
         int enemyIndex = Random.Range(0, enemyPrefabs.Count);
-        Instantiate(enemyPrefabs[enemyIndex], spawns[spawnIndex].position, Quaternion.identity);
+        GameObject enemyObject = Instantiate(enemyPrefabs[enemyIndex], spawns[spawnIndex].position, Quaternion.identity);
+        enemyObject.GetComponent<Enemy>().PlayerManager = playerManager;
     }
 
     public void StopSpawning()

@@ -7,7 +7,6 @@ public class GunManDetection : EnemyDetection
 {
     public override void Idle()
     {
-        Debug.Log("Idle");
         Player nearestPlayer = GetNearestPlayer();
         if (nearestPlayer != null)
         {
