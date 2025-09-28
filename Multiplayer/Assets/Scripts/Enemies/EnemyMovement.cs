@@ -1,11 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    #region General
+    [Header("General")]
     [SerializeField] protected Enemy enemy;
-    [SerializeField] private float speed;
+    [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected Jump jump;
+    #endregion
+    #region Movement
+    [Header("Movement")]
+    [SerializeField] protected Transform groundCheck;
+    [SerializeField] protected Transform wallCheck;
+    [SerializeField] protected Transform missingGroundCheck;
+    [SerializeField] protected float checkRadius = 0.2f;
+    [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected float speed;
+    protected bool facingRight = true;
+    #endregion
+    
+    #region Auxiliar Variables
+    protected float direction;
+    protected float distance;
+    protected bool hitGround;
+    protected bool isGroundInFront;
+    protected bool isWallInFront;
+    private Vector2 rightFacingAngle = Vector2.zero;
+    private Vector2 leftFacingAngle = new Vector2(0, 180);
+    #endregion
+    protected Vector2 movement;
     public Enemy Enemy { get => enemy; set => enemy = value; }
     public virtual void Chase()
     {
@@ -14,5 +38,49 @@ public class EnemyMovement : MonoBehaviour
 
     public virtual void StartChase()
     {
+    }
+
+    protected void FollowTarget()
+    {
+        movement = new Vector2(Mathf.Sign(direction) * speed, rb.velocity.y);
+        rb.velocity = movement;
+    }
+
+    public void FlipEnemyDirectionIfPossible()
+    {
+        direction = enemy.PlayerTarget.transform.position.x - transform.position.x;
+        if (direction > 0 && !facingRight)
+            Flip();
+        else if (direction < 0 && facingRight)
+            Flip();
+    }
+
+    protected void Flip()
+    {
+        facingRight = !facingRight;
+        transform.localEulerAngles = facingRight ? rightFacingAngle : leftFacingAngle;
+    }
+
+    protected void JumpIfPossible()
+    {
+        isWallInFront = Physics2D.OverlapCircle(wallCheck.position, checkRadius, groundLayer);
+        isGroundInFront = Physics2D.OverlapCircle(missingGroundCheck.position, checkRadius, groundLayer);
+        if (!isGroundInFront || isWallInFront)
+        {
+            jump.HandleJump(false);
+        }
+    }
+
+    protected void PassToAttackIfPossible()
+    {
+        hitGround = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        distance = Vector2.Distance(transform.position, enemy.PlayerTarget.transform.position);
+        if (Mathf.Abs(distance) <= enemy.EnemyAttack.AttackRange && hitGround)
+        {
+            enemy.StartAttack();
+            movement = Vector2.zero;
+            movement.y = rb.velocity.y;
+            rb.velocity = movement;
+        }
     }
 }

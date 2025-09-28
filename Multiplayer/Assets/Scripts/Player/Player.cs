@@ -3,29 +3,44 @@ using Unity.Netcode;
 
 public class Player : NetworkBehaviour
 {
+    #region General Variables
     [Header("General")]
-    [SerializeField] private bool isOffline = false; // ? Modo offline
-
-    [SerializeField] private const int MaxLife = 100;
-    private int currentLife;
-    [SerializeField] private float timeInvincible;
-    
-    bool invincible;
-    bool visible = true;
-    float timerInvincible;
-    [SerializeField] private float deadWaitTime = 3f;
-    bool dead;
-    float timerDead;
+    [SerializeField] private bool isOffline = false;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private GameObject canvas;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Shoot playerShoot;
-    SpriteRenderer spriteRenderer;
-    bool restarting = false;
-
-    ClientRpcParams clientRpcParams1;
+    [SerializeField] private Stun playerStun;
+    private SpriteRenderer spriteRenderer;
+    #endregion
+    #region Life
+    [Header("Life")]
+    [SerializeField] private const int MaxLife = 100;
+    private int currentLife;
+    #endregion
+    #region Invincible
+    [Header("Invincible")]
+    [SerializeField] private float timeInvincible;
+    private bool invincible;
+    private bool visible = true;
+    private float timerInvincible;
+    #endregion
+    #region Dead
+    [Header("Dead")]
+    [SerializeField] private float deadWaitTime = 3f;
+    private bool dead;
+    private float timerDead;
+    private bool restarting = false;
+    #endregion
+    #region Network Variables
+    private ClientRpcParams clientRpcParams1;
     private readonly ulong[] clientId = new ulong[1];
-
+    #endregion
+    #region Public Properties
+    public PlayerUI PlayerUI { get { return playerUI; } }
+    public Stun PlayerStun { get { return playerStun; } }
+    #endregion
+    #region Functions
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,15 +53,13 @@ public class Player : NetworkBehaviour
         timerDead = deadWaitTime;
         if (!isOffline)
             SetSpawnPositionServerRpc();
-        else
-            transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
+        //else
+            //transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
         restarting = false;
     }
 
     void Update()
     {
-        //if (!IsOwner || restarting) return;
-
         if ((!isOffline && !IsOwner) || restarting) return;
         if (dead)
         {
@@ -155,6 +168,7 @@ public class Player : NetworkBehaviour
                 playerMovement.SetMaxStamina();
                 playerMovement.RestartVelocity();
                 playerShoot.SetCurrentWeapon(0, 100);
+                playerUI.SetBulletText(playerShoot.CurrentBullets.ToString());
                 playerMovement.enabled = false;
                 playerShoot.enabled = false;
                 dead = true;
@@ -202,4 +216,5 @@ public class Player : NetworkBehaviour
         playerUI.SetLifeText(currentLife.ToString());
         playerUI.SetLifeWidth(currentLife * 0.01f);
     }
+    #endregion
 }

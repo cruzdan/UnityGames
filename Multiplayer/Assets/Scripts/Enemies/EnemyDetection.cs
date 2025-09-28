@@ -6,8 +6,9 @@ using UnityEngine;
 public class EnemyDetection : MonoBehaviour
 {
     [SerializeField] protected Enemy enemy;
-    protected float detectionRange;
+    [SerializeField] protected float detectionRange;
     public Enemy Enemy { get => enemy; set => enemy = value; }
+    public float DetectionRange { get => detectionRange; set => detectionRange = value; }
     public virtual void Idle()
     {
 
@@ -51,7 +52,6 @@ public class EnemyDetection : MonoBehaviour
         float nearestDistance = Mathf.Infinity;
         foreach (Player player in enemy.PlayerManager.Players)
         {
-            Debug.Log("Searching in players: " + player.name);
             float distance = Vector3.Distance(transform.position, player.transform.position);
             if (distance < nearestDistance /*&& distance <= detectionRange*/)
             {

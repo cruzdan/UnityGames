@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+//Class that handles the movement of the GunMan enemy
 public class GunManMovement : EnemyMovement
 {
-    //test
-    [SerializeField] private float cooldown;
-    private float timer;
-    public override void StartChase()
-    {
-        timer = cooldown;
-    }
+    #region Functions
     public override void Chase()
     {
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            enemy.EnemyState.CurrentEnemyState = EnemyState.EnemyStateEnum.Attacking;
-            enemy.EnemyAttack.StartAttack();
-        }
+        if (enemy.PlayerTarget == null) return;
+        FlipEnemyDirectionIfPossible();
+        JumpIfPossible();
+        FollowTarget();
+        PassToAttackIfPossible();
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+            Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
+        if (wallCheck != null)
+            Gizmos.DrawWireSphere(wallCheck.position, checkRadius);
+    }
+    #endregion
 }

@@ -21,12 +21,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject enemyObject;
     [SerializeField] private Player playerTarget;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private Animator enemyAnimator;
     public EnemyMovement EnemyMovement => enemyMovement;
     public EnemyAttack EnemyAttack => enemyAttack;
     public EnemyDetection EnemyDetection => enemyDetection;
     public EnemyState EnemyState => enemyState;
     public Player PlayerTarget { get { return playerTarget; } set { playerTarget = value; } }
     public PlayerManager PlayerManager { get { return playerManager; } set { playerManager = value; } }
+    public Animator EnemyAnimator => enemyAnimator;
     public bool IsOffline { get { return isOffline; } }
 
     private void Update()
@@ -96,6 +98,24 @@ public class Enemy : MonoBehaviour
         enemyAttack.Enemy = this;
         enemyDetection.Enemy = this;
         enemyState.Enemy = this;
+    }
+
+    public void StartDetection()
+    {
+        enemyState.CurrentEnemyState = EnemyStateEnum.Idle;
+        enemyDetection.StartDetection();
+    }
+
+    public void StartChase()
+    {
+        enemyState.CurrentEnemyState = EnemyStateEnum.Chasing;
+        enemyMovement.StartChase();
+    }
+
+    public void StartAttack()
+    {
+        enemyState.CurrentEnemyState = EnemyStateEnum.Attacking;
+        enemyAttack.StartAttack();
     }
 }
 

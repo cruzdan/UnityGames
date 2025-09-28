@@ -838,6 +838,8 @@ GameObject:
   - component: {fileID: 1498156063037385602}
   - component: {fileID: -7234463745716518368}
   - component: {fileID: -3035581159313018139}
+  - component: {fileID: 1028642533871641258}
+  - component: {fileID: 7092105678148352955}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1097,13 +1099,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa6a577124e87b41877c1fc4b8f13d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeInvincible: 3
-  deadWaitTime: 3
+  isOffline: 0
   playerUI: {fileID: 1498156063037385602}
   canvas: {fileID: 2653180620797016507}
   playerMovement: {fileID: 2653180620859600408}
   playerShoot: {fileID: -7234463745716518368}
-  isOffline: 0
+  playerStun: {fileID: 7092105678148352955}
+  timeInvincible: 3
+  deadWaitTime: 3
 --- !u!114 &1498156063037385602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,28 +1146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8328e333d651e24f81b226bd8d42865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2911001411847273266, guid: 05c84e4f50a50e341981e6e633aedf81, type: 3}
-  bulletPosition: {fileID: 2653180620828991691}
-  timeToShoot:
-  - 0.5
-  - 1
-  - 0.15
-  - 1
-  weaponSpeeds:
-  - 14
-  - 14
-  - 13
-  - 30
-  weaponMaxDistances:
-  - 12
-  - 4
-  - 7
-  - 30
-  weaponDamage: 0f0000000a0000000800000064000000
-  playerUI: {fileID: 1498156063037385602}
-  currentBullets: 0
   isOffline: 0
+  bulletInfoSO: {fileID: 0}
+  bulletPosition: {fileID: 2653180620828991691}
+  currentBullets: 0
   currentWeapon: 0
+  overrideDamage: 0
+  damageOverride: 0
 --- !u!114 &-3035581159313018139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1187,38 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1028642533871641258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653180620859600411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6484a9bb9468249ab107ee4509f11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffline: 0
+  playerUI: {fileID: 1498156063037385602}
+  playerInput: {fileID: -3035581159313018139}
+  shoot: {fileID: -7234463745716518368}
+--- !u!114 &7092105678148352955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653180620859600411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9d7022e4c17cc4cbdf84ebbac0b200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2653180620859600409}
+  componentsToDisable:
+  - {fileID: 2653180620859600408}
+  - {fileID: 1028642533871641258}
 --- !u!1 &2653180620931132728
 GameObject:
   m_ObjectHideFlags: 0

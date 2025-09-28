@@ -4,7 +4,7 @@ using Unity.Netcode;
 public class BulletInteractions : NetworkBehaviour
 {
     [Header("General")]
-    [SerializeField] private bool isOffline = false; // ? Modo offline
+    [SerializeField] private bool isOffline = false;
     [SerializeField] private int damage;
     ClientRpcParams clientRpcParams;
     private readonly ulong[] clientId = new ulong[1];

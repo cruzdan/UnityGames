@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
@@ -9,9 +7,7 @@ public class BoxInteractions : NetworkBehaviour
     [SerializeField] private bool isOffline = false;
     public NetworkVariable<Color> ownColor = new NetworkVariable<Color>();
     bool destroyed;
-
     bool started = false;
-
     //health, speed, weapon
     [SerializeField] private int upgradeIndex;
     //pistol, shotgun, machine gun, sniper
@@ -93,16 +89,19 @@ public class BoxInteractions : NetworkBehaviour
 
     void AddUpgradeOffline()
     {
+        Player player = FindObjectOfType<Player>();
         switch (upgradeIndex)
         {
             case 0:
-                FindObjectOfType<Player>().AddLife();
+                player.AddLife();
                 break;
             case 1:
-                FindObjectOfType<PlayerMovement>().SetMultiplier(1.5f);
+                player.GetComponent<PlayerMovement>().SetMultiplier(1.5f);
                 break;
             case 2:
-                FindObjectOfType<Shoot>().SetCurrentWeapon(weaponIndex, weaponBullets);
+                Shoot playerShoot = player.GetComponent<Shoot>();
+                playerShoot.SetCurrentWeapon(weaponIndex, weaponBullets);
+                player.PlayerUI.SetBulletText(playerShoot.CurrentBullets.ToString());
                 break;
         }
     }

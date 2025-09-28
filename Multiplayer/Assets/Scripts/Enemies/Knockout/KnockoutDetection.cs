@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using static EnemyState;
-
-public class GunManDetection : EnemyDetection
+public class KnockoutDetection : EnemyDetection
 {
     public override void Idle()
     {
