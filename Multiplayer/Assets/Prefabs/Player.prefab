@@ -454,6 +454,90 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Move Left
+--- !u!1 &2557755877125812688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6686408908365673209}
+  - component: {fileID: 3961089905212632893}
+  m_Layer: 8
+  m_Name: BurnObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6686408908365673209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557755877125812688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2653180620859600415}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3961089905212632893
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2557755877125812688}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1456019908, guid: a6bcfdeb7f9472842862adad2830a4dd, type: 3}
+  m_Color: {r: 1, g: 0.64142984, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2653180620097051888
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +924,7 @@ GameObject:
   - component: {fileID: -3035581159313018139}
   - component: {fileID: 1028642533871641258}
   - component: {fileID: 7092105678148352955}
+  - component: {fileID: 7787172662044407387}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -862,6 +947,7 @@ Transform:
   - {fileID: 2653180620097051889}
   - {fileID: 2653180620828991691}
   - {fileID: 2653180620797016504}
+  - {fileID: 6686408908365673209}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1105,6 +1191,14 @@ MonoBehaviour:
   playerMovement: {fileID: 2653180620859600408}
   playerShoot: {fileID: -7234463745716518368}
   playerStun: {fileID: 7092105678148352955}
+  burning: {fileID: 7787172662044407387}
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
   timeInvincible: 3
   deadWaitTime: 3
 --- !u!114 &1498156063037385602
@@ -1151,8 +1245,13 @@ MonoBehaviour:
   bulletPosition: {fileID: 2653180620828991691}
   currentBullets: 0
   currentWeapon: 0
+  canAttackPlayers: 0
+  ownerPlayer: {fileID: 0}
+  canAttackEnemies: 0
+  ownerEnemy: {fileID: 0}
   overrideDamage: 0
   damageOverride: 0
+  infinite: 0
 --- !u!114 &-3035581159313018139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,6 +1318,33 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 2653180620859600408}
   - {fileID: 1028642533871641258}
+--- !u!114 &7787172662044407387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653180620859600411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1b7fad6317c4e4eb89e3d3eeffbd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffline: 0
+  spriteRenderer: {fileID: 2653180620859600414}
+  burningDuration: 3
+  burningDamagePerSecond: 3
+  isBurning: 0
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  burningColor: {r: 255, g: 140, b: 0, a: 255}
+  burningTimer: 0
 --- !u!1 &2653180620931132728
 GameObject:
   m_ObjectHideFlags: 0

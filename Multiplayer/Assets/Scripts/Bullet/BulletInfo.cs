@@ -11,6 +11,7 @@ public class BulletInfo
     [SerializeField] private float maxDistance;
     [SerializeField] private int damage;
     [SerializeField] private Color color;
+    [SerializeField] private int totalBullets;
     #endregion 
     #region Public Properties
     public Weapon WeaponType { get { return weaponType; } }
@@ -21,6 +22,7 @@ public class BulletInfo
     public float MaxDistance { get { return maxDistance; } }
     public int Damage { get { return damage; } }
     public Color Color { get { return color; } }
+    public int TotalBullets { get { return totalBullets; } }
     #endregion
 }
 public enum Weapon
@@ -29,4 +31,6 @@ public enum Weapon
     Shotgun = 1,
     MachineGun = 2,
     Sniper = 3,
+    FlameThrower = 4,
+    Barrel = 5
 }

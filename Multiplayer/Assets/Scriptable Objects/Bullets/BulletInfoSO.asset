@@ -22,6 +22,7 @@ MonoBehaviour:
     maxDistance: 12
     damage: 15
     color: {r: 0, g: 0, b: 0, a: 1}
+    totalBullets: 100
   - weaponType: 1
     onlineBulletPrefab: {fileID: 2911001411847273266, guid: 05c84e4f50a50e341981e6e633aedf81, type: 3}
     offlineBulletPrefab: {fileID: 2911001411847273266, guid: 4935d4dedde703147b4a74bf1d229265, type: 3}
@@ -30,6 +31,7 @@ MonoBehaviour:
     maxDistance: 4
     damage: 10
     color: {r: 1, g: 0, b: 0, a: 1}
+    totalBullets: 10
   - weaponType: 2
     onlineBulletPrefab: {fileID: 2911001411847273266, guid: 05c84e4f50a50e341981e6e633aedf81, type: 3}
     offlineBulletPrefab: {fileID: 2911001411847273266, guid: 4935d4dedde703147b4a74bf1d229265, type: 3}
@@ -38,6 +40,7 @@ MonoBehaviour:
     maxDistance: 7
     damage: 8
     color: {r: 0, g: 1, b: 0, a: 1}
+    totalBullets: 75
   - weaponType: 3
     onlineBulletPrefab: {fileID: 2911001411847273266, guid: 05c84e4f50a50e341981e6e633aedf81, type: 3}
     offlineBulletPrefab: {fileID: 2911001411847273266, guid: 4935d4dedde703147b4a74bf1d229265, type: 3}
@@ -46,3 +49,22 @@ MonoBehaviour:
     maxDistance: 30
     damage: 100
     color: {r: 1, g: 0.99997795, b: 0, a: 1}
+    totalBullets: 1
+  - weaponType: 4
+    onlineBulletPrefab: {fileID: 7389266712770747830, guid: 6549ef33abed2c249915116fba20c728, type: 3}
+    offlineBulletPrefab: {fileID: 7389266712770747830, guid: 6549ef33abed2c249915116fba20c728, type: 3}
+    timeToShoot: 0.1
+    speed: 6
+    maxDistance: 6
+    damage: 5
+    color: {r: 1, g: 0.99997795, b: 0, a: 1}
+    totalBullets: 35
+  - weaponType: 5
+    onlineBulletPrefab: {fileID: 7287457768212872100, guid: 7c5da99781cd7a64e8fcccaab53e129d, type: 3}
+    offlineBulletPrefab: {fileID: 7287457768212872100, guid: 7c5da99781cd7a64e8fcccaab53e129d, type: 3}
+    timeToShoot: 2
+    speed: 2
+    maxDistance: 100
+    damage: 30
+    color: {r: 1, g: 1, b: 1, a: 1}
+    totalBullets: 25

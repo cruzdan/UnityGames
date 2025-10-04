@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 2766257822221796815}
   - component: {fileID: 2766257822221796812}
   - component: {fileID: 2766257822221796813}
+  - component: {fileID: 8269278856837479606}
   m_Layer: 8
   m_Name: Knockout
   m_TagString: Enemy
@@ -263,18 +264,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOffline: 1
-  maxLife: 0
-  currentLife: 0
-  maxDefense: 0
-  defense: 0
+  enemyName: Knockout
   enemyMovement: {fileID: 2766257822221796813}
   enemyAttack: {fileID: 2766257822221796815}
   enemyDetection: {fileID: 2766257822221796812}
   enemyState: {fileID: 5366123671182360334}
-  enemyObject: {fileID: 2176893446504127129}
-  playerTarget: {fileID: 0}
   playerManager: {fileID: 0}
   enemyAnimator: {fileID: 2176893446504127122}
+  burning: {fileID: 8269278856837479606}
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
 --- !u!114 &5366123671182360335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5366123671182360321}
-  damage: 1
+  damage: 15
   attackRange: 2
   attackCooldown: 1
   attackAnimationDuration: 0.2
@@ -356,6 +360,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   speed: 3
+--- !u!114 &8269278856837479606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176893446504127129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1b7fad6317c4e4eb89e3d3eeffbd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffline: 1
+  spriteRenderer: {fileID: 2176893446504127132}
+  burningDuration: 3
+  burningDamagePerSecond: 3
+  isBurning: 0
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  burningColor: {r: 1, g: 0.40392157, b: 0, a: 1}
 --- !u!1 &2176893446541677640
 GameObject:
   m_ObjectHideFlags: 0

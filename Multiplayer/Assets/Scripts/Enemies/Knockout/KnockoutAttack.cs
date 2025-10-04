@@ -1,17 +1,20 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 public class KnockoutAttack : EnemyAttack
 {
+    #region Serialized Variables
     [SerializeField] private float attackAnimationDuration = 0.2f;
     [SerializeField] private float attackDelay = 0.1f;
     [SerializeField] private GameObject attackObject;
     [SerializeField, Tooltip("Time it will take for the enemy to stun the player")] private float stunTime;
     [SerializeField, Tooltip("Time the player will remain stunned")] private float stunTimeToPlayer;
+    #endregion
+    #region Private Variables
     private float stunTimer;
-    bool canStun = true;
-
+    private bool canStun = true;
     private Coroutine attackCoroutine;
+    #endregion
+    #region Functions
     public override void StartAttack()
     {
         attackCoroutine = StartCoroutine(Knockout());
@@ -20,20 +23,6 @@ public class KnockoutAttack : EnemyAttack
     {
         enemy.EnemyMovement.FlipEnemyDirectionIfPossible();
         UpdateStunTimer();
-        //if (TargetIsOutOfRange())
-        //{
-        //    enemy.StartChase();
-        //    return;
-        //}
-        //timer -= Time.deltaTime;
-        //if (timer <= 0)
-        //{
-        //    if (enemy.PlayerTarget != null)
-        //    {
-        //        enemy.PlayerTarget.DecrementLife(damage);
-        //        timer = attackCooldown;
-        //    }
-        //}
     }
     IEnumerator Knockout()
     {
@@ -97,4 +86,5 @@ public class KnockoutAttack : EnemyAttack
             }
         }
     }
+    #endregion
 }

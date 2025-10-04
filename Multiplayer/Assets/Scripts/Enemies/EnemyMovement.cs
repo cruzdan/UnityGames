@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
+//Class in charge of general enemy movement
 public class EnemyMovement : MonoBehaviour
 {
     #region General
@@ -16,10 +15,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] protected Transform missingGroundCheck;
     [SerializeField] protected float checkRadius = 0.2f;
     [SerializeField] protected LayerMask groundLayer;
-    [SerializeField] protected float speed;
+    [SerializeField] protected float speed = 3;
     protected bool facingRight = true;
+    protected Vector2 movement;
     #endregion
-    
     #region Auxiliar Variables
     protected float direction;
     protected float distance;
@@ -27,13 +26,20 @@ public class EnemyMovement : MonoBehaviour
     protected bool isGroundInFront;
     protected bool isWallInFront;
     private Vector2 rightFacingAngle = Vector2.zero;
-    private Vector2 leftFacingAngle = new Vector2(0, 180);
+    private Vector2 leftFacingAngle = new(0, 180);
     #endregion
-    protected Vector2 movement;
+    #region Public Properties
     public Enemy Enemy { get => enemy; set => enemy = value; }
+    public bool IsFacingRight { get => facingRight; }
+    public float Speed { get => speed; set => speed = value; }
+    #endregion
+    #region Functions
     public virtual void Chase()
     {
-
+        FollowTarget();
+        FlipEnemyDirectionIfPossible();
+        JumpIfPossible();
+        PassToAttackIfPossible();
     }
 
     public virtual void StartChase()
@@ -83,4 +89,10 @@ public class EnemyMovement : MonoBehaviour
             rb.velocity = movement;
         }
     }
+
+    public bool IsGroundInFront()
+    {
+        return Physics2D.OverlapCircle(missingGroundCheck.position, checkRadius, groundLayer);
+    }
+    #endregion
 }

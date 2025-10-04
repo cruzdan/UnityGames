@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 1812444788734544479}
   - component: {fileID: 1812444788734544466}
   - component: {fileID: 1812444788734544465}
+  - component: {fileID: 8939484864697587094}
   m_Layer: 8
   m_Name: GunMan
   m_TagString: Enemy
@@ -325,18 +326,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOffline: 1
-  maxLife: 0
-  currentLife: 0
-  maxDefense: 0
-  defense: 0
+  enemyName: GunMan
   enemyMovement: {fileID: 1812444788734544477}
   enemyAttack: {fileID: 1812444788734544479}
   enemyDetection: {fileID: 1812444788734544478}
   enemyState: {fileID: 1812444788734544467}
-  enemyObject: {fileID: 5578470016957116356}
-  playerTarget: {fileID: 0}
   playerManager: {fileID: 0}
   enemyAnimator: {fileID: 5578470016957116367}
+  burning: {fileID: 8939484864697587094}
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
 --- !u!114 &1812444788734544477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1812444788734544476}
-  damage: 1
+  damage: 15
   attackRange: 7
   attackCooldown: 1
   shoot: {fileID: 1812444788734544465}
@@ -431,6 +435,39 @@ MonoBehaviour:
   bulletPosition: {fileID: 5578470016922837268}
   currentBullets: 0
   currentWeapon: 0
+  canAttackPlayers: 0
+  ownerPlayer: {fileID: 0}
+  canAttackEnemies: 0
+  ownerEnemy: {fileID: 0}
+  overrideDamage: 0
+  damageOverride: 0
+  infinite: 0
+--- !u!114 &8939484864697587094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578470016957116356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1b7fad6317c4e4eb89e3d3eeffbd60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffline: 1
+  spriteRenderer: {fileID: 5578470016957116353}
+  burningDuration: 3
+  burningDamagePerSecond: 3
+  isBurning: 0
+  health:
+    maxLife: 100
+    currentLife: 0
+    maxDefense: 0
+    defense: 0
+    canBurn: 1
+    overrideInvincibility: 0
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  burningColor: {r: 1, g: 0.40392157, b: 0, a: 1}
 --- !u!1 &7618763851321302151
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,21 @@
 using UnityEngine;
-
+//Class in charge of general enemy attack behavior
 public class EnemyAttack : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] protected Enemy enemy;
     [SerializeField] protected int damage;
     [SerializeField] protected float attackRange;
     [SerializeField] protected float attackCooldown;
+    #endregion
+    #region Private Variables
     protected float timer;
+    #endregion
+    #region Public Properties
     public Enemy Enemy { get => enemy; set => enemy = value; }
     public float AttackRange { get => attackRange; set => attackRange = value; }
+    #endregion
+    #region Functions
     public virtual void Attack()
     {
 
@@ -38,4 +45,5 @@ public class EnemyAttack : MonoBehaviour
         return Mathf.Abs(transform.position.x - enemy.PlayerTarget.transform.position.x) <=
             enemy.EnemyAttack.AttackRange;
     }
+    #endregion
 }

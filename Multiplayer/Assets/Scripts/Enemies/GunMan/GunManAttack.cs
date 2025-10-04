@@ -1,11 +1,18 @@
 using UnityEngine;
 public class GunManAttack : EnemyAttack
 {
+    #region Serialized Variables
     [SerializeField] private Shoot shoot;
+    #endregion
+    #region Functions
     private void Start()
     {
         shoot.OverrideDamage = true;
         shoot.DamageOverride = damage;
+        shoot.CanAttackEnemies = false;
+        shoot.CanAttackPlayers = true;
+        shoot.OwnerPlayer = null;
+        shoot.OwnerEnemy = enemy;
     }
     public override void Attack()
     {
@@ -27,11 +34,5 @@ public class GunManAttack : EnemyAttack
             timer = attackCooldown;
         }
     }
-
-    public override void StartAttack()
-    {
-        //timer = 0;
-    }
-
-    
+    #endregion
 }

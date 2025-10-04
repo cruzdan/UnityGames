@@ -11,12 +11,12 @@ public class Player : NetworkBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Shoot playerShoot;
     [SerializeField] private Stun playerStun;
+    [SerializeField] private Burning burning;
     private SpriteRenderer spriteRenderer;
     #endregion
     #region Life
     [Header("Life")]
-    [SerializeField] private const int MaxLife = 100;
-    private int currentLife;
+    [SerializeField] private Health health;
     #endregion
     #region Invincible
     [Header("Invincible")]
@@ -39,16 +39,21 @@ public class Player : NetworkBehaviour
     #region Public Properties
     public PlayerUI PlayerUI { get { return playerUI; } }
     public Stun PlayerStun { get { return playerStun; } }
+    public Burning Burning { get { return burning; } }
+    public Health Health { get { return health; } }
     #endregion
     #region Functions
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //if (!IsOwner) return;
+        playerShoot.CanAttackEnemies = true;
+        playerShoot.CanAttackPlayers = true;
+        playerShoot.OwnerPlayer = this;
+        playerShoot.OwnerEnemy = null;
         if (!isOffline && !IsOwner) return;
         canvas.SetActive(true);
         PlayerCameraFollow.Instance.FollowPlayer(transform);
-        currentLife = MaxLife;
+        health.InitializeHealth();
         timerInvincible = timeInvincible;
         timerDead = deadWaitTime;
         if (!isOffline)
@@ -56,6 +61,9 @@ public class Player : NetworkBehaviour
         //else
             //transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
         restarting = false;
+        health.OnDie += OnDie;
+        health.OnLifeChange += OnLifeChange;
+        burning.Health = health;
     }
 
     void Update()
@@ -116,7 +124,7 @@ public class Player : NetworkBehaviour
         {
             restarting = true;
             ResetPlayer();
-            DecrementLife(MaxLife);
+            health.Die();
         }
     }
 
@@ -156,41 +164,49 @@ public class Player : NetworkBehaviour
         clientRpcParams1.Send.TargetClientIds = clientId;
         SetSpawnPositionClientRpc(Spawns.Instance.GetPlayerSpawnPoint().position, clientRpcParams1);
     }
-    public void DecrementLife(int damage)
+    public void DecrementLife(float damage)
     {
         if (!invincible)
         {
-            currentLife -= damage;
-            if (currentLife <= 0)
-            {
-                currentLife = MaxLife;
-                invincible = true;
-                playerMovement.SetMaxStamina();
-                playerMovement.RestartVelocity();
-                playerShoot.SetCurrentWeapon(0, 100);
-                playerUI.SetBulletText(playerShoot.CurrentBullets.ToString());
-                playerMovement.enabled = false;
-                playerShoot.enabled = false;
-                dead = true;
-                if (!isOffline)
-                    SetColorSpriteRendererServerRpc(new Color(0.1f, 0.1f, 0.1f, 0.4f));
-                else
-                    spriteRenderer.color = new Color(0.1f, 0.1f, 0.1f, 0.4f);
-
-                playerUI.ActiveDeadMenu(true);
-                playerUI.SetDeadTimeText(deadWaitTime.ToString());
-                if (!isOffline)
-                    SetSpawnPositionServerRpc();
-                else
-                    transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
-                restarting = false;
-            }
-            playerUI.SetLifeText(currentLife.ToString());
-            playerUI.SetLifeWidth(currentLife * 0.01f);
+            health.TakeDamage(damage);
         }
     }
+
+    void OnDie()
+    {
+        health.InitializeHealth();
+        invincible = true;
+        playerMovement.SetMaxStamina();
+        playerMovement.RestartVelocity();
+        playerShoot.SetCurrentWeapon(Weapon.Pistol, 100);
+        playerUI.SetBulletText(playerShoot.CurrentBullets.ToString());
+        playerMovement.enabled = false;
+        playerShoot.enabled = false;
+        dead = true;
+        if (!isOffline)
+            SetColorSpriteRendererServerRpc(new Color(0.1f, 0.1f, 0.1f, 0.4f));
+        else
+            spriteRenderer.color = new Color(0.1f, 0.1f, 0.1f, 0.4f);
+
+        playerUI.ActiveDeadMenu(true);
+        playerUI.SetDeadTimeText(deadWaitTime.ToString());
+        if (!isOffline)
+            SetSpawnPositionServerRpc();
+        else
+            transform.position = Spawns.Instance.GetPlayerSpawnPoint().position;
+        restarting = false;
+        burning.StopBurning();
+        health.CanBurn = false;
+    }
+
+    void OnLifeChange(float life)
+    {
+        playerUI.SetLifeText(((int)health.CurrentLife).ToString());
+        playerUI.SetLifeWidth(health.CurrentLife * 0.01f);
+    }
+
     [ClientRpc]
-    public void DecrementLifeClientRpc(int damage, ClientRpcParams clientRpcParams = default)
+    public void DecrementLifeClientRpc(float damage, ClientRpcParams clientRpcParams = default)
     {
         DecrementLife(damage);
     }
@@ -198,6 +214,7 @@ public class Player : NetworkBehaviour
     {
         invincible = false;
         timerInvincible = timeInvincible;
+        health.CanBurn = true;
         visible = true;
         if (!isOffline)
             SetColorSpriteRendererServerRpc(new Color(255, 255, 255, 255));
@@ -212,9 +229,13 @@ public class Player : NetworkBehaviour
 
     public void AddLife()
     {
-        currentLife = MaxLife;
-        playerUI.SetLifeText(currentLife.ToString());
-        playerUI.SetLifeWidth(currentLife * 0.01f);
+        health.InitializeHealth();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void StartBurningServerRpc()
+    {
+        Burning.StartBurning();
     }
     #endregion
 }

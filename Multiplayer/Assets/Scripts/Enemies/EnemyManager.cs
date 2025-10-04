@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
-
-//Se encarga de crear enemigos aleatorios asignados en posiciones aleatorias en un tiempo aleatorio
+//Class in charge of creating random enemies assigned in random positions at a random time
 public class EnemyManager : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private List<Transform> spawns;
     [SerializeField] private float spawnIntervalMin = 2f;
     [SerializeField] private float spawnIntervalMax = 5f;
     [SerializeField] private bool isSpawning = false;
     [SerializeField] private PlayerManager playerManager;
+    #endregion
+    #region Private Variables
     private Coroutine spawningCoroutine;
-
+    #endregion
+    #region Auxiliar Variables
+    private Enemy enemy;
+    #endregion
+    #region Public Properties
     public List<GameObject> EnemyPrefabs => enemyPrefabs;
     public List<Transform> Spawns => spawns;
     public float SpawnIntervalMin { get => spawnIntervalMin; set => spawnIntervalMin = value; }
     public float SpawnIntervalMax { get => spawnIntervalMax; set => spawnIntervalMax = value; }
-    [ContextMenu("StartSpawning")]
+    #endregion
+    #region Functions
     public void StartSpawning()
     {
         isSpawning = true;
@@ -33,14 +39,15 @@ public class EnemyManager : MonoBehaviour
             SpawnRandomEnemyOnRandomSpawn();
         }
     }
-    [ContextMenu("SpawnRandomEnemyOnRandomSpawn")]
     public void SpawnRandomEnemyOnRandomSpawn()
     {
-        Debug.Log("SpawnRandomEnemyOnRandomSpawn");
         int spawnIndex = Random.Range(0, spawns.Count);
         int enemyIndex = Random.Range(0, enemyPrefabs.Count);
-        GameObject enemyObject = Instantiate(enemyPrefabs[enemyIndex], spawns[spawnIndex].position, Quaternion.identity);
-        enemyObject.GetComponent<Enemy>().PlayerManager = playerManager;
+        GameObject enemyObject = ObjectPool.Singleton.GetObject(enemyPrefabs[enemyIndex].name,
+            spawns[spawnIndex].position, Quaternion.identity);
+        enemy = enemyObject.GetComponent<Enemy>();
+        enemy.PlayerManager = playerManager;
+        enemy.Health.InitializeHealth();
     }
 
     public void StopSpawning()
@@ -51,4 +58,5 @@ public class EnemyManager : MonoBehaviour
             StopCoroutine(spawningCoroutine);
         }
     }
+    #endregion
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.InputSystem;
@@ -6,20 +5,22 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : NetworkBehaviour
 {
+    #region General Variables
     [Header("General")]
-    [SerializeField] private bool isOffline = false; // ? Modo offline
-
+    [SerializeField] private bool isOffline = false;
+    #endregion
+    #region Walk Variables
     [Header("Walk")]
     [SerializeField] private float walkSpeedX = 5.0f;
     private float currentSpeed = 0;
     private Rigidbody2D rb;
     private Vector2 movement;
-
+    #endregion
+    #region Run Variables
     [Header("Run")]
     [SerializeField] private float runSpeed = 8f;
     [SerializeField] private float multiplier = 1;
     [SerializeField] private float multiplierTime = 5;
-
     [SerializeField] private float maxStamina = 100f;
     [SerializeField] private float currentStamina;
     [SerializeField] private float regStamAmount = 4f;
@@ -27,12 +28,12 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float RegStamTime = 0.2f;
     [SerializeField] private float reduceStaminaTime = 0.2f;
     [SerializeField] private float timeToStartRegenerateStamina = 3f;
-
     private float timerRegStamina;
     private float timerReduceStamina;
     private float timerRegenerateStamina;
     private float timerMultiplier;
-
+    #endregion
+    #region Jump Variables
     [Header("Jump")]
     [SerializeField] private float jumpSpeed = 15f;
     [SerializeField] private float gravity = -9.8f;
@@ -43,12 +44,15 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundRadius = 0.2f;
     private bool hitGround;
-
+    #endregion
+    #region UI
     [SerializeField] private PlayerUI playerUI;
-
+    #endregion
+    #region Components
     private Animator animator;
     private PlayerInput playerInput;
-
+    #endregion
+    #region Functions
     void Start()
     {
         if (!isOffline && !IsOwner) return;
@@ -77,7 +81,6 @@ public class PlayerMovement : NetworkBehaviour
         HandleJump();
     }
 
-    // ? Decidir si este jugador puede mover
     private bool CanControl()
     {
         return isOffline || IsOwner;
@@ -160,8 +163,11 @@ public class PlayerMovement : NetworkBehaviour
         {
             if (transform.localEulerAngles.y != 0)
             {
-                if (!isOffline) 
+                if (!isOffline)
+                {
                     ChangeAnglesServerRpc(0, 0);
+                    transform.localEulerAngles = new Vector2(0, 0);
+                }
                 else
                     transform.localEulerAngles = new Vector2(0, 0);
             }
@@ -172,10 +178,13 @@ public class PlayerMovement : NetworkBehaviour
         {
             if (transform.localEulerAngles.y != 180)
             {
-                if (!isOffline) 
+                if (!isOffline)
+                {
                     ChangeAnglesServerRpc(0, 180);
+                    transform.localEulerAngles = new Vector2(0, 180);
+                }
                 else
-                transform.localEulerAngles = new Vector2(0, 180);
+                    transform.localEulerAngles = new Vector2(0, 180);
             }
             movement.x = -currentSpeed * multiplier;
         }
@@ -242,4 +251,5 @@ public class PlayerMovement : NetworkBehaviour
         animator.SetFloat("Horizontal", 0);
         animator.SetBool("OnGround", true);
     }
+    #endregion
 }

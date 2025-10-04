@@ -1,27 +1,31 @@
 using UnityEngine;
 using Unity.Netcode;
-
 public class BoxInteractions : NetworkBehaviour
 {
+    #region General
     [Header("General")]
     [SerializeField] private bool isOffline = false;
-    public NetworkVariable<Color> ownColor = new NetworkVariable<Color>();
-    bool destroyed;
-    bool started = false;
-    //health, speed, weapon
-    [SerializeField] private int upgradeIndex;
-    //pistol, shotgun, machine gun, sniper
-    [SerializeField] private int weaponIndex;
+    [SerializeField] private BoxType upgradeType;
+    [SerializeField] private Weapon weaponType;
     [SerializeField] private int weaponBullets;
-    ClientRpcParams clientRpcParams;
+    private bool isUsed;
+    private bool boxHasCorrectColor = false;
+    #endregion
+    #region Network
+    public NetworkVariable<Color> ownColor = new NetworkVariable<Color>();
+    private ClientRpcParams clientRpcParams;
     private readonly ulong[] clientId = new ulong[1];
-    public void SetDestroyed(bool value) { destroyed = value; }
-    public void SetUpgradeIndex(int index) { upgradeIndex = index; }
-    public void SetWeaponIndex(int index) { weaponIndex = index; }
+    #endregion
+    #region Public Properties
+    public void SetIsUsed(bool value) { isUsed = value; }
+    public void SetBoxType(BoxType boxType) { upgradeType = boxType; }
+    public void SetWeaponIndex(Weapon index) { weaponType = index; }
     public void SetWeaponBullets(int total) { weaponBullets = total; }
+    #endregion
+    #region
     private void Start()
     {
-        if (!IsOwner && !started) 
+        if (!IsOwner && !boxHasCorrectColor) 
         {
             GetComponent<SpriteRenderer>().color = ownColor.Value;
         }
@@ -36,24 +40,24 @@ public class BoxInteractions : NetworkBehaviour
     public void ChangeColor(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
-        started = true;
+        boxHasCorrectColor = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isOffline || (IsOwner && !destroyed))
+        if (isOffline || (IsOwner && !isUsed))
         {
             switch (collision.tag)
             {
                 case "Box":
-                    collision.GetComponent<BoxInteractions>().SetDestroyed(true);
+                    collision.GetComponent<BoxInteractions>().SetIsUsed(true);
                     if (!isOffline)
                         NetworkObjectPool.Singleton.ReturnNetworkObject(collision.GetComponent<NetworkObject>(), "Box");
                     else
                         ObjectPool.Singleton.ReturnObject(collision.gameObject, "Offline Box");
                     break;
                 case "Player":
-                    destroyed = true;
+                    isUsed = true;
                     if (!isOffline)
                     {
                         AddUpgrade(collision.gameObject, collision.GetComponent<NetworkObject>().OwnerClientId);
@@ -73,16 +77,16 @@ public class BoxInteractions : NetworkBehaviour
     {
         clientId[0] = playerId;
         clientRpcParams.Send.TargetClientIds = clientId;
-        switch (upgradeIndex)
+        switch (upgradeType)
         {
-            case 0:
+            case BoxType.Health:
                 playerObject.GetComponent<Player>().AddLifeClientRpc(clientRpcParams);
                 break;
-            case 1:
+            case BoxType.Speed:
                 playerObject.GetComponent<PlayerMovement>().SetMultiplierClientRpc(1.5f, clientRpcParams);
                 break;
-            case 2:
-                playerObject.GetComponent<Shoot>().SetCurrentWeaponClientRpc(weaponIndex, weaponBullets, clientRpcParams);
+            case BoxType.Weapon:
+                playerObject.GetComponent<Shoot>().SetCurrentWeaponClientRpc(weaponType, weaponBullets, clientRpcParams);
                 break;
         }
     }
@@ -90,19 +94,20 @@ public class BoxInteractions : NetworkBehaviour
     void AddUpgradeOffline()
     {
         Player player = FindObjectOfType<Player>();
-        switch (upgradeIndex)
+        switch (upgradeType)
         {
-            case 0:
+            case BoxType.Health:
                 player.AddLife();
                 break;
-            case 1:
+            case BoxType.Speed:
                 player.GetComponent<PlayerMovement>().SetMultiplier(1.5f);
                 break;
-            case 2:
+            case BoxType.Weapon:
                 Shoot playerShoot = player.GetComponent<Shoot>();
-                playerShoot.SetCurrentWeapon(weaponIndex, weaponBullets);
+                playerShoot.SetCurrentWeapon(weaponType, weaponBullets);
                 player.PlayerUI.SetBulletText(playerShoot.CurrentBullets.ToString());
                 break;
         }
     }
+    #endregion
 }

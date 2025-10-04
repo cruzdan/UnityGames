@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+//Class in charge of maintaining the enemy state
 public class EnemyState : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] protected Enemy enemy;
     [SerializeField] private EnemyStateEnum currentEnemyState;
+    #endregion
+    #region Public Properties
     public Enemy Enemy { get => enemy; set => enemy = value; }
-    public EnemyStateEnum CurrentEnemyState { get { return currentEnemyState; } set { currentEnemyState = value; } }
+    public EnemyStateEnum CurrentEnemyState 
+    { get { return currentEnemyState; } set { currentEnemyState = value; } }
+    #endregion
 }
 
 public enum EnemyStateEnum

@@ -1,18 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class BarrelThrowerDetection : MonoBehaviour
+public class BarrelThrowerDetection : EnemyDetection
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Idle()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Idle();
     }
 }

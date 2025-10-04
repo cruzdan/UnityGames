@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 
-//Clase encargada del menu de inicio de la aplicacion
+//Class in charge of the application start menu
 public class NetworkManagerUI : MonoBehaviour
 {
     #region Buttons
@@ -20,6 +20,7 @@ public class NetworkManagerUI : MonoBehaviour
     #endregion
     #region General components
     [Header("General components")]
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject boxManager;
     [SerializeField] private UnityTransport unityTransport;
     #endregion
@@ -51,7 +52,7 @@ public class NetworkManagerUI : MonoBehaviour
         {
             Logger.Instance.LogInfo("Host started");
             NetworkObjectPool.Singleton.InitializePools();
-            boxManager.SetActive(true);
+            EnableBoxManager();
             HideNetworkButtons();
         }
         else
@@ -72,7 +73,7 @@ public class NetworkManagerUI : MonoBehaviour
         {
             Logger.Instance.LogInfo("Server started");
             NetworkObjectPool.Singleton.InitializePools();
-            boxManager.SetActive(true);
+            EnableBoxManager();
             HideNetworkButtons();
         }
         else
@@ -107,7 +108,7 @@ public class NetworkManagerUI : MonoBehaviour
 
     void SetLanIp()
     {
-        // Obtiene la primera dirección IPv4 válida que no sea loopback ni virtual
+        // Gets the first valid IPv4 address that is not loopback or virtual
         foreach (var ni in System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces())
         {
             if (ni.OperationalStatus == System.Net.NetworkInformation.OperationalStatus.Up &&
@@ -125,7 +126,7 @@ public class NetworkManagerUI : MonoBehaviour
                 }
             }
         }
-        // Si no se encuentra, asigna localhost como fallback
+        // If not found, assigns localhost as fallback
         ipAddress = "127.0.0.1";
         idText.GetComponent<InputField>().text = ipAddress;
     }
@@ -137,7 +138,7 @@ public class NetworkManagerUI : MonoBehaviour
 
     void StartOfflineMode()
     {
-        boxManager.SetActive(true);
+        EnableBoxManager();
         HideNetworkButtons();
     }
 
@@ -159,6 +160,13 @@ public class NetworkManagerUI : MonoBehaviour
     void SetFPS(int fps)
     {
         Application.targetFrameRate = fps;
+    }
+
+    void EnableBoxManager()
+    {
+        if (!gameManager.ActiveBoxManager) return;
+        boxManager.SetActive(true);
+        boxManager.GetComponent<BoxManager>().Initialize();
     }
     #endregion
 }
