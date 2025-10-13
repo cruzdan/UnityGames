@@ -98,7 +98,6 @@ public class FlameInteractions : BulletInteractions
         if (!canAttackPlayers) return;
         if (player == ownerPlayer) return;
         clientId[0] = player.GetComponent<NetworkObject>().OwnerClientId;
-        Debug.Log("Flame hit player " + clientId[0]);
         clientRpcParams.Send.TargetClientIds = clientId;
         player.DecrementLifeClientRpc(damage * Time.deltaTime, clientRpcParams);
         //if (player.Health.CanBurn)

@@ -22,6 +22,7 @@ public class NetworkManagerUI : MonoBehaviour
     [Header("General components")]
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject boxManager;
+    [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private UnityTransport unityTransport;
     #endregion
     #region IP 
@@ -138,8 +139,7 @@ public class NetworkManagerUI : MonoBehaviour
 
     void StartOfflineMode()
     {
-        EnableBoxManager();
-        HideNetworkButtons();
+        sceneLoader.LoadOfflineScene(1);
     }
 
     void HideNetworkButtons()
@@ -170,3 +170,5 @@ public class NetworkManagerUI : MonoBehaviour
     }
     #endregion
 }
+
+

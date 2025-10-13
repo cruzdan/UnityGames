@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
                 enemyManager.StartSpawning();
             if (activeBoxManager)
             {
-
                 boxManager.Initialize();
                 boxManager.gameObject.SetActive(true);
             }

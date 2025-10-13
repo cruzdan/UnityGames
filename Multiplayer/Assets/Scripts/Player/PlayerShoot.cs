@@ -10,6 +10,7 @@ public class PlayerShoot : NetworkBehaviour
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private Shoot shoot;
+    [SerializeField] private HoldButton shootHoldButton;
     private float shootTimer = 0;
     #endregion
     #region Functions
@@ -23,13 +24,12 @@ public class PlayerShoot : NetworkBehaviour
     {
         if (!isOffline && !IsOwner) return;
         if (playerInput == null) { enabled = false; return; }
-        ;
         if (shootTimer > 0)
         {
             shootTimer -= Time.deltaTime;
             return;
         }
-        if (playerInput.actions["Shoot"].IsPressed())
+        if (playerInput.actions["Shoot"].IsPressed() || shootHoldButton.IsPressed)
         {
             shoot.ShootCurrentWeapon();
             playerUI.SetBulletText(shoot.CurrentBullets.ToString());

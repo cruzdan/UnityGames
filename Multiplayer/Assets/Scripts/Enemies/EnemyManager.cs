@@ -11,9 +11,13 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float spawnIntervalMax = 5f;
     [SerializeField] private bool isSpawning = false;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private int maxEnemiesToSpawn;
     #endregion
     #region Private Variables
     private Coroutine spawningCoroutine;
+    #endregion
+    #region Static Variables
+    public static int TotalCurrentEnemies;
     #endregion
     #region Auxiliar Variables
     private Enemy enemy;
@@ -36,7 +40,8 @@ public class EnemyManager : MonoBehaviour
         {
             float waitTime = Random.Range(spawnIntervalMin, spawnIntervalMax);
             yield return new WaitForSeconds(waitTime);
-            SpawnRandomEnemyOnRandomSpawn();
+            if (TotalCurrentEnemies < maxEnemiesToSpawn)
+                SpawnRandomEnemyOnRandomSpawn();
         }
     }
     public void SpawnRandomEnemyOnRandomSpawn()
@@ -48,6 +53,7 @@ public class EnemyManager : MonoBehaviour
         enemy = enemyObject.GetComponent<Enemy>();
         enemy.PlayerManager = playerManager;
         enemy.Health.InitializeHealth();
+        TotalCurrentEnemies++;
     }
 
     public void StopSpawning()
@@ -57,6 +63,12 @@ public class EnemyManager : MonoBehaviour
         {
             StopCoroutine(spawningCoroutine);
         }
+    }
+
+    public static void DecreaseEnemyCount()
+    {
+        TotalCurrentEnemies--;
+        if (TotalCurrentEnemies < 0) TotalCurrentEnemies = 0;
     }
     #endregion
 }

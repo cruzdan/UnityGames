@@ -45,6 +45,13 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float groundRadius = 0.2f;
     private bool hitGround;
     #endregion
+    #region Mobile
+    [Header("Mobile")]
+    [SerializeField] private Joystick joystick;
+    [SerializeField] private float runningValue = 0.8f;
+    [SerializeField] private float minJumpValue = 0.6f;
+    [SerializeField] private float minValueToMove = 0.1f;
+    #endregion
     #region UI
     [SerializeField] private PlayerUI playerUI;
     #endregion
@@ -56,7 +63,6 @@ public class PlayerMovement : NetworkBehaviour
     void Start()
     {
         if (!isOffline && !IsOwner) return;
-
         rb = GetComponent<Rigidbody2D>();
         currentStamina = maxStamina;
         timerRegStamina = timeToStartRegenerateStamina;
@@ -67,7 +73,6 @@ public class PlayerMovement : NetworkBehaviour
     void Update()
     {
         if (!CanControl()) return;
-
         HandlePause();
         HandleRun();
         HandleStaminaRegen();
@@ -76,7 +81,6 @@ public class PlayerMovement : NetworkBehaviour
     private void FixedUpdate()
     {
         if (!CanControl()) return;
-
         HandleMovement();
         HandleJump();
     }
@@ -96,7 +100,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void HandleRun()
     {
-        if (playerInput.actions["Run"].IsPressed() && currentStamina > 0)
+        if ((playerInput.actions["Run"].IsPressed() || IsRunningOnMobile()) && currentStamina > 0)
         {
             currentSpeed = runSpeed;
             if (timerReduceStamina <= 0f)
@@ -118,6 +122,11 @@ public class PlayerMovement : NetworkBehaviour
         {
             currentSpeed = walkSpeedX;
         }
+    }
+
+    bool IsRunningOnMobile()
+    {
+        return Mathf.Abs(joystick.Horizontal) >= runningValue;
     }
 
     private void HandleStaminaRegen()
@@ -159,7 +168,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         movement = Vector2.zero;
 
-        if (playerInput.actions["Right"].IsPressed())
+        if ((playerInput.actions["Right"].IsPressed() || joystick.Horizontal >= minValueToMove))
         {
             if (transform.localEulerAngles.y != 0)
             {
@@ -174,7 +183,7 @@ public class PlayerMovement : NetworkBehaviour
             movement.x = currentSpeed * multiplier;
         }
 
-        if (playerInput.actions["Left"].IsPressed())
+        if (playerInput.actions["Left"].IsPressed() || joystick.Horizontal <= -minValueToMove)
         {
             if (transform.localEulerAngles.y != 180)
             {
@@ -195,7 +204,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         hitGround = Physics2D.OverlapCircle(groundPoint.position, groundRadius, groundMask);
 
-        if (playerInput.actions["Jump"].IsPressed() && hitGround)
+        if ((playerInput.actions["Jump"].IsPressed() || joystick.Vertical >= minJumpValue) && hitGround)
         {
             vertSpeed = jumpSpeed;
             hitGround = false;

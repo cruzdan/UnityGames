@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         ObjectPool.Singleton.ReturnObject(gameObject, enemyName);
+        EnemyManager.DecreaseEnemyCount();
     }
 
     public void FillReferences()
