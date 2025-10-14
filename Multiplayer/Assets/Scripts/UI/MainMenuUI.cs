@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,10 +6,11 @@ public class MainMenuUI : MonoBehaviour
 {
     #region General components
     [Header("General components")]
-    [SerializeField] private SceneLoader sceneLoader;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private BoxManager boxManager;
-    [SerializeField] private NetworkConnections networkConnections;
+    public Action OnStartLANHost;
+    public Action OnStartLANClient;
+    public Action OnStartCustomClient;
+    public Action OnStartCustomHost;
+    public Action OnStartOfflineMode;
     #endregion
     #region Menus
     [Header("Menus")]
@@ -35,6 +37,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private InputField ipInputField;
     [SerializeField] private Button createCustomServerStartButton;
     [SerializeField] private Button createCustomServerBackButton;
+    public InputField IpInputField { get { return ipInputField; } }
     #endregion
     #region Join Custom Server Menu
     [Header("Join Custom Server Menu")]
@@ -42,6 +45,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button setLANIpButton;
     [SerializeField] private Button joinCustomServerStartButton;
     [SerializeField] private Button joinCustomServerBackButton;
+    public InputField JoinIpInputField { get { return joinIpInputField; } }
     #endregion
     #region Servers Menu
     [Header("Servers Menu")]
@@ -86,7 +90,7 @@ public class MainMenuUI : MonoBehaviour
 
     void AddCreateServerMenuButtonEvents()
     {
-        setLANIpButton.onClick.AddListener(() => ipInputField.text = networkConnections.GetLanIp());
+        //setLANIpButton.onClick.AddListener(() => ipInputField.text = networkConnections.GetLanIp());
         createCustomServerStartButton.onClick.AddListener(StartCustomHost);
         createCustomServerBackButton.onClick.AddListener(ShowServersMenu);
     }
@@ -140,49 +144,38 @@ public class MainMenuUI : MonoBehaviour
     void StartOfflineMode()
     {
         Debug.Log("Starting offline mode...");
-        sceneLoader.LoadOfflineScene(1);
+        OnStartOfflineMode?.Invoke();
     }
 
     void StartLANHost()
     {
         Debug.Log("Starting LAN Host...");
-        networkConnections.IPAddress = networkConnections.GetLanIp();
-        networkConnections.StartHost();
+        OnStartLANHost?.Invoke();
         HideMenus();
-        EnableBoxManager();
     }
 
     void StartLANClient()
     {
         Debug.Log("Starting LAN Client...");
-        networkConnections.IPAddress = networkConnections.GetLanIp();
-        networkConnections.StartClient();
+        OnStartLANClient?.Invoke();
         HideMenus();
     }
 
     void StartCustomHost()
     {
         Debug.Log("Starting Custom Host...");
-        networkConnections.IPAddress = ipInputField.text;
-        networkConnections.StartHost();
+        OnStartCustomHost?.Invoke();
         HideMenus();
-        EnableBoxManager();
     }
 
     void StartCustomClient()
     {
         Debug.Log("Starting Custom Client...");
-        networkConnections.IPAddress = joinIpInputField.text;
-        networkConnections.StartClient();
+        OnStartCustomClient?.Invoke();
         HideMenus();
     }
 
-    void EnableBoxManager()
-    {
-        if (!gameManager.ActiveBoxManager) return;
-        boxManager.gameObject.SetActive(true);
-        boxManager.Initialize();
-    }
+    
 
     void HideMenus()
     {
