@@ -49,18 +49,12 @@ Gradius:
 	
 Multiplayer:
 -Resolution 16:9
--First make a build of the game: File -> Build Settings... -> Build and select a folder to save the new files
--Pass those files to other machine who are connected on the same red.
--Execute the file Multiplayer.exe in 2 or more machines
--Set your own ip address (direction IPv4) on the input field
--The first session need to be the host or server (any of these options work)
--The other sessions need to be clients with the same ip address to be connected on the game
+-Unity version: 2021.3.3f1.
+Shooter game platformer 2D online and offline, available on computer in both modes and Android in online only
+Play online with more people in your same LAN red, get weapons from boxes spawned for the world and shoot your Friends until you kill them.
+Play offline versus enemies that chase and attack you in different ways, try to avoid and kill them.
+This game Will be updated for the most recent versions and will be removed from the repo when the new version is available.
 
-The server is used to generate the game red where the clients will be connected
-Diferences between select Host or Server:
--Server: generates the lan game
--Host: generates the lan game and add a client(player) on it
-Both generate a server, but the host add a initial client to the game
 
 -Controls in game:
 	Right: 				<D,Right Arrow, Joystick axis X+ >
@@ -68,6 +62,7 @@ Both generate a server, but the host add a initial client to the game
 	Jump:				<Space, Joystick button A >
 	Run:				<Left Shift, Joystick button X >
 	Shoot:				<E, Joystick Right trigger >
+	Android: 			Using Joystick Pack
 
 Ms Pac Man:
 -Play with unity in the Title Scene
