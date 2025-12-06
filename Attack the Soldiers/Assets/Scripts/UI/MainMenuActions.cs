@@ -1,78 +1,73 @@
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
 public class MainMenuActions : MonoBehaviour
 {
     #region General components
     [Header("General components")]
-    //[SerializeField] private SceneLoader sceneLoader;
-    //[SerializeField] private GameManager gameManager;
-    //[SerializeField] private BoxManager boxManager;
-    //[SerializeField] private NetworkConnections networkConnections;
     [SerializeField] private MainMenuUI mainMenuUI;
-    [SerializeField] private ConnectionManager connectionManager;
-    [SerializeField] private Unity.Netcode.Transports.UTP.UnityTransport unityTransport;
+    [SerializeField] private NetworkGameManager networkGameManager;
+    private UnityTransport transport;
     #endregion
+    #region Functions
+    void Start()
+    {
+        transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
+        if (mainMenuUI.PortInput != null)
+            mainMenuUI.PortInput.text = "7777";
+        mainMenuUI.IpInput.text = PlayerPrefs.GetString("last_ip", "192.168.");
+    }
+
     void Awake()
     {
         mainMenuUI.OnStartOfflineMode += OnStartOfflineMode;
-        mainMenuUI.OnStartLANHost += OnStartLANHost;
-        mainMenuUI.OnStartLANClient += OnStartLANClient;
-        mainMenuUI.OnStartCustomHost += OnStartCustomHost;
-        mainMenuUI.OnStartCustomClient += OnStartCustomClient;
-        mainMenuUI.OnSetLanIpPressed += OnSetLanIpPressed;
+        mainMenuUI.OnStartOnlinePVPMode += SetPVPModeValues;
+        mainMenuUI.OnStartOnlineCoopMode += SetCoopModeValues;
+        mainMenuUI.OnStartHost += StartHost;
+        mainMenuUI.OnStartClient += StartClient;
     }
 
     void OnStartOfflineMode()
     {
-        //sceneLoader.LoadOfflineScene(1);
+        networkGameManager.ActiveEnemyManager = false;
+        networkGameManager.ActiveEnemyWaves = true;
+        networkGameManager.StartOffline();
     }
 
-    void OnStartLANHost()
+    void SetPVPModeValues()
     {
-        //networkConnections.IPAddress = networkConnections.GetLanIp();
-        ConnectFromMenuUI();
-        EnableBoxManager();
+        GameNetwork.MultiplayerModeType = MultiplayerModeType.PVP;
+        networkGameManager.ActiveEnemyManager = false;
+        networkGameManager.ActiveEnemyWaves = false;
     }
 
-    void EnableBoxManager()
+    void SetCoopModeValues()
     {
-        //if (!gameManager.ActiveBoxManager) return;
-        //boxManager.gameObject.SetActive(true);
-        //boxManager.Initialize();
+        GameNetwork.MultiplayerModeType = MultiplayerModeType.Coop;
+        networkGameManager.ActiveEnemyManager = false;
+        networkGameManager.ActiveEnemyWaves = true;
     }
 
-    void OnStartLANClient()
+    private void StartHost()
     {
-        ConnectFromMenuUI();
-        //networkConnections.IPAddress = networkConnections.GetLanIp();
-        //networkConnections.StartClient();
+        networkGameManager.StartOnline();
+        ushort port = ushort.Parse(mainMenuUI.PortInput.text);
+        transport.SetConnectionData("0.0.0.0", port);
+        PlayerPrefs.SetString("last_ip", mainMenuUI.IpInput.text);
+        PlayerPrefs.Save();
+        NetworkManager.Singleton.StartHost();
     }
 
-    void OnStartCustomHost()
+    private void StartClient()
     {
-        //networkConnections.IPAddress = mainMenuUI.IpInputField.text;
-        //networkConnections.StartHost();
-        ConnectFromMenuUI();
-        EnableBoxManager();
+        networkGameManager.StartOnline();
+        string ip = mainMenuUI.IpInput.text;
+        ushort port = ushort.Parse(mainMenuUI.PortInput.text);
+        transport.SetConnectionData(ip, port);
+        PlayerPrefs.SetString("last_ip", ip);
+        PlayerPrefs.Save();
+        NetworkManager.Singleton.StartClient();
     }
-
-    void OnStartCustomClient()
-    {
-        ConnectFromMenuUI();
-        //networkConnections.IPAddress = mainMenuUI.JoinIpInputField.text;
-        //networkConnections.StartClient();
-    }
-
-    void ConnectFromMenuUI()
-    {
-        //unityTransport.ConnectionData.Address = mainMenuUI.IpInputField.text;
-        connectionManager.ProfileName = mainMenuUI.PlayerNameTextUI.text;
-        connectionManager.SessionName = mainMenuUI.SessionIDUI.text;
-        _ = connectionManager.CreateOrJoinSessionAsync();
-    }
-
-    void OnSetLanIpPressed()
-    {
-        mainMenuUI.IpInputField.text = connectionManager.GetLanIp();
-    }
+    #endregion
 }

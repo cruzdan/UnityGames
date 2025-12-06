@@ -13,7 +13,8 @@ Pong:
 Asteroids:
 -Play with unity in the Title Scene
 -Resolution 16:9
--Initial controls: 
+
+	-Initial controls: 
 	forward				<W, Up arrow, Joystick axis Y+ >
 	rotate left			<A, Left arrow, Joystick axis X+ >
 	rotate right		<D, Right arrow, Joystick axis X- >
@@ -47,28 +48,27 @@ Gradius:
 	*Select Upgrade		<Y, Joystick 2 button 4>
 	(Controls can be modified on the Controls menu, except for the Joystick ones)
 	
-Multiplayer:
+Attack the Soldiers:
 -Resolution 16:9
 -Unity version: 2021.3.3f1.
-Shooter game platformer 2D online and offline, available on computer in both modes and Android in online only
+Shooter game platformer 2D online in LAN and offline, available on computer and android
 Play online with more people in your same LAN red, get weapons from boxes spawned for the world and shoot your Friends until you kill them.
-Play offline versus enemies that chase and attack you in different ways, try to avoid and kill them.
-This game Will be updated for the most recent versions and will be removed from the repo when the new version is available.
+Play waves of enemies that chase and attack you in different ways, try to avoid and kill them solo or in coop.
 
-
--Controls in game:
+	-Controls in game:
 	Right: 				<D,Right Arrow, Joystick axis X+ >
 	Left:				<A,Left Arrow, Joystick axis X- >
 	Jump:				<Space, Joystick button A >
 	Run:				<Left Shift, Joystick button X >
 	Shoot:				<E, Joystick Right trigger >
-	Android: 			Using Joystick Pack
+	Android: 			Using buttons in UI
+
 
 Ms Pac Man:
 -Play with unity in the Title Scene
 -Press space to start game
 
--Controls in game:
+	-Controls in game:
 	*Up					<W, Up arrow, Joystick axis Y+ >
 	*Down				<S, Down arrow, Joystick axis Y- >
 	*Right				<D, Right arrow, Joystick axis X+ >
