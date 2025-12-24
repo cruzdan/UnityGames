@@ -37,7 +37,6 @@ Shoot an extra bullet, but the next one increments x2 (max = 3)
 30
 30
 30
-30
 40
 40
 40
