@@ -9222,7 +9222,7 @@ MonoBehaviour:
   - {fileID: 2005683746}
   initalBullets: 1
   inGame: 1
-  overrideDeviceType: 1
+  overrideDeviceType: 0
   isAndroid: 0
   mobileCanvas: {fileID: 1049025796}
   deviceChecker: {fileID: 1200501301}
