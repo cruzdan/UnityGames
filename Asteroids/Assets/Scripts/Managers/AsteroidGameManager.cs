@@ -46,6 +46,8 @@ public class AsteroidGameManager : MonoBehaviour
 
     private void Awake()
     {
+        //Set this variable on Game Scene to use Player Prefs value
+        if (!overrideDeviceType) return;
         if (PlayerPrefs.GetInt("isMobile", 0) == 1)
         {
             overrideDeviceType = true;
