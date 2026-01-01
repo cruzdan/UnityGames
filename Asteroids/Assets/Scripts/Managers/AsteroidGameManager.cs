@@ -29,7 +29,6 @@ public class AsteroidGameManager : MonoBehaviour
     #endregion
     #region UI
     [SerializeField] private Toggle isOnMobileToggle;
-    [SerializeField] private Text isMobileText;
     #endregion
     private int lifes = 3;
     [SerializeField] private int money = 0;
@@ -70,7 +69,6 @@ public class AsteroidGameManager : MonoBehaviour
         {
             isOnMobileToggle.isOn = isAndroid;
         }
-
     }
     public void Restart()
     {

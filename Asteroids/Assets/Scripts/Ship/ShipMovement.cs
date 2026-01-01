@@ -24,7 +24,7 @@ public class ShipMovement : MonoBehaviour
     {
         inputSource = playerInputSource.GetResolvedInput();
         body = GetComponent<Rigidbody2D>();
-        body.drag = drag;
+        body.linearDamping = drag;
 
         speed = SquaresResolution.TotalSquaresInclined / 3.0f;
         originalSpeed = speed;
@@ -69,9 +69,9 @@ public class ShipMovement : MonoBehaviour
         if (move)
         {
             body.AddForce(transform.up * speed);
-            if(body.velocity.magnitude > maxSpeed)
+            if(body.linearVelocity.magnitude > maxSpeed)
             {
-                body.velocity = body.velocity.normalized * maxSpeed;
+                body.linearVelocity = body.linearVelocity.normalized * maxSpeed;
             }
         }
     }
@@ -88,7 +88,7 @@ public class ShipMovement : MonoBehaviour
     {
         transform.position = Vector2.zero;
         transform.eulerAngles = Vector3.zero;
-        body.velocity = Vector2.zero;
+        body.linearVelocity = Vector2.zero;
     }
 
     public void SetSpeedByPercentage(float percentage)
