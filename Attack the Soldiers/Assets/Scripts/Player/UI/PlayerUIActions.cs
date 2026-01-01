@@ -33,9 +33,11 @@ public class PlayerUIActions : MonoBehaviour
         else
         {
             playerUI.OpenPauseMenu();
-            commandsUI.ActiveCommandLine(false);
+            if (GameNetwork.Instance.IsOnline)
+                commandsUI.ActiveCommandLine(false);
         }
-        commandsUI.ActiveCommandCanvas(playerPause.Pause);
+        if (GameNetwork.Instance.IsOnline)
+            commandsUI.ActiveCommandCanvas(playerPause.Pause);
         cheatsMenuUI.CloseCheatsMenu();
         playerPause.Pause = !playerPause.Pause;
     }

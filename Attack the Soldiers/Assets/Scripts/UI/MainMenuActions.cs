@@ -8,6 +8,7 @@ public class MainMenuActions : MonoBehaviour
     [Header("General components")]
     [SerializeField] private MainMenuUI mainMenuUI;
     [SerializeField] private NetworkGameManager networkGameManager;
+    [SerializeField] private GameObject commandsMenu;
     private UnityTransport transport;
     #endregion
     #region Functions
@@ -32,6 +33,7 @@ public class MainMenuActions : MonoBehaviour
     {
         networkGameManager.ActiveEnemyManager = false;
         networkGameManager.ActiveEnemyWaves = true;
+        commandsMenu.SetActive(false);
         networkGameManager.StartOffline();
     }
 
@@ -40,6 +42,7 @@ public class MainMenuActions : MonoBehaviour
         GameNetwork.MultiplayerModeType = MultiplayerModeType.PVP;
         networkGameManager.ActiveEnemyManager = false;
         networkGameManager.ActiveEnemyWaves = false;
+        commandsMenu.SetActive(true);
     }
 
     void SetCoopModeValues()
@@ -47,6 +50,7 @@ public class MainMenuActions : MonoBehaviour
         GameNetwork.MultiplayerModeType = MultiplayerModeType.Coop;
         networkGameManager.ActiveEnemyManager = false;
         networkGameManager.ActiveEnemyWaves = true;
+        commandsMenu.SetActive(true);
     }
 
     private void StartHost()
