@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +7,8 @@ public class CylinderObstacle : MonoBehaviour
     [SerializeField] private TextMeshPro _textMesh;
     [SerializeField] private CharacterBehaviour _character;
     [SerializeField] private Score _score;
+    public TextMeshPro TextMeshPro { get => _textMesh; set => _textMesh = value; }
+    public int Life { get => _life; }
     public void SetLife(int life)
     {
         _life = life;

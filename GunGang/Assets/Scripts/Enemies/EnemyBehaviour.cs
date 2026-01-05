@@ -22,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void DecrementLife(int amount)
     {
+        if (HasNoLife()) return;
+
         _life -= amount;
         if(HasNoLife())
         {

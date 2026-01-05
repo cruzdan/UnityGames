@@ -77,7 +77,7 @@ public class CharacterBehaviour : MonoBehaviour
     void StopRBVelocity()
     {
         _rb.useGravity = false;
-        _rb.velocity = Vector3.zero;
+        _rb.linearVelocity = Vector3.zero;
     }
 
     void SetPositionOnFloor()

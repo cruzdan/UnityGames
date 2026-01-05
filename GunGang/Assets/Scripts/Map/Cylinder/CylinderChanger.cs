@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CylinderChanger : MonoBehaviour
@@ -89,6 +90,17 @@ public class CylinderChanger : MonoBehaviour
         for (int j = 0; j < totalCylinderParts; j++)
         {
             Instantiate(_cylinderPrefabs[cylinderIndex].GetChild(j), targetTransform);
+        }
+        SetCylinderTextReferenceAndLifeText(targetTransform);
+    }
+
+    void SetCylinderTextReferenceAndLifeText(Transform cylinderTransform)
+    {
+        CylinderObstacle cylinderObstacle = cylinderTransform.GetComponent<CylinderObstacle>();
+        if (cylinderObstacle != null)
+        {
+            cylinderObstacle.TextMeshPro = cylinderTransform.GetChild(3).GetComponent<TextMeshPro>();
+            cylinderObstacle.SetLife(cylinderObstacle.Life);
         }
     }
 }
