@@ -19,6 +19,6 @@ public class ForwardMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = transform.TransformDirection(Vector3.forward * speed);
+        rb.linearVelocity = transform.TransformDirection(Vector3.forward * speed);
     }
 }

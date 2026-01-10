@@ -1,16 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
-    private bool pause = false;
+    #region Serialized Variables
     [SerializeField] private GameObject pauseMenu;
-
+    [SerializeField] private GameObject winMenuObject;
+    [SerializeField] private GameObject looseMenuObject;
+    #endregion
+    #region Private Variables
+    private bool pause = false;
+    #endregion
+    #region Public Properties
+    public bool IsPaused => pause;
+    #endregion
+    #region Functions
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (winMenuObject.activeSelf || looseMenuObject.activeSelf)
+            {
+                return;
+            }
             Pause();
         }
     }
@@ -28,4 +39,10 @@ public class PauseManager : MonoBehaviour
         }
         pauseMenu.SetActive(pause);
     }
+
+    public void PauseWithoutUI()
+    {
+        Time.timeScale = 0f;
+    }
+    #endregion
 }

@@ -1,16 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionPlayerToEnemy : MonoBehaviour
 {
-    [SerializeField] private MNManager manager;
+    #region Serialized Variables
+    [SerializeField] private PauseManager pauseManager;
+    [SerializeField] private LooseMenuUI looseMenuUI;
+    [SerializeField] private WinMenuUI winMenuUI;
+    #endregion
+    #region Private Variables
     private int collisions = 0;
+    #endregion
+    #region Functions
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            manager.Restart();
+            if (!pauseManager.IsPaused && Time.timeScale == 0f) return;
+            pauseManager.PauseWithoutUI();
+            looseMenuUI.LooseMenuObject.SetActive(true);
         }
     }
 
@@ -23,12 +30,17 @@ public class CollisionPlayerToEnemy : MonoBehaviour
                 if (collisions > 1)
                 {
                     collisions = 0;
-                    manager.Restart();
+                    if (!pauseManager.IsPaused && Time.timeScale == 0f) return;
+                    pauseManager.PauseWithoutUI();
+                    looseMenuUI.LooseMenuObject.SetActive(true);
                 }
                 break;
             case "Finish":
-                manager.Restart();
+                if (!pauseManager.IsPaused && Time.timeScale == 0f) return;
+                pauseManager.PauseWithoutUI();
+                winMenuUI.WinMenuObject.SetActive(true);
                 break;
         }
     }
+    #endregion
 }

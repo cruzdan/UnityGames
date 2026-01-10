@@ -1,0 +1,11 @@
+Player: crypto from mixamo
+zombie: Mremireh O Desbiens from mixamo
+brick_pavement_02_diff_1k: https://polyhaven.com/a/brick_pavement_02
+plaster_brick_pattern_diff_1k: https://polyhaven.com/a/plaster_brick_pattern
+color palette: https://flatuicolors.com/palette/gb
+
+Packages used in this project:
+-FREE Skybox Extended Shader
+-chicken and horse: Animals FREE - Animated Low Poly 3D Models
+-Stylized Lava materials
+These assets can be found in the Unity Asset Store, not included in this repository due to license restrictions.

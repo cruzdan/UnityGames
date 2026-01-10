@@ -1,11 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] private GameObject cam;
-	public float speed;
+	#region Serialized Variables
+	[Header("Camera")]
+    [SerializeField] private GameObject cam;
+	#endregion
+    #region Input
+    [Header("Input")]
+    private IPlayerInputSource inputSource;
+    [SerializeField] private PlayerInputSource playerInputSource;
+	#endregion
+	#region Public Variables
+	[Header("Player Movement")]
+    public float speed;
 	public float walkSpeed = 6.0f;
 	public float crouchSpeed = 3.0f;
 	public float runSpeed = 12.0f;
@@ -14,18 +22,20 @@ public class PlayerMovement : MonoBehaviour
 	public float terminalVelocity = -8.0f;
 	public float minFall = -1.5f;
 	public float rotSpeed = 15.0f;
-
-	private bool crouch = false;
+    #endregion
+    #region Private Variables
+    private bool crouch = false;
 	private bool running = false;
-
-	private CharacterController _charController;
+    private CharacterController _charController;
 	private CapsuleCollider capsule;
 	private Animator anim;
 	private float vertSpeed;
-
-	void Start()
+    #endregion
+    #region Functions
+    void Start()
 	{
-		anim = GetComponent<Animator>();
+        inputSource = playerInputSource.GetResolvedInput();
+        anim = GetComponent<Animator>();
 		speed = walkSpeed;
 		vertSpeed = minFall;
 		_charController = GetComponent<CharacterController>();
@@ -34,37 +44,37 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		float deltaX = Input.GetAxis("Horizontal") * speed;
-		float deltaZ = Input.GetAxis("Vertical") * speed;
+		float deltaX = inputSource.GetHorizontalMovement() * speed;
+		float deltaZ = inputSource.GetVerticalMovement() * speed;
 		float posX = transform.position.x;
 		float posZ = transform.position.z;
 		float animationSpeed;
 		
         if (crouch)
         {
-			if (Input.GetKeyDown(KeyCode.LeftShift))
+			if (inputSource.GetRun())
 			{
 				Crouch(false);
 				Run(true);
 			}
-			else if (Input.GetKeyDown(KeyCode.LeftControl))
+			else if (inputSource.GetCrouch())
 			{
 				Crouch(false);
 			}
         }
 		else if (!running)
         {
-			if (Input.GetKeyDown(KeyCode.LeftShift))
+			if (inputSource.GetRun())
 			{
 				Run(true);
             }
-            else if(Input.GetKeyDown(KeyCode.LeftControl))
+            else if(inputSource.GetCrouch())
             {
 				Crouch(true);
 			}
 		}
 
-		if (Input.GetKeyUp(KeyCode.LeftShift))
+		if (inputSource.GetStopRun())
         {
 			Run(false);
 		}
@@ -84,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 		//jump
 		if (hitGround)
         {
-			if (Input.GetButtonDown("Jump"))
+			if (inputSource.GetJump())
             {
 				vertSpeed = jumpSpeed;
 			}
@@ -109,7 +119,10 @@ public class PlayerMovement : MonoBehaviour
 		movement.y = 0;
 		if(deltaX != 0 || deltaZ != 0)
         {
-			Quaternion direction = Quaternion.LookRotation(movement);
+
+			if (movement == Vector3.zero)
+                movement = Vector3.forward;
+            Quaternion direction = Quaternion.LookRotation(movement);
 			transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
 			animationSpeed = speed;
 		}
@@ -176,4 +189,5 @@ public class PlayerMovement : MonoBehaviour
 		anim.SetBool("Running", false);
 		anim.Play("Idle");
 	}
+    #endregion
 }

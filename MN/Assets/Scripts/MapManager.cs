@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
@@ -25,10 +23,9 @@ public class MapManager : MonoBehaviour
 
     private GameObject floor;
     private GameObject wall;
+    private GameObject finishWall;
     private float invisibleFloorSize;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         GenerateMapLevel();
@@ -114,12 +111,15 @@ public class MapManager : MonoBehaviour
         floor.transform.SetParent(floorGroup);
 
         //last wall
-        wall = Instantiate(invisibleWallPrefab) as GameObject;
-        wall.transform.position = new Vector3(0f, 2f, positionZ + sizeZ / 2f + wall.transform.localScale.z / 2f);
-        wall.transform.localScale = new Vector3(sizeX + sizeZ, 5f, 1f);
-        wall.transform.SetParent(wallGroup);
-        wall.tag = "Finish";
-        wall.GetComponent<BoxCollider>().isTrigger = true;
+        if (finishWall == null)
+        {
+            finishWall = Instantiate(invisibleWallPrefab) as GameObject;
+        }
+        finishWall.transform.SetParent(wallGroup);
+        finishWall.tag = "Finish";
+        finishWall.GetComponent<BoxCollider>().isTrigger = true;
+        finishWall.transform.position = new Vector3(0f, 2f, positionZ + sizeZ / 2f + finishWall.transform.localScale.z / 2f);
+        finishWall.transform.localScale = new Vector3(sizeX + sizeZ, 5f, 1f);
     }
     void AddEnemyGenerator(float posZ, float highwaySize, int enemyType, int direction)
     {
