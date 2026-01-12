@@ -23,7 +23,7 @@ public class HitExplosion : MonoBehaviour
     }
     public void ResetRigidbodyVelocity()
     {
-        _rb.velocity = Vector3.zero;
+        _rb.linearVelocity = Vector3.zero;
         _rb.useGravity = false;
     }
 }

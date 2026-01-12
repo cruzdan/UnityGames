@@ -20,7 +20,7 @@ public class FireworkBlock : MonoBehaviour
     {
 
         _rb.useGravity = true;
-        _rb.velocity = _forceAmount * forceDirection;
+        _rb.linearVelocity = _forceAmount * forceDirection;
     }
 
     void ResetTimeElapsed()

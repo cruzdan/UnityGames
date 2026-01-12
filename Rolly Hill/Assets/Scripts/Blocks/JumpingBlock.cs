@@ -41,6 +41,6 @@ public class JumpingBlock : MonoBehaviour
     public void ResetVariables()
     {
         canCollison = false;
-        _rb.velocity = Vector3.zero;
+        _rb.linearVelocity = Vector3.zero;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCharControllerOnDirection : MonoBehaviour
@@ -13,8 +11,7 @@ public class MoveCharControllerOnDirection : MonoBehaviour
     {
         _ch = GetComponent<CharacterController>();
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
         MoveOnDirection();
     }

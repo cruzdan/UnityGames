@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerInput _detectKey;
     [SerializeField] private float _originalSpeed;
+    [SerializeField] private PlayerInput _detectKey;
     [SerializeField] private MoveCharControllerOnDirection _moveForwardCharacter;
     [SerializeField] private PlayerSpeedDecrementer _playerSpeedDecrementer;
 
