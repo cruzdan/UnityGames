@@ -5,7 +5,7 @@ public static class PlayerInputSourceExtensions
     public static IPlayerInputSource GetResolvedInput(
         this PlayerInputSource source)
     {
-        AsteroidGameManager asteroidGamemanager = Object.FindObjectOfType<AsteroidGameManager>();
+        AsteroidGameManager asteroidGamemanager = Object.FindAnyObjectByType<AsteroidGameManager>();
         if (asteroidGamemanager != null && asteroidGamemanager.OverrideDeviceType)
         {
             return asteroidGamemanager.IsAndroid
