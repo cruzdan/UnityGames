@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidsGenerator : MonoBehaviour
@@ -8,8 +6,6 @@ public class AsteroidsGenerator : MonoBehaviour
     [SerializeField] private PauseManager pauseManager;
     public ObjectPool asteroidsPool;
     private GameObject asteroid;
-    //private int MaxPoolSize = 45;
-    //private Stack<GameObject> inactiveAsteroids = new Stack<GameObject>();
     float timer = 0;
     float timeToGenerateAsteroid = 1.0f;
     float firstX;
@@ -17,6 +13,9 @@ public class AsteroidsGenerator : MonoBehaviour
     float endX;
     float endY;
     int bonus = 0;
+
+    [SerializeField] private float asteroidHorizontalSpeed = 4.5f;
+    [SerializeField] private float asteroidVerticalSpeed = 3.3f;
 
     //auxiliar variables to generate new Asteroids
     Asteroid ast;
@@ -107,8 +106,7 @@ public class AsteroidsGenerator : MonoBehaviour
             bound = asteroid.GetComponent<BoundsPoolObject>();
             asteroid.transform.position = position;
             asteroid.transform.localScale = scale;
-            asteroid.GetComponent<ForwardMovement>().Init(SquaresResolution.TotalSquaresX / 4.0f, 
-                SquaresResolution.TotalSquaresY / 3.0f, angle);
+            asteroid.GetComponent<ForwardMovement>().Init(asteroidHorizontalSpeed, asteroidVerticalSpeed, angle);
             bound.Init(angle, scale.x, scale.y);
             ast.SetCost(cost);
 

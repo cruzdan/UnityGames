@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class AsteroidGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject ship;
+    [SerializeField] private Rigidbody2D shipRb;
     [SerializeField] private Text lifesText;
     [SerializeField] private Text moneyText;
     [SerializeField] private Text shopMoneyText;
@@ -13,12 +14,14 @@ public class AsteroidGameManager : MonoBehaviour
     [SerializeField] private ShopInformation shopInformation;
     [SerializeField] private PauseManager pauseManager;
     [SerializeField] private CounterBack counter;
-    //0 -> asteroidPool, 1 -> bulletPool
+    //0 -> asteroidPool, 1 -> bulletPool, 2 -> explosionPool
     [SerializeField] private ObjectPool[] objectPools;
     //inital bullets when start game and restart game
     [SerializeField] private int initalBullets = 1;
     [SerializeField] private bool inGame;
-
+    [SerializeField] private ScoreBounceTMP[] scoreBounceTMPs;
+    [SerializeField] private Transform scoreParentTransform;
+    [SerializeField] private Background background;
     #region DeviceType
     [SerializeField] private bool overrideDeviceType = false;
     [SerializeField] private bool isAndroid = false;
@@ -30,9 +33,19 @@ public class AsteroidGameManager : MonoBehaviour
     #region UI
     [SerializeField] private Toggle isOnMobileToggle;
     #endregion
-    private int lifes = 3;
+    [SerializeField] private int lifes = 3;
     [SerializeField] private int money = 0;
-
+    #region Restart
+    [Header("Restart Settings")]
+    [SerializeField] private float timeToRespawn = 2.0f;
+    #endregion
+    #region Flash Settings
+    [SerializeField] private Vector3 asteroidFlashValues = new Vector3(2.5f, 5f, 0.3f);
+    [SerializeField] private Vector3 shipFlashValues = new Vector3(7.5f, 15f, 0.6f);
+    #endregion
+    #region Public Properties
+    public ObjectPool ExplosionPool => objectPools[2];
+    #endregion
     public void SetLifes(int newLifes)
     {
         lifes = newLifes;
@@ -64,19 +77,24 @@ public class AsteroidGameManager : MonoBehaviour
                 mobileCanvas.SetActive(deviceChecker.IsOnMobile());
             else
                 mobileCanvas.SetActive(IsAndroid);
+            shipRb = ship.GetComponent<Rigidbody2D>();
+            MusicManager.Instance.PlayRandomMusicWithoutRepetition();
         }
         else
         {
             isOnMobileToggle.isOn = isAndroid;
+            MusicManager.Instance.PlayRandomMusicWithoutRepetition(2); //play first two music clips only
         }
+        
     }
-    public void Restart()
+    public void Restart() 
     {
         lifes--;
         if (lifes <= 0)
         {
             TotalRestart(true);
             counter.gameObject.SetActive(false);
+            
         }
         else
         {
@@ -86,7 +104,8 @@ public class AsteroidGameManager : MonoBehaviour
             counter.gameObject.SetActive(true);
             lifesText.text = lifes.ToString();
         }
-
+        ship.SetActive(true);
+        astGen.enabled = true;
     }
     void ReturnObjectsToPool(string tag, ObjectPool obPool)
     {
@@ -103,6 +122,16 @@ public class AsteroidGameManager : MonoBehaviour
         money = newMoney;
         moneyText.text = money.ToString();
         shopMoneyText.text = money.ToString();
+        BounceScore();
+    }
+
+    void BounceScore()
+    {
+        int total = scoreBounceTMPs.Length;
+        for (int i = 0; i < total; i++)
+        {
+            scoreBounceTMPs[i].Bounce();
+        }
     }
 
     public int GetMoney()
@@ -114,6 +143,7 @@ public class AsteroidGameManager : MonoBehaviour
     {
         ReturnObjectsToPool("Bullet", objectPools[1]);
         ReturnObjectsToPool("Asteroid", objectPools[0]);
+        ReturnObjectsToPool("Explosion", objectPools[2]);
         ship.GetComponent<ShipMovement>().Restart();
         ship.GetComponent<Shoot>().Restart();
     }
@@ -133,6 +163,7 @@ public class AsteroidGameManager : MonoBehaviour
         if(toPause)
             pauseManager.GameOverChange();
         PartialRestart();
+        background.ChangeBackground();
     }
 
     public void Exit()
@@ -149,5 +180,43 @@ public class AsteroidGameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("isMobile", isOnMobileToggle.isOn ? 1 : 0);
         PlayerPrefs.Save();
+    }
+
+    public void OnShipCollided()
+    {
+        astGen.enabled = false;
+        ship.SetActive(false);
+        shipRb.linearVelocity = Vector2.zero;
+        CameraShake.Instance.Shake(0.2f, 0.2f);
+        Invoke(nameof(Restart), timeToRespawn);
+        GenerateExplosion(ship.transform.position, shipFlashValues);
+    }
+
+    public void OnAsteroidDestroyed(Vector2 explosionPosition, int score)
+    {
+        GenerateExplosion(explosionPosition, asteroidFlashValues);
+    }
+
+    void GenerateExplosion(Vector2 explosionPosition, Vector3 explosionValues)
+    {
+        GameObject explosion = ExplosionPool.GetObjectFromPool();
+        explosion.transform.position = explosionPosition;
+        ShootFlash shootFlash = explosion.GetComponent<ShootFlash>();
+        shootFlash.SetFlashValues(explosionValues);
+        shootFlash.OnFlashEnd = () =>
+        {
+            ExplosionPool.ReturnObjectToPool(explosion);
+        };
+        shootFlash.Flash();
+    }
+
+    public void ChangeMusic()
+    {
+        MusicManager.Instance.PlayRandomMusicWithoutRepetition();
+    }
+
+    public void PlayClickSFX()
+    {
+        SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.ClickClip);
     }
 }

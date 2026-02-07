@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
     private AsteroidsGenerator asteroidsGenerator;
     private int cost = 0;
-    bool dead = false;
+    private bool dead = false;
+    private float bigAsteroidSize = 1;
+    private AsteroidGameManager asteroidGameManager;
     public void SetAsteroidsGenerator(AsteroidsGenerator ast)
     {
         asteroidsGenerator = ast;
@@ -29,27 +29,32 @@ public class Asteroid : MonoBehaviour
     {
         if (!dead)
         {
-            AsteroidGameManager man = GameObject.Find("AsteroidGameManager").GetComponent<AsteroidGameManager>();
+            if (asteroidGameManager == null)
+                asteroidGameManager = GameObject.Find("AsteroidGameManager").GetComponent<AsteroidGameManager>();
             switch (collision.tag)
             {
                 case "Player":
                     dead = true;
-                    man.Restart();
+                    asteroidGameManager.OnShipCollided();
                     break;
                 case "Bullet":
                     dead = true;
                     //it is a big asteroid
-                    if (transform.localScale.magnitude > SquaresResolution.TotalSquaresInclined / 20.0f)
+                    if (transform.localScale.magnitude > bigAsteroidSize)
                     {
                         asteroidsGenerator.Generate2Asteroids(transform.position, transform.localScale,
                             GetComponent<ForwardMovement>().GetAngle(),
                             GetComponent<SpriteRenderer>().sprite);
+                        CameraShake.Instance.Shake(0.1f, 0.1f);
                     }
-                    man.SetMoney(man.GetMoney() + cost);
+                    asteroidGameManager.SetMoney(asteroidGameManager.GetMoney() + cost);
+                    asteroidGameManager.OnAsteroidDestroyed(collision.transform.position, cost);
                     collision.GetComponent<BoundsPoolObject>().GetObjectPool().ReturnObjectToPool(collision.gameObject);
-                    asteroidsGenerator.asteroidsPool.ReturnObjectToPool(this.gameObject);
+                    TimeStop.Instance.StopTime();
                     break;
             }
+            SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.ExplosionClip);
+            asteroidsGenerator.asteroidsPool.ReturnObjectToPool(this.gameObject);
         }
     }
 }

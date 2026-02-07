@@ -225,7 +225,10 @@ public class ShopInformation : MonoBehaviour
                     IncrementBullets();
                     break;
             }
+            SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.BuyClip);
         }
+        else
+            SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.ErrorClip);
     }
 
     public void SelectButton()

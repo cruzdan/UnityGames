@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private PauseManager pauseManager;
+    [SerializeField] private ShootFlash shootFlash;
     #region Input
     [Header("Input")]
     private IPlayerInputSource inputSource;
@@ -18,6 +19,10 @@ public class ShipMovement : MonoBehaviour
     public float angularSpeed = 3.0f;
     bool move;
     float rotate;
+    #region Rotation
+    [SerializeField] private float smooth = 8f;
+    private float targetRotation;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +30,9 @@ public class ShipMovement : MonoBehaviour
         inputSource = playerInputSource.GetResolvedInput();
         body = GetComponent<Rigidbody2D>();
         body.linearDamping = drag;
-
-        speed = SquaresResolution.TotalSquaresInclined / 3.0f;
         originalSpeed = speed;
-        maxSpeed = 5.0f * speed;
-
         originalAngularSpeed = angularSpeed;
+        body.angularDamping = 5f;
     }
 
     public void InitSpeed()
@@ -60,12 +62,13 @@ public class ShipMovement : MonoBehaviour
                 move = false;
             }
             rotate = inputSource.GetHorizontalMovement();
-            Rotate();
+            targetRotation -= rotate * angularSpeed * Time.deltaTime;
         }
     }
 
     private void FixedUpdate()
     {
+        RotateIfPossible();
         if (move)
         {
             body.AddForce(transform.up * speed);
@@ -76,11 +79,18 @@ public class ShipMovement : MonoBehaviour
         }
     }
 
-    private void Rotate()
+    private void RotateIfPossible()
     {
-        if(rotate != 0)
+        if (!pauseManager.pause)
         {
-            transform.Rotate(0, 0, -angularSpeed * rotate * Time.deltaTime);
+            Quaternion target = Quaternion.Euler(0f, 0f, targetRotation);
+            body.MoveRotation(
+                Quaternion.Lerp(
+                    Quaternion.Euler(0f, 0f, body.rotation),
+                    target,
+                    smooth * Time.fixedDeltaTime
+                )
+            );
         }
     }
 
@@ -89,6 +99,9 @@ public class ShipMovement : MonoBehaviour
         transform.position = Vector2.zero;
         transform.eulerAngles = Vector3.zero;
         body.linearVelocity = Vector2.zero;
+        targetRotation = 0;
+        rotate = 0;
+        shootFlash.ResetFlash();
     }
 
     public void SetSpeedByPercentage(float percentage)

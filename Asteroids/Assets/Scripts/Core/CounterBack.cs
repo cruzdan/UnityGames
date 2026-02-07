@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +23,7 @@ public class CounterBack : MonoBehaviour
         if (actualValue != (int)textTime)
         {
             counter.text = actualValue.ToString();
+            SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.ClickClip);
         }
         if (textTime < 0)
         {

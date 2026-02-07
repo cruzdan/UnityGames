@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] private Material[] materials;
+    [SerializeField] private MeshRenderer meshRenderer;
+    #endregion
+    #region Private Varibales
     private int backgroundIndex = -1;
-    private MeshRenderer meshRenderer;
+    #endregion
+    #region Functions
     // Start is called before the first frame update
     void Start()
     {
-        transform.localScale = new Vector2(SquaresResolution.TotalSquaresX, SquaresResolution.TotalSquaresY);
+        transform.localScale = new Vector2(SquaresResolution.TotalSquaresX * 1.2f, SquaresResolution.TotalSquaresY * 1.2f);
+    }
+
+    public void ChangeBackground()
+    {
         backgroundIndex = GenerateNewBackgroundIndex();
-        meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = materials[backgroundIndex];
     }
 
@@ -24,4 +32,5 @@ public class Background : MonoBehaviour
         }
         return newIndex;
     }
+    #endregion
 }

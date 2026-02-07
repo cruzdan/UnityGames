@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Shoot : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class Shoot : MonoBehaviour
     [SerializeField] public int bulletsToShoot = 1;
 
     //auxiliar variables to generate new Bullets
-    BoundsPoolObject bound;
+    private BoundsPoolObject bound;
+
+    public UnityEvent OnShoot;
 
     private void Start()
     {
@@ -33,6 +36,8 @@ public class Shoot : MonoBehaviour
             {
                 if (timer <= 0)
                 {
+                    SFXManager.Instance.PlaySFX(AsteroidsSFX.Instance.ShootClip);
+                    OnShoot.Invoke();
                     GenerateBullet();
                     timer = timeToShoot;
                 }
