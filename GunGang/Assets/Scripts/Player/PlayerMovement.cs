@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] private float _forwardSpeed;
     private CharacterController _ch;
     private Vector3 _movement = new(0, 0, 0);

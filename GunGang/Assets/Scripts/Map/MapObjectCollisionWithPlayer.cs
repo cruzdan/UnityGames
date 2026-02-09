@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapObjectCollisionWithPlayer : MonoBehaviour
@@ -12,6 +10,7 @@ public class MapObjectCollisionWithPlayer : MonoBehaviour
             SetExplosionOnPosition(other.transform.position);
             other.gameObject.SetActive(false);
             OnPlayerDead.TriggerEvent();
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
         }
     }
 

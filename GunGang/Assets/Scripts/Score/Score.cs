@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Score")]
@@ -13,6 +11,7 @@ public class Score : ScriptableObject
     {
         _score += value;
         OnScoreChanged?.Invoke(_score);
+        GameManager.Instance.StartArrayBounce(GameManager.Instance.ScoreBounces);
     }
 
     public void ResetScore()

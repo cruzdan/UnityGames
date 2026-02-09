@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,6 +67,8 @@ public class RectTransformGettedRewardMovement : MonoBehaviour
     void AddRewardEventDestroyWhenReachTarget(UIFollowPoint reward)
     {
         reward.SubscribeToOnReachTarget(() => {
+            GameManager.Instance.StartArrayBounce(GameManager.Instance.MoneyBounces);
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.CoinGettedClip);
             DestroyAndRemoveReward(reward);
         });
     }

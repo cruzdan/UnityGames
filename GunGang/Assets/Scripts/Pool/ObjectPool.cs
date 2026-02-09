@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,6 +49,8 @@ public class ObjectPool : Singleton<ObjectPool>
         House2 = 29,
         House3 = 30,
         House4 = 31,
+        ShootExplosion = 32,
+        MapExplosion = 33,
     }
 
     void Start()

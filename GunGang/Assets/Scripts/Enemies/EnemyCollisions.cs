@@ -21,6 +21,7 @@ public class EnemyCollisions : MonoBehaviour
             case "Player":
                 other.gameObject.SetActive(false);
                 OnCharacterTouched?.Invoke();
+                SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
                 break;
         }
     }

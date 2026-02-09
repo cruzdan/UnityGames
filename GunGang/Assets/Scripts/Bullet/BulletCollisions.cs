@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCollisions : MonoBehaviour
@@ -12,8 +10,10 @@ public class BulletCollisions : MonoBehaviour
             case "CylinderObstacle":
                 ReduceCylinderLife(other.GetComponent<CylinderObstacle>());
                 ObjectPool.Instance.ReturnObjectToPool(this.gameObject, ObjectPool.PoolObjectType.Bullet);
+                MapExplosion.Instance.CreateExplosionOnPosition(transform.position);
                 break;
             case "Enemy":
+                MapExplosion.Instance.CreateExplosionOnPosition(transform.position);
                 other.GetComponent<EnemyBehaviour>().DecrementLife(_damage.GetDamage());
                 ObjectPool.Instance.ReturnObjectToPool(this.gameObject, ObjectPool.PoolObjectType.Bullet);
                 break;

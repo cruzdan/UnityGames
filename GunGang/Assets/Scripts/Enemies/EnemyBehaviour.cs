@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -29,7 +27,9 @@ public class EnemyBehaviour : MonoBehaviour
         {
             _score.IncrementScore(3);
             OnEnemyDead?.Invoke();
+            CameraShake.Instance.Shake(0.15f, 0.2f);
             ObjectPool.Instance.ReturnObjectToPool(gameObject, ObjectPool.PoolObjectType.Enemy);
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.EnemyDestroyedClip);
         }
     }
 

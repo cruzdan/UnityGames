@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDeadCollision : MonoBehaviour
@@ -13,6 +11,7 @@ public class PlayerDeadCollision : MonoBehaviour
             SetExplosionOnPosition(transform.position);
             gameObject.SetActive(false);
             OnPlayerDead.TriggerEvent();
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
         }
 
         if (hit.gameObject.CompareTag("MapObject"))
@@ -20,6 +19,7 @@ public class PlayerDeadCollision : MonoBehaviour
             SetExplosionOnPosition(transform.position);
             gameObject.SetActive(false);
             OnPlayerDead.TriggerEvent();
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
         }
     }
 

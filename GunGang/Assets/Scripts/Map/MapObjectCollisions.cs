@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MapObjectCollisions : MonoBehaviour
@@ -10,7 +8,10 @@ public class MapObjectCollisions : MonoBehaviour
         {
             case "Character":
                 SetExplosionOnPosition(other.transform.position);
+                CameraShake.Instance.Shake(0.15f, 0.2f);
                 other.GetComponent<DeleteMapObject>().ReturnObjectToPool();
+                UIVignette.Instance.ShowVignetteWithAnimation(0.5f);
+                SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
                 break;
         }
     }

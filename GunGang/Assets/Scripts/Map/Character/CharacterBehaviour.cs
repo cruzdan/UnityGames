@@ -22,6 +22,7 @@ public class CharacterBehaviour : MonoBehaviour
     private void OnEnable()
     {
         _rotateToForward.SubscribeToOnCompletedRotation(EnableShoot);
+        _rotateToForward.SubscribeToOnCompletedRotation(PlayCharacterGettedAudio);
     }
 
     private void OnDisable()
@@ -157,5 +158,10 @@ public class CharacterBehaviour : MonoBehaviour
     public bool IsPartner()
     {
         return _isPartner;
+    }
+
+    public void PlayCharacterGettedAudio()
+    {
+        SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterGettedClip);
     }
 }

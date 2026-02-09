@@ -23,6 +23,9 @@ public class CylinderObstacle : MonoBehaviour
         {
             RemoveCylinder();
             IncrementScore();
+            TimeStop.Instance.StopTime();
+            CameraShake.Instance.Shake(0.15f, 0.2f);
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.CharacterExplosionClip);
         }
     }
 

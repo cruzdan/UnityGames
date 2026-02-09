@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: -8247649680385244078}
   - component: {fileID: 7542722683010462128}
   - component: {fileID: 3644332452272085627}
+  - component: {fileID: -6355938644708987921}
+  - component: {fileID: 7104036007925218329}
   m_Layer: 0
   m_Name: Character
   m_TagString: Character
@@ -35,6 +37,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477817011947162263}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.03, y: 3.55, z: 5.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,7 +45,6 @@ Transform:
   m_Children:
   - {fileID: 8498227892035555337}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!136 &5477817011947162261
 CapsuleCollider:
@@ -52,8 +54,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477817011947162263}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -65,10 +76,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477817011947162263}
-  serializedVersion: 2
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -121,6 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 11400000, guid: 2ff7b862d37b5c144ac3c42b46b29d06, type: 2}
+  useOfftargetShoot: 1
+  offtargetValue: 0.05
 --- !u!114 &5477817011947162348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,12 +238,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _legsAnimator: {fileID: 8498227892985935003}
+--- !u!114 &-6355938644708987921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477817011947162263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8513e25d26498644eba2ff0dd5bcc3d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootActions
+  shoot: {fileID: 5477817011947162351}
+--- !u!114 &7104036007925218329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477817011947162263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb68880bf7414ab4a8b45939077c774b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetAutomaticShootActions
+  targetAutomaticShoot: {fileID: -8247649680385244078}
 --- !u!1001 &8146596280460151659
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 5477817011947162344}
     m_Modifications:
     - target: {fileID: 351636023052082018, guid: 82c75efa26bc67046835bbb98ff9f8d4, type: 3}
@@ -283,7 +333,9 @@ PrefabInstance:
       value: 499
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82c75efa26bc67046835bbb98ff9f8d4, type: 3}
 --- !u!4 &8498227892035555337 stripped
 Transform:

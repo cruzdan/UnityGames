@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MountainCollisions : MonoBehaviour
@@ -12,6 +10,9 @@ public class MountainCollisions : MonoBehaviour
             _score.IncrementScore(2);
             ObjectPool.Instance.GetObjectFromPool(ObjectPool.PoolObjectType.Explosion, transform.position);
             ObjectPool.Instance.ReturnObjectToPool(other.gameObject, ObjectPool.PoolObjectType.Bullet);
+            CameraShake.Instance.Shake(0.15f, 0.1f);
+            MapExplosion.Instance.CreateExplosionOnPosition(other.transform.position);
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.MapObjectDestroyedClip);
             GetComponent<DeleteMapObject>().ReturnObjectToPool();
         }
     }
