@@ -15,6 +15,7 @@ public class PlayerSpeedDecrementer : MonoBehaviour
         {
             OnFireworksAppear?.Invoke(transform.position.z);
             OnPlayerStops.TriggerEvent();
+            CameraShake.Instance.Shake(0.1f, 0.2f);
             DisableForwardMovement();
             enabled = false;
         }

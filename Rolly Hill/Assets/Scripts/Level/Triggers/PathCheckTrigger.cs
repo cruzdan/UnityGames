@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PathCheckTrigger : MonoBehaviour
@@ -16,6 +13,7 @@ public class PathCheckTrigger : MonoBehaviour
             if (BallCanBeBigger())
             {
                 IncrementObjectScale(other.gameObject);
+                CameraShake.Instance.Shake(0.1f, 0.2f);
                 OnBallBigger.TriggerEvent();
             }
             _ballBlockCounter.ResetBlockCounter();

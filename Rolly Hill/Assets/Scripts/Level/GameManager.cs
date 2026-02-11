@@ -21,18 +21,26 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     [SerializeField] private int _fps = 30;
+    public bool IsInSky = false;
 
     [SerializeField] private Shop[] _shops;
 
+    #region UI
+    [SerializeField] private Bounce diamondBounce;
+    #endregion
+    #region Public Properties
+    public Bounce DiamondBounce => diamondBounce;
+    #endregion
 
     void OnEnable()
     {
-        //Application.targetFrameRate = _fps;
+        Application.targetFrameRate = _fps;
     }
 
     private void Start()
     {
         InitShops();
+        MusicManager.Instance.PlayRandomMusicWithoutRepetition();
     }
 
     void InitShops()
@@ -87,6 +95,9 @@ public class GameManager : Singleton<GameManager>
         _cameraFollow = _camera.AddComponent<FollowTransformOnOneAxis>();
         _cameraFollow.SetAxisFollowing(1);
         _cameraFollow.SetFollowingTransform(_playerMovement.transform);
+        SFXManager.Instance.PlaySFX(AudioConstants.Instance.SkyPhaseEndAudio);
+        CameraShake.Instance.Shake(0.1f, 0.2f);
+        IsInSky = false;
     }
 
     public void InitSkyPhase()
@@ -104,6 +115,9 @@ public class GameManager : Singleton<GameManager>
         _playerMovement.gameObject.AddComponent<PlayerSkyRotation>();
         Destroy(_cameraFollow);
         Destroy(_playerMovement.GetComponent<SkyPhase>());
+        SFXManager.Instance.PlaySFX(AudioConstants.Instance.SkyPhaseStartAudio);
+        CameraShake.Instance.Shake(0.1f, 0.2f);
+        IsInSky = true;
     }
     
     public void InitBallDropBlocks()
@@ -143,5 +157,10 @@ public class GameManager : Singleton<GameManager>
         Restart();
         OnPassLevel.TriggerEvent();
         ResetBall();
+    }
+
+    public void PlayButtonAudio()
+    {
+        SFXManager.Instance.PlaySFX(AudioConstants.Instance.ButtonAudio);
     }
 }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlockCollisions : MonoBehaviour
@@ -14,6 +11,8 @@ public class BlockCollisions : MonoBehaviour
         {
             ParentToTransform(other.transform);
             DisableCollider();
+            SFXManager.Instance.Play(AudioConstants.Instance.BlockGettedAudio);
+            CameraShake.Instance.Shake(0.05f, 0.05f);
             OnBlockTouched.TriggerEvent();
         }
     }

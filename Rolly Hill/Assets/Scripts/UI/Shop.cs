@@ -133,6 +133,8 @@ public class Shop : MonoBehaviour
     {
         if (_selectedItemIndex == 0)
             return;
+        SFXManager.Instance.IsAble = false;
         _shopSelectButtons[_selectedItemIndex].onClick.Invoke();
+        SFXManager.Instance.IsAble = true;
     }
 }

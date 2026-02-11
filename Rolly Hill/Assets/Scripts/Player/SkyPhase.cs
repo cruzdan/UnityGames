@@ -40,6 +40,7 @@ public class SkyPhase : MonoBehaviour
             if (HasReachedDownPosition())
             {
                 GameManager.Instance.SetOnFloorPhase();
+                SFXManager.Instance.PlaySFX(AudioConstants.Instance.SkyPhaseEndAudio);
                 OnFloorPhase?.Invoke();
             }
         }

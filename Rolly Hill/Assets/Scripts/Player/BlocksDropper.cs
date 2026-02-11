@@ -30,6 +30,7 @@ public class BlocksDropper : MonoBehaviour
             {
                 _distanceTraveled = 0;
                 DropFirstChildBlock();
+                SFXManager.Instance.PlaySFX(AudioConstants.Instance.BlockDroppedAudio);
             }
             else
             {

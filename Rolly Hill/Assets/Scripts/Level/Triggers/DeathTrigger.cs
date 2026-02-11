@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathTrigger : MonoBehaviour
@@ -10,7 +7,9 @@ public class DeathTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SFXManager.Instance.Play(AudioConstants.Instance.BallHittedAudio);
             OnDeadPhaseStarts.TriggerEvent();
+            CameraShake.Instance.Shake(0.2f, 0.3f);
         }
     }
 }

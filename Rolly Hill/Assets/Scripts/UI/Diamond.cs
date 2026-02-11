@@ -101,6 +101,8 @@ public class Diamond : MonoBehaviour
     void AddDiamondEventDestroyWhenReachTarget(UIFollowPoint diamondFollow)
     {
         diamondFollow.SubscribeToEvent(() => {
+            SFXManager.Instance.PlaySFX(AudioConstants.Instance.DiamondGettedAudio);
+            GameManager.Instance.DiamondBounce.StartBounce();
             Destroy(diamondFollow.gameObject);
             _diamonds.Remove(diamondFollow);
         });
