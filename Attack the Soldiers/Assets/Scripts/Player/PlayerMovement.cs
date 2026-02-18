@@ -214,5 +214,16 @@ public class PlayerMovement : NetworkBehaviour
     {
         jump.JumpSpeed = value;
     }
+
+    [ClientRpc]
+    public void TeleportToPositionClientRpc(Vector2 position, ClientRpcParams clientRpcParams = default)
+    {
+        TeleportToPosition(position);
+    }
+
+    void TeleportToPosition(Vector2 position)
+    {
+        transform.position = position;
+    }
     #endregion
 }

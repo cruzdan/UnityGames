@@ -5,6 +5,7 @@ public class UIScoreDisplay : MonoBehaviour
 {
     #region Serialized Variables
     [SerializeField] private TMP_Text text;
+    [SerializeField] private Bounce scoreBounce;
     #endregion
     #region Private Variables
     private Player player;
@@ -26,6 +27,7 @@ public class UIScoreDisplay : MonoBehaviour
     private void OnScoreChanged(int previous, int current)
     {
         text.text = "Score: " + current;
+        scoreBounce.StartBounce();
     }
     #endregion
 }

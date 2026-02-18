@@ -75,6 +75,7 @@ public class BulletInteractions : NetworkBehaviour
         {
             HandlePlayerKilledIfPossible(player, damage);
             player.DecrementLife(damage);
+            player.StartCameraShakeOwnerRpc(damage * 0.5f, Constants.DAMAGE_SHAKE_DURATION);
         }
         GameNetwork.Instance.Despawn(NetworkObject, poolTag);
     }

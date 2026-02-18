@@ -25,7 +25,7 @@ public class Barrel : NetworkBehaviour
     public void Initialize(float speed)
     {
         rb.linearVelocity = new Vector2(speed, 0);
-        StartCoroutine(DisposeAfterTime(5f));
+        StartCoroutine(DisposeAfterTime(Constants.BARREL_DURATION));
     }
 
     IEnumerator DisposeAfterTime(float time)

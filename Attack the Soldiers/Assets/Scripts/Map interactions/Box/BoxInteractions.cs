@@ -21,7 +21,7 @@ public class BoxInteractions : NetworkBehaviour
     public void SetWeaponType(Weapon index) { weaponType = index; }
     public void SetWeaponBullets(int total) { weaponBullets = total; }
     #endregion
-    #region
+    #region Functions
 
     public override void OnNetworkSpawn()
     {

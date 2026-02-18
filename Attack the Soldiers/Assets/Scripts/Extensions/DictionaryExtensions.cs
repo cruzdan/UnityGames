@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public static class DictionaryExtensions
 {
     /// <summary>
-    /// Inicializa un Dictionary a partir de una lista y una función para obtener la clave.
+    /// Initialize a Dictionary from a list and a function to get the key.
     /// </summary>
     public static void InitializeFromList<TKey, TValue>(
         this Dictionary<TKey, TValue> dictionary,

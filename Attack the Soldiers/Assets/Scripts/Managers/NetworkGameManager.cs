@@ -75,21 +75,6 @@ public class NetworkGameManager : NetworkBehaviour
     public void InitializeUI()
     {
         isAndroid = isOnMobileToggle.isOn;
-        //ActivateMobileMenu();
-    }
-
-    private void ActivateMobileMenu()
-    {
-        if (!overrideDeviceType)
-        {
-            mobileCanvas.SetActive(deviceChecker.IsOnMobile());
-            Debug.Log("mobileCanvas active1: " + deviceChecker.IsOnMobile());
-        }
-        else
-        {
-            mobileCanvas.SetActive(isOnMobileToggle.isOn);
-            Debug.Log("mobileCanvas active2: " + isOnMobileToggle.isOn);
-        }
     }
 
     void ActiveOptions()

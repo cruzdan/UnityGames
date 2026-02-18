@@ -86,7 +86,8 @@ public class ObjectContainerUI : NetworkBehaviour
         if (currentPage > 0)
         {
             currentPage--;
-            ActiveObjectsInPageUI(currentPage);
+            //ActiveObjectsInPageUI(currentPage);
+            Initialize();
             currentPageText.text = (currentPage + 1).ToString();
         }
     }
@@ -97,7 +98,8 @@ public class ObjectContainerUI : NetworkBehaviour
         if (currentPage < maxPage)
         {
             currentPage++;
-            ActiveObjectsInPageUI(currentPage);
+            //ActiveObjectsInPageUI(currentPage);
+            Initialize();
             currentPageText.text = (currentPage + 1).ToString();
         }
     }

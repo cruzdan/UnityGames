@@ -26,4 +26,10 @@ public class Constants
     #region Enemy
     public static List<string> ENEMY_NAMES = new List<string> { "BarrelThrower", "Faster", "FlameThrower", "GunMan", "Knockout" };
     #endregion
+    #region Shake
+    public const float DAMAGE_SHAKE_DURATION = 0.2f;
+    #endregion
+    #region Barrel Bullet
+    public const float BARREL_DURATION = 5f;
+    #endregion
 }

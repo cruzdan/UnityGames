@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TransformYOrganizer : MonoBehaviour
 {
+    #region Serialized Variables
     [SerializeField] private Canvas canvas;
     [SerializeField] private List<RectTransform> transformsInCanvas;
     [SerializeField] private float spacing = 100f;
+    #endregion
+    #region Functions
     public void OrganizeTransformsY()
     {
         if (canvas == null || transformsInCanvas == null || transformsInCanvas.Count == 0) return;
@@ -23,6 +26,7 @@ public class TransformYOrganizer : MonoBehaviour
             transformInCanvas.anchoredPosition = new Vector2(transformInCanvas.anchoredPosition.x, posY);
         }
     }
+    #endregion
 }
 #if UNITY_EDITOR
 [CustomEditor(typeof(TransformYOrganizer))]

@@ -12,6 +12,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private BurnStatus burnStatus;
     [SerializeField] private Stamina playerStamina;
     [SerializeField] private DeviceChecker deviceChecker;
+    [SerializeField] private CinemachineCameraShake cameraShake;
     private SpriteRenderer spriteRenderer;
     public bool canActiveDeadMenu = true;
     #endregion
@@ -77,7 +78,6 @@ public class Player : NetworkBehaviour
             CurrentLife.Value = initialLife;
         }
         if (!GameNetwork.IsOwnerOfflineOrOnline(NetworkObject)) { enabled = false; return; }
-        canvas.SetActive(true);
         FindAnyObjectByType<MainMenuUI>().UICanvas.SetActive(false);
         SetPlayerOnSpawnPoint();
         if (!GameNetwork.Instance.IsOnline || GameNetwork.MultiplayerModeType != MultiplayerModeType.PVP)
@@ -346,6 +346,12 @@ public class Player : NetworkBehaviour
     public void SetDeadValue(bool value)
     {
         Dead = value;
+    }
+
+    [Rpc(SendTo.Owner)]
+    public void StartCameraShakeOwnerRpc(float intensity, float duration)
+    {
+        CinemachineCameraShake.Instance.Shake(intensity, duration);
     }
     #endregion
 }

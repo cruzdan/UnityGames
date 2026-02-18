@@ -14,6 +14,7 @@ public class PlayerCheatInfo : MonoBehaviour
     public Toggle StaminaToggle;
     public Toggle AmmoToggle;
     public Slider JumpSlider;
+    public Button teleportToMeButton;
     #endregion
     #region Actions
     public Action<int, ulong> OnPlayerWeaponChangedAction;
@@ -21,6 +22,7 @@ public class PlayerCheatInfo : MonoBehaviour
     public Action<bool, ulong> OnStaminaToggleChangedAction;
     public Action<bool, ulong> OnAmmoToggleChangedAction;
     public Action<float, ulong> OnPlayerJumpChangedAction;
+    public Action<ulong> OnPlayerTeleportToMeAction;
     #endregion
     #region Functions
     private void Awake()
@@ -35,6 +37,7 @@ public class PlayerCheatInfo : MonoBehaviour
         StaminaToggle.onValueChanged.AddListener(OnStaminaToggleChanged);
         AmmoToggle.onValueChanged.AddListener(OnAmmoToggleChanged);
         JumpSlider.onValueChanged.AddListener(OnPlayerJumpChanged);
+        teleportToMeButton.onClick.AddListener(OnPlayerTeleportToMePressed);
     }
 
     void OnPlayerWeaponChanged(int index)
@@ -60,6 +63,11 @@ public class PlayerCheatInfo : MonoBehaviour
     void OnPlayerJumpChanged(float value)
     {
         OnPlayerJumpChangedAction?.Invoke(value, ulong.Parse(PlayerIDText.text));
+    }
+
+    void OnPlayerTeleportToMePressed()
+    {
+        OnPlayerTeleportToMeAction?.Invoke(ulong.Parse(PlayerIDText.text));
     }
     #endregion
 }

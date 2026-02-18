@@ -64,6 +64,7 @@ public class CheatsMenuActions : NetworkBehaviour
             playerCheatInfo.OnStaminaToggleChangedAction += OnStaminaToggleChangedAction;
             playerCheatInfo.OnAmmoToggleChangedAction += OnAmmoToggleChangedAction;
             playerCheatInfo.OnPlayerJumpChangedAction += OnPlayerJumpChangedAction;
+            playerCheatInfo.OnPlayerTeleportToMeAction += OnPlayerTeleportToMeAction;
         }
     }
 
@@ -149,6 +150,24 @@ public class CheatsMenuActions : NetworkBehaviour
             clientId[0] = player.OwnerClientId;
             clientRpcParams.Send.TargetClientIds = clientId;
             player.GetComponent<PlayerMovement>().SetJumpForceClientRpc(value * 45, clientRpcParams);
+        }
+    }
+
+
+    void OnPlayerTeleportToMeAction(ulong playerID)
+    {
+        OnPlayerTeleportToMeActionServerRpc(playerID);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void OnPlayerTeleportToMeActionServerRpc(ulong playerID)
+    {
+        Player player = GetPlayerByID(playerID);
+        if (player != null)
+        {
+            clientId[0] = player.OwnerClientId;
+            clientRpcParams.Send.TargetClientIds = clientId;
+            player.GetComponent<PlayerMovement>().TeleportToPositionClientRpc(PlayerManager.Instance.Players[0].transform.position, clientRpcParams);
         }
     }
 

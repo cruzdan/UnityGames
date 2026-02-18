@@ -53,19 +53,12 @@ public class BurnStatus : NetworkBehaviour
     // Call to apply burn effect to this object.
     public void ApplyBurn()
     {
-        if (!canBurn.Value)
-        {
-            return;
-        }
+        if (!canBurn.Value) return;
         if (GameNetwork.Instance.IsOnline)
-        {
             StartBurnServerRpc();
-        }
         else
             StartBurn();
     }
-
-
 
     [ServerRpc(RequireOwnership = false)]
     private void StartBurnServerRpc()
