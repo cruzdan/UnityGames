@@ -47,6 +47,9 @@ public class NetworkGameManager : NetworkBehaviour
     [SerializeField] private Toggle isOnMobileToggle;
     [SerializeField] private GameObject mobileCanvas;
     #endregion
+    #region Environment
+    [SerializeField] private EnvironmentTextureManager environmentTextureManager;
+    #endregion
     #region Functions
     private void Awake()
     {
@@ -70,6 +73,8 @@ public class NetworkGameManager : NetworkBehaviour
         bulletInfoSO.InitializeBulletInfoDictionary();
         playerManager.Players.Add(player.GetComponentInChildren<Player>());
         ActiveOptions();
+        environmentTextureManager.ApplyRandomBackground();
+        environmentTextureManager.ApplyRandomEnvironment();
     }
 
     public void InitializeUI()

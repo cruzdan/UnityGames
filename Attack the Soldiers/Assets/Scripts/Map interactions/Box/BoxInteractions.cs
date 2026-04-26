@@ -7,6 +7,8 @@ public class BoxInteractions : NetworkBehaviour
     [SerializeField] private BoxType upgradeType;
     [SerializeField] private Weapon weaponType;
     [SerializeField] private int weaponBullets;
+    [SerializeField] private SpriteRenderer boxRenderer;
+    [SerializeField] private BoxInfoSO boxInfoSO;
     private bool isUsed;
     private bool boxHasCorrectColor = false;
     #endregion
@@ -20,6 +22,7 @@ public class BoxInteractions : NetworkBehaviour
     public void SetBoxType(BoxType boxType) { upgradeType = boxType; }
     public void SetWeaponType(Weapon index) { weaponType = index; }
     public void SetWeaponBullets(int total) { weaponBullets = total; }
+    public SpriteRenderer BoxRenderer { get { return boxRenderer; } }
     #endregion
     #region Functions
 
@@ -27,7 +30,8 @@ public class BoxInteractions : NetworkBehaviour
     {
         if (!GameNetwork.IsOwnerOfflineOrOnline(NetworkObject) && !boxHasCorrectColor)
         {
-            GetComponent<SpriteRenderer>().color = ownColor.Value;
+            //GetComponent<SpriteRenderer>().color = ownColor.Value;
+            GetComponent<SpriteRenderer>().sprite = boxInfoSO.GetBoxInfo(upgradeType).BoxSprite;
         }
         if (!IsServer) enabled = false;
     }

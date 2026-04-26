@@ -224,8 +224,8 @@ public class CheatsMenuUI :  NetworkBehaviour
 
     public void OnCheatsOpen_Close()
     {
-        cheatCanvasObject.SetActive(!cheatCanvasObject.activeSelf);
-        if (cheatCanvasObject.activeSelf)
+        cheatCanvasObject.SetActive(!cheatCanvasObject.activeInHierarchy);
+        if (cheatCanvasObject.activeInHierarchy)
         {
             OpenMainPanel();
         }

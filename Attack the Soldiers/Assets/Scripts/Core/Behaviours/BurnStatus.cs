@@ -9,6 +9,7 @@ public class BurnStatus : NetworkBehaviour
     [SerializeField] private NetworkVariable<bool> canBurn = new(true);
     [SerializeField] private float burnDuration = 5f;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject burnObject;
     [SerializeField] private Color originalColor = Color.white;
     [SerializeField] private Color burningColor = new Color(255, 103, 0, 255);
     [SerializeField] private Player ownerPlayer;
@@ -42,11 +43,21 @@ public class BurnStatus : NetworkBehaviour
         if (ownerPlayer != null)
         {
             if (!ownerPlayer.dead.Value)
+            {
                 spriteRenderer.color = burning ? burningColor : originalColor;
+                if (burnObject != null)
+                {
+                    burnObject.SetActive(burning);
+                }
+            }
         }
         else
         {
             spriteRenderer.color = burning ? burningColor : originalColor;
+            if (burnObject != null)
+            {
+                burnObject.SetActive(burning);
+            }
         }
     }
 

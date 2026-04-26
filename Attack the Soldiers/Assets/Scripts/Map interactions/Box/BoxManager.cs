@@ -63,9 +63,10 @@ public class BoxManager : NetworkBehaviour
         boxInteractions.SetBoxType(boxType);
         AddWeaponInfoToBoxIfNecessary();
         boxInfo = boxInfoSO.GetBoxInfo(boxType);
-        boxInteractions.ownColor.Value = boxInfo.BoxColor;
+        //boxInteractions.ownColor.Value = boxInfo.BoxColor;
+        boxInteractions.BoxRenderer.sprite = boxInfo.BoxSprite;
         boxInteractions.SetIsUsed(false);
-        ChangeBoxColor();
+        //ChangeBoxColor();
     }
 
     BoxType GetRandomBoxTypeIfPossible()

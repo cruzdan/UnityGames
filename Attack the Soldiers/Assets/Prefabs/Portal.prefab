@@ -81,9 +81,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.08001069, g: 0.5849056, b: 0.13198233, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: -5325533704016949170, guid: fb749676fd80d8d4fbdca1255650eb71, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.1166667, y: 1.1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 215915734
+  GlobalObjectIdHash: 1820178248
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -177,11 +177,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  isOffline: 0
   ownColor:
     m_InternalValue: {r: 0, g: 0, b: 0, a: 0}
   nextPortal: {fileID: 0}
   portalColors:
   - {r: 0.08, g: 0.585, b: 0.132, a: 1}
   - {r: 1, g: 0, b: 0, a: 1}
+  portalSprites:
+  - {fileID: -5325533704016949170, guid: fb749676fd80d8d4fbdca1255650eb71, type: 3}
+  - {fileID: -3751057876634611108, guid: fb749676fd80d8d4fbdca1255650eb71, type: 3}
   timeToActivePortal: 3

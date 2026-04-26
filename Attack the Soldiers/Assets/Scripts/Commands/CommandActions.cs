@@ -14,6 +14,7 @@ public class CommandActions : MonoBehaviour
 
     private void HandleCommand(string command)
     {
+        bool same = command.Equals(Constants.COMMAND_CHEATS, System.StringComparison.OrdinalIgnoreCase);
         switch (command)
         {
             case Constants.COMMAND_CHEATS:

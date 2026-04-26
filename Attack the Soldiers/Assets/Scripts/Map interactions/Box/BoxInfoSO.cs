@@ -23,5 +23,10 @@ public class BoxInfoSO : ScriptableObject
     {
         return boxInfoDict.TryGetValue(boxType, out var info) ? info : null;
     }
+
+    public Sprite GetBoxSprite(BoxType boxType)
+    {
+        return GetBoxInfo(boxType)?.BoxSprite;
+    }
     #endregion
 }

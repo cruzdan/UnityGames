@@ -1,0 +1,2967 @@
+fileFormatVersion: 2
+guid: 4ae22afaa95eed24d9e7660fb3affb13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5251494700051047713
+    second: Font Soldiers_0
+  - first:
+      213: 8967138267594980011
+    second: Font Soldiers_1
+  - first:
+      213: 1717405229181117562
+    second: Font Soldiers_2
+  - first:
+      213: 3830026736166743841
+    second: Font Soldiers_3
+  - first:
+      213: 5508982415291670508
+    second: Font Soldiers_4
+  - first:
+      213: -6862195467012051819
+    second: Font Soldiers_5
+  - first:
+      213: -875153755835837279
+    second: Font Soldiers_6
+  - first:
+      213: 661856787849262973
+    second: Font Soldiers_7
+  - first:
+      213: 3833195993550056265
+    second: Font Soldiers_8
+  - first:
+      213: -5669146019403221917
+    second: Font Soldiers_9
+  - first:
+      213: -913816532339696015
+    second: Font Soldiers_10
+  - first:
+      213: -5503494163806761290
+    second: Font Soldiers_11
+  - first:
+      213: -1741491416967775106
+    second: Font Soldiers_12
+  - first:
+      213: 4168633565718931786
+    second: Font Soldiers_13
+  - first:
+      213: -7619694856065830328
+    second: Font Soldiers_14
+  - first:
+      213: -6410936718124939979
+    second: Font Soldiers_15
+  - first:
+      213: 2299250180239236027
+    second: Font Soldiers_16
+  - first:
+      213: -1497924409933336715
+    second: Font Soldiers_17
+  - first:
+      213: -4750386328425370593
+    second: Font Soldiers_18
+  - first:
+      213: -8668045473476902155
+    second: Font Soldiers_19
+  - first:
+      213: -8564971347463081829
+    second: Font Soldiers_20
+  - first:
+      213: 1840318277160309789
+    second: Font Soldiers_21
+  - first:
+      213: -3104078502598549645
+    second: Font Soldiers_22
+  - first:
+      213: 4471416058686591250
+    second: Font Soldiers_23
+  - first:
+      213: -3340583155354586641
+    second: Font Soldiers_24
+  - first:
+      213: -5097983290411772162
+    second: Font Soldiers_25
+  - first:
+      213: 238553412597849818
+    second: Font Soldiers_26
+  - first:
+      213: 6883794974324044524
+    second: Font Soldiers_27
+  - first:
+      213: -5295467898651857647
+    second: Font Soldiers_28
+  - first:
+      213: 6980666549806690853
+    second: Font Soldiers_29
+  - first:
+      213: 7849083905045077655
+    second: Font Soldiers_30
+  - first:
+      213: -8802451779435264807
+    second: Font Soldiers_31
+  - first:
+      213: -1237566713170719095
+    second: Font Soldiers_32
+  - first:
+      213: -8971911062679586725
+    second: Font Soldiers_33
+  - first:
+      213: -1030805170920044598
+    second: Font Soldiers_34
+  - first:
+      213: -3890476662985229526
+    second: Font Soldiers_35
+  - first:
+      213: 383201749846522734
+    second: Font Soldiers_36
+  - first:
+      213: 1961511621212289269
+    second: Font Soldiers_37
+  - first:
+      213: -6840422200029413533
+    second: Font Soldiers_38
+  - first:
+      213: -471632182718151536
+    second: Font Soldiers_39
+  - first:
+      213: -9081063464637762528
+    second: Font Soldiers_40
+  - first:
+      213: -669005226354508837
+    second: Font Soldiers_41
+  - first:
+      213: -6456877602695232882
+    second: Font Soldiers_42
+  - first:
+      213: -6509639785355293016
+    second: Font Soldiers_43
+  - first:
+      213: 8494274285979366393
+    second: Font Soldiers_44
+  - first:
+      213: 6123966776038942273
+    second: Font Soldiers_45
+  - first:
+      213: -6846959573807480677
+    second: Font Soldiers_46
+  - first:
+      213: 2704453755612950628
+    second: Font Soldiers_47
+  - first:
+      213: 8093427307676764655
+    second: Font Soldiers_48
+  - first:
+      213: -5878163666005190627
+    second: Font Soldiers_49
+  - first:
+      213: 1427037076608730536
+    second: Font Soldiers_50
+  - first:
+      213: -5826537290281419450
+    second: Font Soldiers_51
+  - first:
+      213: 7095877679542347156
+    second: Font Soldiers_52
+  - first:
+      213: 447984278917406891
+    second: Font Soldiers_53
+  - first:
+      213: -4241914376962411117
+    second: Font Soldiers_54
+  - first:
+      213: 9000435440604356732
+    second: Font Soldiers_55
+  - first:
+      213: 9114158615772334329
+    second: Font Soldiers_56
+  - first:
+      213: 4217785974017620205
+    second: Font Soldiers_57
+  - first:
+      213: -6075753863979292368
+    second: Font Soldiers_58
+  - first:
+      213: 8416098199869974042
+    second: Font Soldiers_59
+  - first:
+      213: -3545488569668381137
+    second: Font Soldiers_60
+  - first:
+      213: 4426040049671376760
+    second: Font Soldiers_61
+  - first:
+      213: 6949974789164040389
+    second: Font Soldiers_62
+  - first:
+      213: 9108166685046504358
+    second: Font Soldiers_63
+  - first:
+      213: -9152694399041116522
+    second: Font Soldiers_64
+  - first:
+      213: 2486213137871088193
+    second: Font Soldiers_65
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Font Soldiers_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 907
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125a3682b9e01e840800000000000000
+      internalID: 5251494700051047713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 907
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa7fc39ebca17c70800000000000000
+      internalID: 8967138267594980011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 907
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a742dbce4f275d710800000000000000
+      internalID: 1717405229181117562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_3
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 907
+        width: 73
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fa771360df62530800000000000000
+      internalID: 3830026736166743841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_4
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 907
+        width: 63
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef5551a156d37c40800000000000000
+      internalID: 5508982415291670508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_5
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 907
+        width: 64
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c6379849594c0a0800000000000000
+      internalID: -6862195467012051819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_6
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 907
+        width: 71
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a45e8bbb44dad3f0800000000000000
+      internalID: -875153755835837279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_7
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 907
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77bfebed336f2900800000000000000
+      internalID: 661856787849262973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_8
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 907
+        width: 41
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b600e627f323530800000000000000
+      internalID: 3833195993550056265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_9
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 907
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364b6a55bb52351b0800000000000000
+      internalID: -5669146019403221917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_10
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 907
+        width: 76
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e530894b87153f0800000000000000
+      internalID: -913816532339696015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_11
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 907
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6beccde7739af93b0800000000000000
+      internalID: -5503494163806761290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 907
+        width: 92
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c7e3878caf4d7e0800000000000000
+      internalID: -1741491416967775106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_13
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 907
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4962734426f9d930800000000000000
+      internalID: 4168633565718931786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 907
+        width: 80
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842335736e7614690800000000000000
+      internalID: -7619694856065830328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_15
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 908
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53587ae7507c707a0800000000000000
+      internalID: -6410936718124939979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_16
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 907
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb99e26bd398ef10800000000000000
+      internalID: 2299250180239236027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_17
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 896
+        width: 80
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57f698d7fad463be0800000000000000
+      internalID: -1497924409933336715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_18
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 907
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c655c8dcc331eb0800000000000000
+      internalID: -4750386328425370593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_19
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 907
+        width: 62
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f20a70319ae4b780800000000000000
+      internalID: -8668045473476902155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_20
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 907
+        width: 67
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90701b40fb132980800000000000000
+      internalID: -8564971347463081829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_21
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 684
+        width: 68
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d149ccff8bf1a8910800000000000000
+      internalID: 1840318277160309789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_24
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 799
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1bf62c15dd3a1d0800000000000000
+      internalID: -3340583155354586641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_25
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 799
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef6112825335049b0800000000000000
+      internalID: -5097983290411772162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_26
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 799
+        width: 106
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ade1ad990138f4300800000000000000
+      internalID: 238553412597849818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_27
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 799
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce23437ae07288f50800000000000000
+      internalID: 6883794974324044524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_28
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 799
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d2f55b008b286b0800000000000000
+      internalID: -5295467898651857647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_29
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 799
+        width: 76
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522fdaced3f40e060800000000000000
+      internalID: 6980666549806690853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58f5987c6e5d7380800000000000000
+      internalID: -8971911062679586725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_34
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7cca29828d1b1f0800000000000000
+      internalID: -1030805170920044598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_35
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b71df6610420ac0800000000000000
+      internalID: -3890476662985229526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_36
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6bf8e016f7615500800000000000000
+      internalID: 383201749846522734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_37
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8b82d4d60b83b10800000000000000
+      internalID: 1961511621212289269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_38
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 684
+        width: 62
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ffc8d4040f111a0800000000000000
+      internalID: -6840422200029413533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_39
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 669
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0944174570d6479f0800000000000000
+      internalID: -471632182718151536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_40
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 684
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024fc7774e499f180800000000000000
+      internalID: -9081063464637762528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_41
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 684
+        width: 49
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb724a8a4737b6f0800000000000000
+      internalID: -669005226354508837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_42
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 668
+        width: 46
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82cc25c7009466a0800000000000000
+      internalID: -6456877602695232882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_43
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 684
+        width: 43
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aec522da1d19a5a0800000000000000
+      internalID: -6509639785355293016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_44
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 684
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3f8806579b1e570800000000000000
+      internalID: 8494274285979366393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_45
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 684
+        width: 68
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 146681e2653bcf450800000000000000
+      internalID: 6123966776038942273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_46
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 684
+        width: 69
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90cebb5b86baf0a0800000000000000
+      internalID: -6846959573807480677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_47
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 684
+        width: 66
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460f7c6ac56288520800000000000000
+      internalID: 2704453755612950628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_48
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 667
+        width: 66
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe905896141a15070800000000000000
+      internalID: 8093427307676764655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_49
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 668
+        width: 67
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1817242a419c6ea0800000000000000
+      internalID: -5878163666005190627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_50
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 684
+        width: 54
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5439019aaddc310800000000000000
+      internalID: 1427037076608730536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_51
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 684
+        width: 60
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d753e643bf32fa0800000000000000
+      internalID: -5826537290281419450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_52
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 684
+        width: 65
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 495aeba672f997260800000000000000
+      internalID: 7095877679542347156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_53
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 684
+        width: 58
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0e4d1045f873600800000000000000
+      internalID: 447984278917406891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_59
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 580
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16ed0ee8bcfbc470800000000000000
+      internalID: 8416098199869974042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_60
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 580
+        width: 74
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2655b14ee4ebcec0800000000000000
+      internalID: -3545488569668381137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_61
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 580
+        width: 105
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f805a99f37c6d30800000000000000
+      internalID: 4426040049671376760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_62
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 580
+        width: 77
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c00b0a8f35437060800000000000000
+      internalID: 6949974789164040389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_63
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 566
+        width: 82
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab7e39c755b66e70800000000000000
+      internalID: 9108166685046504358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_64
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 580
+        width: 70
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6966277efe81bf080800000000000000
+      internalID: -9152694399041116522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb820f4a0ea70e84aa3e2c7d9ee439d4
+      internalID: 1887902732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_67
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86891e3c79bebe4e81c4df264335b2b
+      internalID: -1402766640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_68
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12bd4230ffd308d4589bf875298b989f
+      internalID: 1457741169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_69
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740d7b46b6fed2d429d4841eba6b6442
+      internalID: 1090779409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_70
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9bad78fea93843498897cc484e74993
+      internalID: -1284514619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_71
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ef2e8115841384398f494ddb40968d
+      internalID: -822207096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_72
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a9da545e7d9374aa676c830e6c1597
+      internalID: -221953691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_73
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7358f2924cae6d4483cfb3b7e505cc8
+      internalID: -1349308990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_74
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f384fde0aeae07846978c7917ab03cd8
+      internalID: -1544484272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_75
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e989aec19c1524ebb0c7714207578f
+      internalID: 968106712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_76
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1c2f9cb721f204aa816d5be81b1fe2
+      internalID: -790735826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_77
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa24c9cb95982d42be04baca5bec2b6
+      internalID: -1853761091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_78
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb43cf5bf549a143951f586a87c6f1c
+      internalID: 1593189438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_79
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10170affafab0c14cab8b4aa90d5c9ff
+      internalID: 555297394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_80
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3477db8e8d073e44a0d11fd9e7808f0
+      internalID: 1177960481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_81
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f9690db6b368d40b88f85916fb27e0
+      internalID: 725048486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_82
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211541d5d280a37438e4cb6ca3ad39d7
+      internalID: 1098800386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_83
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907077ab539c3a14ba71d5d18c843b68
+      internalID: -461686233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_84
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b676423791c4cc48b33cf09e4e161d3
+      internalID: 247197187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_85
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cc1d86b22d579468df95b3523394c4
+      internalID: -1779695527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_86
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 384
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a896fea6f3fd2054e94a2b8ee40bf02b
+      internalID: -1472657259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c11ca2194311d94449ba0d370b5bd180
+      internalID: -1231528372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_88
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71c2123c2d79d5468441a9c21eee189
+      internalID: 1115524803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_89
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625ac11c4d6433946bd0fe9874a36e82
+      internalID: 1031063091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_90
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de61b4d0ad791944ab44567e138b1ea7
+      internalID: -146077160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_91
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df5a56b0fbd3594a88d128a51cbf1b2
+      internalID: -1492555452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_92
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8135ec35a604a4cbc6b8b4922051b8
+      internalID: 1655065178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MinusThan
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 317
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181592c5014f9cf4891c684cad10d38d
+      internalID: -1214595145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoreThan
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 317
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4f652a4333be146b103ee31f247d54
+      internalID: -1289253730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_95
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293c5e8760b701c44be26037ee8d25d8
+      internalID: 2118881734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_96
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fccac0635d2fc81469e595db95c8597d
+      internalID: 249394161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_97
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490c8d9afe78f254686d07610ed4faec
+      internalID: 1283742261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_98
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae356be860228248943e4146652753f
+      internalID: 2071706181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_99
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 317ad3d905eb1b548b73f1b6dae0c9f0
+      internalID: 14264778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_100
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea39e793840baf143a58100abcddfd8a
+      internalID: -1918290390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_101
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba4bc37b69a1364c92b34cf3210f138
+      internalID: -1964047286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_102
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c018708b361954a9c26d0159751529
+      internalID: 1163157082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_103
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724ddc7b94b775840ade4829613752de
+      internalID: -288072396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_104
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e86b4a2e0d26c46a5ee71d556c1068
+      internalID: 1828495092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_105
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d089fb68e8a2764088aef096741bddc
+      internalID: -323820915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_106
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42913a5309c3ed442aab030a695991ff
+      internalID: 238802760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_107
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 256
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58a2d42aeda82a4abc57debe19f9af9
+      internalID: 973367885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_108
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888000ed9518e6e46ba570e1f03eaf74
+      internalID: 1061448384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_109
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b97ec1cd1de114c85b8c7089278e31
+      internalID: 863268542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_110
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c205bb8ed80604cad0412930163f53
+      internalID: -1760149064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_111
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163c8f7af8f9afd4a8aff7f2e569d670
+      internalID: -1016907666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_112
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9739c44c4f875b4f90b1b285749791e
+      internalID: -699824820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_113
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41590aef1490e2344a2d059caa1e77cd
+      internalID: 1131083851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_114
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c55932302b57cc4ca0717712dd28296
+      internalID: 767433311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_115
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ebc3f8006b82f843b9ccfe81a21f251
+      internalID: -1128067618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_116
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7548e78f4cd9b94696222e38e7ce173
+      internalID: -488407674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_117
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507d810b9cedb3a41bfee51ec89907f3
+      internalID: -1004318199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_118
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32815fe8e3c74c74b9456aba2127d149
+      internalID: -1689555148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_119
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44677116dd610934f800127679bfe877
+      internalID: -1786171835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_120
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d5351257205334093d7539cb2a0cd0
+      internalID: -215333812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_121
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d5a80adf372ab44b605879b92b449b
+      internalID: -402956183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_122
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc87df26dc3f3494a829239beef6397e
+      internalID: -284642520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Font Soldiers_123
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 128
+        width: 73
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33357121107852f4b8df642ea5b3953f
+      internalID: 417114699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3bbf8eed324ddb148afd562146fce2d7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":73.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Font Soldiers_0: 5251494700051047713
+      Font Soldiers_1: 8967138267594980011
+      Font Soldiers_10: -913816532339696015
+      Font Soldiers_100: -1918290390
+      Font Soldiers_101: -1964047286
+      Font Soldiers_102: 1163157082
+      Font Soldiers_103: -288072396
+      Font Soldiers_104: 1828495092
+      Font Soldiers_105: -323820915
+      Font Soldiers_106: 238802760
+      Font Soldiers_107: 973367885
+      Font Soldiers_108: 1061448384
+      Font Soldiers_109: 863268542
+      Font Soldiers_11: -5503494163806761290
+      Font Soldiers_110: -1760149064
+      Font Soldiers_111: -1016907666
+      Font Soldiers_112: -699824820
+      Font Soldiers_113: 1131083851
+      Font Soldiers_114: 767433311
+      Font Soldiers_115: -1128067618
+      Font Soldiers_116: -488407674
+      Font Soldiers_117: -1004318199
+      Font Soldiers_118: -1689555148
+      Font Soldiers_119: -1786171835
+      Font Soldiers_12: -1741491416967775106
+      Font Soldiers_120: -215333812
+      Font Soldiers_121: -402956183
+      Font Soldiers_122: -284642520
+      Font Soldiers_123: 417114699
+      Font Soldiers_124: 1147715545
+      Font Soldiers_13: 4168633565718931786
+      Font Soldiers_14: -7619694856065830328
+      Font Soldiers_15: -6410936718124939979
+      Font Soldiers_16: 2299250180239236027
+      Font Soldiers_17: -1497924409933336715
+      Font Soldiers_18: -4750386328425370593
+      Font Soldiers_19: -8668045473476902155
+      Font Soldiers_2: 1717405229181117562
+      Font Soldiers_20: -8564971347463081829
+      Font Soldiers_21: 1840318277160309789
+      Font Soldiers_22: -3104078502598549645
+      Font Soldiers_23: 4471416058686591250
+      Font Soldiers_24: -3340583155354586641
+      Font Soldiers_25: -5097983290411772162
+      Font Soldiers_26: 238553412597849818
+      Font Soldiers_27: 6883794974324044524
+      Font Soldiers_28: -5295467898651857647
+      Font Soldiers_29: 6980666549806690853
+      Font Soldiers_3: 3830026736166743841
+      Font Soldiers_30: 7849083905045077655
+      Font Soldiers_31: -8802451779435264807
+      Font Soldiers_32: -1237566713170719095
+      Font Soldiers_33: -8971911062679586725
+      Font Soldiers_34: -1030805170920044598
+      Font Soldiers_35: -3890476662985229526
+      Font Soldiers_36: 383201749846522734
+      Font Soldiers_37: 1961511621212289269
+      Font Soldiers_38: -6840422200029413533
+      Font Soldiers_39: -471632182718151536
+      Font Soldiers_4: 5508982415291670508
+      Font Soldiers_40: -9081063464637762528
+      Font Soldiers_41: -669005226354508837
+      Font Soldiers_42: -6456877602695232882
+      Font Soldiers_43: -6509639785355293016
+      Font Soldiers_44: 8494274285979366393
+      Font Soldiers_45: 6123966776038942273
+      Font Soldiers_46: -6846959573807480677
+      Font Soldiers_47: 2704453755612950628
+      Font Soldiers_48: 8093427307676764655
+      Font Soldiers_49: -5878163666005190627
+      Font Soldiers_5: -6862195467012051819
+      Font Soldiers_50: 1427037076608730536
+      Font Soldiers_51: -5826537290281419450
+      Font Soldiers_52: 7095877679542347156
+      Font Soldiers_53: 447984278917406891
+      Font Soldiers_54: -4241914376962411117
+      Font Soldiers_55: 9000435440604356732
+      Font Soldiers_56: 9114158615772334329
+      Font Soldiers_57: 4217785974017620205
+      Font Soldiers_58: -6075753863979292368
+      Font Soldiers_59: 8416098199869974042
+      Font Soldiers_6: -875153755835837279
+      Font Soldiers_60: -3545488569668381137
+      Font Soldiers_61: 4426040049671376760
+      Font Soldiers_62: 6949974789164040389
+      Font Soldiers_63: 9108166685046504358
+      Font Soldiers_64: -9152694399041116522
+      Font Soldiers_65: 2486213137871088193
+      Font Soldiers_66: 1887902732
+      Font Soldiers_67: -1402766640
+      Font Soldiers_68: 1457741169
+      Font Soldiers_69: 1090779409
+      Font Soldiers_7: 661856787849262973
+      Font Soldiers_70: -1284514619
+      Font Soldiers_71: -822207096
+      Font Soldiers_72: -221953691
+      Font Soldiers_73: -1349308990
+      Font Soldiers_74: -1544484272
+      Font Soldiers_75: 968106712
+      Font Soldiers_76: -790735826
+      Font Soldiers_77: -1853761091
+      Font Soldiers_78: 1593189438
+      Font Soldiers_79: 555297394
+      Font Soldiers_8: 3833195993550056265
+      Font Soldiers_80: 1177960481
+      Font Soldiers_81: 725048486
+      Font Soldiers_82: 1098800386
+      Font Soldiers_83: -461686233
+      Font Soldiers_84: 247197187
+      Font Soldiers_85: -1779695527
+      Font Soldiers_86: -1472657259
+      Font Soldiers_87: -1231528372
+      Font Soldiers_88: 1115524803
+      Font Soldiers_89: 1031063091
+      Font Soldiers_9: -5669146019403221917
+      Font Soldiers_90: -146077160
+      Font Soldiers_91: -1492555452
+      Font Soldiers_92: 1655065178
+      Font Soldiers_95: 2118881734
+      Font Soldiers_96: 249394161
+      Font Soldiers_97: 1283742261
+      Font Soldiers_98: 2071706181
+      Font Soldiers_99: 14264778
+      MinusThan: -1214595145
+      MoreThan: -1289253730
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

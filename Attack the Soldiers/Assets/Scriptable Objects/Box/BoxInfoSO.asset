@@ -15,7 +15,10 @@ MonoBehaviour:
   boxInfos:
   - boxType: 0
     boxColor: {r: 1, g: 0, b: 0, a: 1}
+    boxSprite: {fileID: -841553803548912, guid: 57e9af435bd7bf045ae126604c7460e0, type: 3}
   - boxType: 1
     boxColor: {r: 0, g: 0.6156863, b: 0.62352943, a: 1}
+    boxSprite: {fileID: 3294636392454811202, guid: 57e9af435bd7bf045ae126604c7460e0, type: 3}
   - boxType: 2
     boxColor: {r: 0.7529412, g: 0.45490196, b: 0.16078432, a: 1}
+    boxSprite: {fileID: -3781494048402315372, guid: 57e9af435bd7bf045ae126604c7460e0, type: 3}

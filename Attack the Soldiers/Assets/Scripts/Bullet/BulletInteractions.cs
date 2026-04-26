@@ -80,6 +80,20 @@ public class BulletInteractions : NetworkBehaviour
         GameNetwork.Instance.Despawn(NetworkObject, poolTag);
     }
 
+    private void AwardXPForPlayerKill(Player player)
+    {
+        if (ownerPlayer == null) return;
+        if (!player.dead.Value) return;
+
+        WeaponLevelManager levelManager = FindAnyObjectByType<WeaponLevelManager>();
+        if (levelManager == null) return;
+
+        Shoot ownerShoot = ownerPlayer.GetComponentInChildren<Shoot>();
+        if (ownerShoot == null) return;
+
+        levelManager.AddKillXP(ownerShoot.CurrentWeapon);
+    }
+
     protected void HandlePlayerKilledIfPossible(Player player, float nextDamage)
     {
         if (player.CurrentLife.Value - nextDamage <= 0)
@@ -90,6 +104,7 @@ public class BulletInteractions : NetworkBehaviour
                 // Make the player dead to avoid multiple death triggers
                 player.dead.Value = true;
                 OnPlayerKilled?.Invoke(OwnerPlayer);
+                AwardXPForPlayerKill(player);
             }
         }
     }
@@ -124,17 +139,34 @@ public class BulletInteractions : NetworkBehaviour
         spriteRenderer.color = color;
     }
 
-    virtual protected void ManageEnemyCollision(Enemy enemy)
+    protected virtual void ManageEnemyCollision(Enemy enemy)
     {
         if (!canAttackEnemies) return;
         if (enemy == ownerEnemy) return;
         if (enemy.Health.CurrentLife <= 0) return;
         bulletCollided = true;
         GameNetwork.Instance.Despawn(NetworkObject, poolTag);
+        if (enemy.Health.CurrentLife - damage <= 0)
+        {
+            AwardXPForKill(enemy);
+        }
         if (GameNetwork.Instance.IsOnline)
             DecrementServerEnemyLife(enemy, damage);
         else
             enemy.DecrementLife(damage);
+    }
+
+    private void AwardXPForKill(Enemy enemy)
+    {
+        if (ownerPlayer == null) return;
+
+        WeaponLevelManager levelManager = FindAnyObjectByType<WeaponLevelManager>();
+        if (levelManager == null) return;
+
+        Shoot ownerShoot = ownerPlayer.GetComponentInChildren<Shoot>();
+        if (ownerShoot == null) return;
+
+        levelManager.AddKillXP(ownerShoot.CurrentWeapon);
     }
     #endregion
 }

@@ -11,10 +11,12 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject playMenu;
     [SerializeField] private GameObject multiplayerModesMenu;
     [SerializeField] private GameObject connectionMenu;
+    [SerializeField] private GameObject upgradesMenu;
     #endregion
     #region Main Menu
     [Header("Main Menu")]
     [SerializeField] private Button playButton;
+    [SerializeField] private Button upgradesButton;
     [SerializeField] private Button exitButton;
     #endregion
     #region Play Menu
@@ -39,6 +41,10 @@ public class MainMenuUI : MonoBehaviour
     public InputField IpInput => ipInput;
     public InputField PortInput => portInput;
     #endregion
+    #region Upgrades Menu
+    [Header("Upgrades Menu")]
+    [SerializeField] private Button upgradesMenuBackButton;
+    #endregion
     #region Actions
     [Header("Actions")]
     public Action OnStartOfflineMode;
@@ -46,6 +52,7 @@ public class MainMenuUI : MonoBehaviour
     public Action OnStartOnlineCoopMode;
     public Action OnStartHost;
     public Action OnStartClient;
+    public Action OnShowUpgrades;
     #endregion
     #region Functions
     private void Start()
@@ -55,11 +62,13 @@ public class MainMenuUI : MonoBehaviour
         AddPlayMenuButtonEvents();
         AddMultiplayerModesMenuButtonEvents();
         AddConnectionMenuButtonEvents();
+        AddUpgradesMenuButtonEvents();
     }
 
     void AddMainMenuButtonEvents()
     {
         playButton.onClick.AddListener(ShowPlayMenu);
+        upgradesButton.onClick.AddListener(ShowUpgradesMenu);
         exitButton.onClick.AddListener(ExitGame);
     }
 
@@ -103,6 +112,13 @@ public class MainMenuUI : MonoBehaviour
         multiplayerModesMenu.SetActive(true);
     }
 
+    void ShowUpgradesMenu()
+    {
+        OnShowUpgrades?.Invoke();
+        HideMenus();
+        upgradesMenu.SetActive(true);
+    }
+
     void ExitGame()
     {
         Application.Quit();
@@ -110,7 +126,6 @@ public class MainMenuUI : MonoBehaviour
 
     void StartOfflineMode()
     {
-        //UICanvas.SetActive(false);
         OnStartOfflineMode?.Invoke();
     }
 
@@ -139,13 +154,16 @@ public class MainMenuUI : MonoBehaviour
     void OnHostButtonPressed()
     {
         OnStartHost?.Invoke();
-        //UICanvas.SetActive(false);
     }
 
     void OnClientButtonPressed()
     {
         OnStartClient?.Invoke();
-        //UICanvas.SetActive(false);
+    }
+
+    void AddUpgradesMenuButtonEvents()
+    {
+        upgradesMenuBackButton.onClick.AddListener(ShowMainMenu);
     }
     #endregion
 }

@@ -57,7 +57,7 @@ MonoBehaviour:
     speed: 2
     maxDistance: 100
     damage: 30
-    color: {r: 0.627451, g: 0.1254902, b: 0.9411765, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 0}
     totalBullets: 25
   - weaponType: 5
     onlineBulletPrefab: {fileID: 7389266712770747830, guid: 7163130e9dff845498163d161e30a788, type: 3}
@@ -66,5 +66,5 @@ MonoBehaviour:
     speed: 5
     maxDistance: 10
     damage: 5
-    color: {r: 1, g: 1, b: 0, a: 1}
+    color: {r: 1, g: 1, b: 1, a: 0}
     totalBullets: 100

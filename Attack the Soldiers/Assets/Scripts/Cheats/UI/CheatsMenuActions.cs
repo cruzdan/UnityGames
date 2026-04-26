@@ -51,7 +51,6 @@ public class CheatsMenuActions : NetworkBehaviour
         enemyManager.overrideEnemyIndexToSpawn = index;
     }
     #endregion
-
     #region Player
     void AddPlayerActions()
     {

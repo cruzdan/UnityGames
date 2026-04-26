@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d58d59e8d3a5a5438724f175bde68a6, type: 3}
+  m_Name: WeaponSpritesSO
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponSpritesSO
+  weaponSprites:
+  - Sprite: {fileID: 6605895173340245770, guid: 054b32bfc35aec24285e6117f3d47cce, type: 3}
+    Weapon: 0
+  - Sprite: {fileID: -2042423980533338570, guid: 054b32bfc35aec24285e6117f3d47cce, type: 3}
+    Weapon: 1
+  - Sprite: {fileID: 9108163279018641820, guid: 054b32bfc35aec24285e6117f3d47cce, type: 3}
+    Weapon: 2
+  - Sprite: {fileID: 6937523279768765334, guid: 054b32bfc35aec24285e6117f3d47cce, type: 3}
+    Weapon: 3
+  - Sprite: {fileID: 21300000, guid: 8d343950cdfb3024bb45c895b989e770, type: 3}
+    Weapon: 4
+  - Sprite: {fileID: -6266116242694421834, guid: 054b32bfc35aec24285e6117f3d47cce, type: 3}
+    Weapon: 5

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f66b48ed3e507c40a60a8507398c05c, type: 3}
+  m_Name: WeaponLevelConfig
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponLevelConfig
+  maxLevel: 10
+  baseXPRequired: 100
+  xpIncreasePerLevel: 50
+  xpPerKill: 25
+  weaponUpgradeValues:
+  - Weapon: 0
+    DamageIncrease: 3
+    TimeToShootDecrease: 0.02
+    MaxDistanceIncrease: 0.2
+  - Weapon: 1
+    DamageIncrease: 1
+    TimeToShootDecrease: 0.03
+    MaxDistanceIncrease: 0.015
+  - Weapon: 2
+    DamageIncrease: 1
+    TimeToShootDecrease: 0.02
+    MaxDistanceIncrease: 0.5
+  - Weapon: 3
+    DamageIncrease: 5
+    TimeToShootDecrease: 0.02
+    MaxDistanceIncrease: 1
+  - Weapon: 4
+    DamageIncrease: 3
+    TimeToShootDecrease: 0.04
+    MaxDistanceIncrease: 2
+  - Weapon: 5
+    DamageIncrease: 1
+    TimeToShootDecrease: 0.001
+    MaxDistanceIncrease: 0.03
+  weaponConfigs: []

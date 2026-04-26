@@ -34,6 +34,7 @@ public class Shoot : NetworkBehaviour
     private NetworkObject bullet;
     private BulletMovement bulletMovement;
     private BulletInteractions bulletInteractions;
+    private WeaponUpgradeHandler upgradeHandler;
     #endregion
     #region Public Properties
     public BulletInfo CurrentBulletInfo { get { if (currentBulletInfo == null) return currentBulletInfo = FindAnyObjectByType<NetworkGameManager>().BulletInfoSO.GetBulletInfoByWeapon(currentWeapon); return currentBulletInfo; } }
@@ -42,6 +43,9 @@ public class Shoot : NetworkBehaviour
     public int DamageOverride { get { return damageOverride; } set => damageOverride = value; }
     public bool Infinite { get { return infinite; } set => infinite = value; }
     public Weapon CurrentWeapon { get { return currentWeapon; } }
+    public float UpgradedDamage { get; private set; }
+    public float UpgradedTimeToShoot { get; private set; }
+    public float UpgradedMaxDistance { get; private set; }
     #endregion
     #region Functions
     private void Start()
@@ -49,12 +53,34 @@ public class Shoot : NetworkBehaviour
         bulletInfoSO = FindAnyObjectByType<NetworkGameManager>().BulletInfoSO;
         if (!GameNetwork.IsOwnerOfflineOrOnline(NetworkObject)) return;
         ChangeCurrentWeaponByIndex(currentWeapon);
+        InitializeUpgradeHandler();
+    }
+
+    private void InitializeUpgradeHandler()
+    {
+        upgradeHandler = FindAnyObjectByType<WeaponUpgradeHandler>();
+        if (upgradeHandler == null)
+        {
+            Player player = GetComponentInParent<Player>();
+            if (player != null)
+            {
+                upgradeHandler = player.GetComponent<WeaponUpgradeHandler>();
+            }
+        }
+
+        if (upgradeHandler != null)
+        {
+            upgradeHandler.LoadWeaponUpgrades(currentWeapon);
+            ApplyWeaponUpgrades();
+        }
     }
 
     public void ShootCurrentWeapon()
     {
         if (bulletInfoSO == null)
             bulletInfoSO = FindAnyObjectByType<NetworkGameManager>().BulletInfoSO;
+        ApplyWeaponUpgrades();
+
         switch (currentWeapon)
         {
             case Weapon.Pistol:
@@ -83,17 +109,37 @@ public class Shoot : NetworkBehaviour
         }
     }
 
+    private void ApplyWeaponUpgrades()
+    {
+
+        BulletInfo baseInfo = CurrentBulletInfo;
+        if (baseInfo == null) return;
+
+        UpgradedDamage = baseInfo.Damage;
+        UpgradedTimeToShoot = baseInfo.TimeToShoot;
+        UpgradedMaxDistance = baseInfo.MaxDistance;
+
+        if (overrideDamage) return;
+
+        if (upgradeHandler != null)
+        {
+            UpgradedDamage = upgradeHandler.GetModifiedDamage(currentWeapon, baseInfo.Damage);
+            UpgradedTimeToShoot = upgradeHandler.GetModifiedTimeToShoot(currentWeapon, baseInfo.TimeToShoot);
+            UpgradedMaxDistance = upgradeHandler.GetModifiedMaxDistance(currentWeapon, baseInfo.MaxDistance);
+        }
+    }
+
     void ShootPistolBullet()
     {
         currentBulletInfo = bulletInfoSO.GetBulletInfoByWeapon(Weapon.Pistol);
 
         if (GameNetwork.Instance.IsOnline)
             GenerateBulletServerRpc(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
         else
             GenerateBullet(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
     }
 
@@ -105,12 +151,12 @@ public class Shoot : NetworkBehaviour
             if (GameNetwork.Instance.IsOnline)
                 GenerateBulletServerRpc(bulletPosition.position, currentBulletInfo.Color,
                 new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
             else
                 GenerateBullet(bulletPosition.position, currentBulletInfo.Color,
                 new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
         }
     }
@@ -121,12 +167,12 @@ public class Shoot : NetworkBehaviour
         if (GameNetwork.Instance.IsOnline)
             GenerateBulletServerRpc(new(bulletPosition.position.x, bulletPosition.position.y +
                 Random.Range(-0.3f, 0.3f)), currentBulletInfo.Color, transform.right,
-            currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+            UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
             Constants.NETWORK_OBJECT_POOL_BULLET);
         else
             GenerateBullet(new Vector2(bulletPosition.position.x, bulletPosition.position.y +
                 Random.Range(-0.3f, 0.3f)), currentBulletInfo.Color, transform.right,
-            currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+            UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
             Constants.NETWORK_OBJECT_POOL_BULLET);
     }
 
@@ -135,11 +181,11 @@ public class Shoot : NetworkBehaviour
         currentBulletInfo = bulletInfoSO.GetBulletInfoByWeapon(Weapon.Sniper);
         if (GameNetwork.Instance.IsOnline)
             GenerateBulletServerRpc(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
         else
             GenerateBullet(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BULLET);
     }
 
@@ -150,13 +196,13 @@ public class Shoot : NetworkBehaviour
             GenerateBulletServerRpc(new(bulletPosition.position.x, bulletPosition.position.y +
                 Random.Range(-0.2f, 0.2f)), currentBulletInfo.Color,
                 new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized,
-            currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+            UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
             Constants.NETWORK_OBJECT_POOL_FLAME);
         else
             GenerateBullet(new Vector2(bulletPosition.position.x, bulletPosition.position.y +
                 Random.Range(-0.2f, 0.2f)), currentBulletInfo.Color,
                 new Vector2(transform.right.x, Random.Range(-0.5f, 0.5f)).normalized,
-            currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+            UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
             Constants.NETWORK_OBJECT_POOL_FLAME);
     }
 
@@ -166,13 +212,13 @@ public class Shoot : NetworkBehaviour
         if (GameNetwork.Instance.IsOnline)
         {
             GenerateBarrelServerRpc(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BARREL);
         }
         else
         {
             GenerateBarrel(bulletPosition.position, currentBulletInfo.Color, transform.right,
-                currentBulletInfo.MaxDistance, currentBulletInfo.Speed, currentBulletInfo.Damage,
+                UpgradedMaxDistance, currentBulletInfo.Speed, (int)UpgradedDamage,
                 Constants.NETWORK_OBJECT_POOL_BARREL);
         }
     }
@@ -187,6 +233,7 @@ public class Shoot : NetworkBehaviour
     void GenerateBullet(Vector2 position, Color color, Vector2 direction, float maxDistance, float speed, 
         int damage, string bulletPoolName)
     {
+
         bullet = GameNetwork.Instance.Spawn(bulletPoolName, position, Quaternion.identity);
         bulletMovement = bullet.GetComponent<BulletMovement>();
         bulletMovement.SetDirection(direction);

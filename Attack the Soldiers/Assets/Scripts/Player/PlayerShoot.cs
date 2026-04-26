@@ -43,7 +43,7 @@ public class PlayerShoot : NetworkBehaviour
         if (inputSource.GetShoot())
         {
             shoot.ShootCurrentWeapon();
-            shootTimer = shoot.CurrentBulletInfo.TimeToShoot;
+            shootTimer = shoot.UpgradedTimeToShoot > 0 ? shoot.UpgradedTimeToShoot : shoot.CurrentBulletInfo.TimeToShoot;
         }
     }
     #endregion
