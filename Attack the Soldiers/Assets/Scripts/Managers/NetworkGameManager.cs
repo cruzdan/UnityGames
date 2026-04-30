@@ -1,5 +1,7 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NetworkGameManager : NetworkBehaviour
@@ -42,11 +44,14 @@ public class NetworkGameManager : NetworkBehaviour
     public bool OverrideDeviceType { get => overrideDeviceType; set => overrideDeviceType = value; }
     public bool IsAndroid { get => isAndroid; set => isAndroid = value; }
     public BulletInfoSO BulletInfoSO => bulletInfoSO;
+    public GameObject UpgradesObject => upgradesObject;
     #endregion
     #region UI
     [SerializeField] private Toggle isOnMobileToggle;
     [SerializeField] private GameObject mobileCanvas;
+    [SerializeField] private GameObject upgradesObject;
     #endregion
+
     #region Environment
     [SerializeField] private EnvironmentTextureManager environmentTextureManager;
     #endregion
@@ -75,11 +80,13 @@ public class NetworkGameManager : NetworkBehaviour
         ActiveOptions();
         environmentTextureManager.ApplyRandomBackground();
         environmentTextureManager.ApplyRandomEnvironment();
+        upgradesObject.SetActive(false);
     }
 
     public void InitializeUI()
     {
         isAndroid = isOnMobileToggle.isOn;
+        upgradesObject.SetActive(false);
     }
 
     void ActiveOptions()
@@ -96,6 +103,21 @@ public class NetworkGameManager : NetworkBehaviour
     {
         GameNetwork.StartOnline();
         InitializeUI();
+    }
+
+    void OnClientDisconnected(ulong clientId)
+    {
+        //if we are a client and the host disconnected
+        if (!NetworkManager.Singleton.IsHost && clientId == NetworkManager.ServerClientId)
+        {
+            ReturnToMainScene();
+        }
+    }
+
+    public void ReturnToMainScene()
+    {
+        NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene(0);
     }
     #endregion
 }

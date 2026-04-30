@@ -1,5 +1,7 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
@@ -16,7 +18,27 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image weaponImage;
     [SerializeField] private GameObject gameMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private MainMenuUI mainMenuUI;
     #endregion
+    #region Private Variables
+    private NetworkGameManager networkGameManager;
+    private WeaponUpgraderUI weaponUpgraderUI;
+    #endregion
+    private void Start()
+    {
+        networkGameManager = FindAnyObjectByType<NetworkGameManager>();
+        weaponUpgraderUI = FindAnyObjectByType<WeaponUpgraderUI>();
+    }
+    private void OnEnable()
+    {
+        mainMenuUI = FindAnyObjectByType<MainMenuUI>();
+        mainMenuUI.UpgradesMenuBackButton.onClick.AddListener(OnUpgradesButtonPressed);
+    }
+
+    private void OnDisable()
+    {
+        mainMenuUI.UpgradesMenuBackButton.onClick.RemoveListener(OnUpgradesButtonPressed);
+    }
     #region Actions
     public Action OnPausePressed;
     #endregion
@@ -78,9 +100,19 @@ public class PlayerUI : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void ExitButton()
+    public void OnUpgradesButtonPressed()
     {
-        Application.Quit();
+        networkGameManager.UpgradesObject.SetActive(!networkGameManager.UpgradesObject.activeSelf);
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        if (networkGameManager.UpgradesObject.activeSelf)
+            weaponUpgraderUI.InitializeWeaponUI(weaponUpgraderUI.CurrentWeapon);
+
+    }
+
+    public void ReturnToMainScene()
+    {
+        NetworkManager.Singleton.Shutdown();
+        SceneManager.LoadScene(0);
     }
     #endregion
 }

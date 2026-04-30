@@ -25,14 +25,6 @@ public class CommandActions : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            EnableCheats();
-        }
-    }
-
     void EnableCheats()
     {
         cheatsMenuUI.OnCheatsOpen_Close();

@@ -42,7 +42,7 @@ public class MainMenuActions : MonoBehaviour
         GameNetwork.MultiplayerModeType = MultiplayerModeType.PVP;
         networkGameManager.ActiveEnemyManager = false;
         networkGameManager.ActiveEnemyWaves = false;
-        commandsMenu.SetActive(true);
+        
     }
 
     void SetCoopModeValues()
@@ -50,7 +50,6 @@ public class MainMenuActions : MonoBehaviour
         GameNetwork.MultiplayerModeType = MultiplayerModeType.Coop;
         networkGameManager.ActiveEnemyManager = false;
         networkGameManager.ActiveEnemyWaves = true;
-        commandsMenu.SetActive(true);
     }
 
     private void StartHost()
@@ -61,6 +60,7 @@ public class MainMenuActions : MonoBehaviour
         PlayerPrefs.SetString("last_ip", mainMenuUI.IpInput.text);
         PlayerPrefs.Save();
         NetworkManager.Singleton.StartHost();
+        commandsMenu.SetActive(true);
     }
 
     private void StartClient()

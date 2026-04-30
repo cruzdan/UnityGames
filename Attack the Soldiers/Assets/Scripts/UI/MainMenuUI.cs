@@ -44,6 +44,7 @@ public class MainMenuUI : MonoBehaviour
     #region Upgrades Menu
     [Header("Upgrades Menu")]
     [SerializeField] private Button upgradesMenuBackButton;
+    [SerializeField] private WeaponUpgraderUI weaponUpgraderUI;
     #endregion
     #region Actions
     [Header("Actions")]
@@ -54,7 +55,20 @@ public class MainMenuUI : MonoBehaviour
     public Action OnStartClient;
     public Action OnShowUpgrades;
     #endregion
+    #region Public Properties
+    public Button UpgradesMenuBackButton => upgradesMenuBackButton;
+    #endregion
+
     #region Functions
+    private void OnEnable()
+    {
+        AddUpgradesMenuButtonEvents();
+    }
+
+    private void OnDisable()
+    {
+        RemoveUpgradesMenuButtonEvents();
+    }
     private void Start()
     {
         ShowMainMenu();
@@ -62,7 +76,7 @@ public class MainMenuUI : MonoBehaviour
         AddPlayMenuButtonEvents();
         AddMultiplayerModesMenuButtonEvents();
         AddConnectionMenuButtonEvents();
-        AddUpgradesMenuButtonEvents();
+        
     }
 
     void AddMainMenuButtonEvents()
@@ -98,6 +112,7 @@ public class MainMenuUI : MonoBehaviour
     {
         HideMenus();
         mainMenu.SetActive(true);
+        weaponUpgraderUI.InitializeWeaponUI(weaponUpgraderUI.CurrentWeapon);
     }
 
     void ShowPlayMenu()
@@ -164,6 +179,12 @@ public class MainMenuUI : MonoBehaviour
     void AddUpgradesMenuButtonEvents()
     {
         upgradesMenuBackButton.onClick.AddListener(ShowMainMenu);
+
+    }
+
+    void RemoveUpgradesMenuButtonEvents()
+    {
+        upgradesMenuBackButton.onClick.RemoveListener(ShowMainMenu);
     }
     #endregion
 }

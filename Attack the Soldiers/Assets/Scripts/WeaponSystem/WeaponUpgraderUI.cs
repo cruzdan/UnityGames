@@ -48,6 +48,7 @@ public class WeaponUpgraderUI : MonoBehaviour
     public static Action<Weapon> OnUpgradeSelected;
     #endregion
     #region Public Properties
+    public Weapon CurrentWeapon => currentWeapon;
     #endregion
     private void Start()
     {
@@ -60,6 +61,7 @@ public class WeaponUpgraderUI : MonoBehaviour
         weaponLevelData = weaponLevelManager.GetWeaponData(weapon);
         AddWeaponInfoToUI(weapon);
         ActiveCorrectButtons();
+        currentWeapon = weapon;
     }
 
     void AddWeaponInfoToUI(Weapon weapon)
